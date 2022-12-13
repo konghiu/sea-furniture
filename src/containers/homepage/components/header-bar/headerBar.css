@@ -1,0 +1,154 @@
+.block-title {
+     display: flex;
+     width: fit-content;
+     font-weight: 500;
+     color: white;
+     background-color: var(--main-color);
+     padding: 10px 20px;
+     cursor: pointer;
+     border-radius: 5px;
+}
+
+.block-title div {
+     position: relative;
+     width: 12px;
+     margin-right: 10px;
+}
+
+.block-title div span {
+     position: absolute;
+     width: 100%;
+     height: 3px;
+     background-color: white;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}
+
+.block-title div span::before, .block-title div span::after {
+     content: '';
+     position: absolute;
+     background-color: white;
+     width: 100%;
+     height: 2.5px;
+     top: calc(100% + 2px);
+     left: 0;
+}
+.block-title div span::after {
+     top: calc(-100% - 1.5px);
+}
+
+/* //////////////// */
+.nav {
+     flex: 1;
+     display: flex;
+     padding-left: 75px;
+     z-index: 10;
+}
+   
+.nav>li>a{
+     font-size: 15px;
+     position: relative;
+     font-weight: 400;
+     text-transform: uppercase;
+     /* margin: 0 15px; */
+}
+
+.nav li{
+     position: relative;
+     list-style:none;
+}
+   
+.nav .main-link {
+     position: relative;
+     padding: 10px 0;
+}
+.nav .sub-link-level0 {
+     display: flex;
+     align-items: center;
+     margin: 0 12px;
+}
+.nav .sub-open-button {
+     background-color: black;
+     width: 10px;
+     height: 10px;
+     clip-path: polygon(50% 100%, 0 50%, 100% 50%);
+     margin-left: 2px;
+}
+.nav .sub-link-level0::after {
+     content: '';
+     position: absolute;
+     width: 40%;
+     height: 4px;
+     background-color: transparent;
+     left: 50%;
+     top: 100%;
+     transform: translateX(-50%);
+}
+.nav .sub-link-level0:hover > a {
+     color: var(--main-color);
+}
+.nav .main-link:hover::after {
+     background-color: white;
+} 
+.nav .sub-menu {
+     display: none;
+     position: absolute;
+     top: 0;
+     left: 100%;
+     background-color: #fff;
+     box-shadow: 2px 2px 15px #ccc;
+     padding: 5px 20px;
+}
+.nav .sub-menu-level0 {
+     width: 220%;
+}
+.nav .sub-menu-level1 {
+     width: 120%;
+}
+.nav .sub-link:hover>.sub-menu{
+     display: block;
+}
+
+.nav .sub-menu-level0 .sub-link-level1, .nav .sub-menu-level1 .sub-link-level2 {
+     position: relative;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 15px 0;
+     width: 100%;
+}
+.nav .sub-menu-level0 .sub-link-level1:hover > a, .nav .sub-menu-level1 .sub-link-level2:hover {
+     color: var(--main-color);
+}
+.nav .sub-menu-level0 .sub-link-level1:not(:last-child)::after, .nav .sub-menu-level1 .sub-link-level2:not(:last-child)::after {
+     border-bottom: 1px solid var(--main-color);
+     content: '';
+     width: 100%;
+     left: 50%;
+     bottom: 0;
+     transform: translateX(-50%);
+     position: absolute;
+}
+.nav>li>.sub-menu{
+     top: 40px;
+     left: 0;
+}
+/* hotline */
+
+.hotline {
+     display: flex;
+     align-items: center;
+}
+
+.hotline p {
+     text-align: end;
+     font-size: 14px;
+     font-weight: 500;
+}
+
+.hotline h2 {
+     font-size: 26px;
+     padding-left: 10px;
+     color: var(--sub-color);
+}

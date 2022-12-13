@@ -1,0 +1,201 @@
+.footer {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+/*  */
+/* section policy */
+/*  */
+.section-policy {
+     background-color: var(--main-color);
+     padding: 2rem 0;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+}
+.section-policy .slick-list {
+     width: var(--main-width);
+}
+.section-policy .slick-list .policy-item {
+     display: flex !important;
+     justify-content: center;
+     align-items: center;
+}
+.section-policy .slick-list .slick-track .slick-slide:not(:last-child) {
+     padding-right: 30px;
+}
+
+.section-policy .slick-list .policy_flip {
+     position: relative;
+}
+
+.section-policy .slick-list .container-img {
+     width: 60px;
+}
+.section-policy .slick-list .container-describe {
+     margin-left: 15px;
+     color: white;
+     font-size: 12px;
+}
+.section-policy .slick-list .container-describe p:first-child {
+     font-size: 16px !important;
+     font-weight: 500;
+}
+
+.policy_flip {
+     position: relative;
+     padding: 20px 0;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     background-color: transparent;
+     /* width: calc(var(--main-width) / 4); */
+     perspective: 1000px;
+}
+
+.policy_flip .policy_flip-inner {
+     position: relative;
+     width: 60px;
+     height: 60px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     transition: transform 0.25s;
+     transform-style: preserve-3d;
+}
+
+.policy-item:hover .policy_flip-inner {
+     transform: rotateY(720deg);
+}
+.policy_flip:hover p {
+     color: var(--main-color);
+}
+.policy_flip-front,
+.policy_flip-back {
+     position: absolute;
+     -webkit-backface-visibility: hidden;
+     backface-visibility: hidden;
+}
+
+.policy_flip-front {
+     color: black;
+}
+
+.policy_flip-back {
+     transform: rotateY(360deg);
+}
+
+/*  */
+/* mid footer */
+/*  */
+
+.mid-footer {
+     margin: 50px 0;
+     width: var(--main-width);
+     display: flex;
+}
+
+.mid-footer .col-1 {
+     width: 40%;
+     padding-right: 20px;
+}
+.mid-footer .col-1 .title {
+     font-size: 16px;
+     letter-spacing: -1px;
+     font-weight: 500;
+}
+.mid-footer .col-1 p {
+     font-weight: 400;
+     margin-bottom: 5px;
+     letter-spacing: -0.5px;
+}
+.mid-footer .col-2,
+.mid-footer .col-3,
+.mid-footer .col-4 {
+     width: 20%;
+}
+
+.mid-footer .col-2 .title,
+.mid-footer .col-3 .title,
+.mid-footer .col-4 .title {
+     font-weight: 500;
+     letter-spacing: -1px;
+     color: var(--main-color);
+}
+
+.mid-footer .col-2 .content,
+.mid-footer .col-3 .content {
+     margin-top: 20px;
+}
+
+.mid-footer .col-2 .content li,
+.mid-footer .col-3 .content li {
+     position: relative;
+     margin-top: 7px;
+     cursor: pointer;
+     padding-left: 0;
+     transition: all 0.25s linear;
+}
+.mid-footer .col-2 .content li::after,
+.mid-footer .col-3 .content li::after {
+     content: "";
+     position: absolute;
+     height: 60%;
+     width: 3px;
+     border-radius: 5px;
+     background-color: transparent;
+     left: 0;
+     top: 50%;
+     transform: translateY(-50%);
+     transition: all 0.1s linear;
+}
+.mid-footer .col-2 .content li:hover::after,
+.mid-footer .col-3 .content li:hover::after {
+     background-color: var(--main-color);
+}
+.mid-footer .col-2 .content li:hover,
+.mid-footer .col-3 .content li:hover {
+     color: var(--main-color);
+     padding-left: 15px;
+}
+
+.mid-footer .col-4 .content {
+     display: flex;
+     align-items: center;
+     margin: 15px 0;
+}
+
+.mid-footer .col-4 .content .container-img {
+     width: 50px;
+}
+.mid-footer .col-4 .content p {
+     font-size: 20px;
+     font-weight: 700;
+     margin-left: 10px;
+     color: var(--sub-color);
+     transition: all 0.25s linear;
+     cursor: pointer;
+}
+.mid-footer .col-4 .content p:hover {
+     color: var(--main-color);
+}
+.mid-footer .col-4 .content:nth-child(4) {
+     justify-content: space-between;
+}
+.mid-footer .col-4 .content input {
+     background-color: rgb(225, 225, 225);
+     padding: 5px 0 5px 15px;
+     width: 65%;
+     outline: none;
+}
+.mid-footer .col-4 .content input::placeholder {
+     color: black;
+}
+.mid-footer .col-4 .content button {
+     background-color: var(--main-color);
+     color: white;
+     padding: 5px;
+}

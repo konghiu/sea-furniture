@@ -1,0 +1,23 @@
+.container-news-item .container-img {
+     position: relative;
+     background-color: white;
+     box-shadow: 10px 15px 20px #ccc;
+}
+.container-news-item .container-img p {
+     height: 20px;
+     background-color: white;
+}
+.container-news-item .container-title .title {
+     font-size: 16px;
+     font-weight: 700;
+     margin: 15px 0;
+     cursor: pointer;
+}
+
+.container-news-item .container-title .title:hover {
+     color: var(--main-color);
+}
+.container-news-item .container-title .describe {
+     font-size: 14px;
+     line-height: 24px;
+}

@@ -1,0 +1,76 @@
+[
+     {
+          "title": "Trang chủ",
+          "to": "/sea-furniture/homepage",
+          "isContent": false,
+          "content": []
+     },
+     {
+          "title": "Giới thiệu",
+          "to": "/sea-furniture/introduction",
+          "isContent": false,
+          "content": []
+     },
+     {
+          "title": "Sản phẩm",
+          "to": "/sea-furniture/products",
+          "isContent": true,
+          "content": [
+               {
+                    "title": "Sofa",
+                    "to": "sofa",
+                    "isContent": true,
+                    "content": [
+                         {
+                              "title": "sofa giường",
+                              "to": "sofagiuong",
+                              "isContent": false,
+                              "content": []
+                         },
+                         {
+                              "title": "sofa nem",
+                              "to": "sofanem",
+                              "isContent": false,
+                              "content": []
+                         }
+                    ]
+               },
+               {
+                    "title": "Ghế",
+                    "to": "chair",
+                    "isContent": false,
+                    "content": []
+               },
+               {
+                    "title": "Bàn",
+                    "to": "table",
+                    "isContent": false,
+                    "content": []
+               },
+               {
+                    "title": "Kệ sách",
+                    "to": "bookshelf",
+                    "isContent": false,
+                    "content": []
+               },
+               {
+                    "title": "Tủ quần áo",
+                    "to": "wardrobe",
+                    "isContent": false,
+                    "content": []
+               }
+          ]
+     },
+     {
+          "title": "Tin tức",
+          "to": "/sea-furniture/news",
+          "isContent": false,
+          "content": []
+     },
+     {
+          "title": "Liên hệ",
+          "to": "/sea-furniture/contacts",
+          "isContent": false,
+          "content": []
+     }
+]

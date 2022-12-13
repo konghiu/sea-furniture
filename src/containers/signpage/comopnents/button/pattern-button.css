@@ -1,0 +1,11 @@
+.pattern-button {
+     background-color: var(--main-color);
+     color: white;
+     font-weight: 500;
+     padding: 10px 50px;
+     border-radius: 5px;
+     margin: 20px;
+}
+.pattern-button:hover {
+     background-color: orangered;
+}

@@ -1,0 +1,12 @@
+.info-user > .title {
+     font-size: 24px;
+     margin-bottom: 15px;
+}
+
+.info-user > div p {
+     font-weight: 500;
+     margin: 5px 0;
+}
+.info-user > div p span {
+     font-weight: 400;
+}

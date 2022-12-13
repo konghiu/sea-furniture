@@ -1,0 +1,47 @@
+.sign-page {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.sign-page > .content {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 30%;
+     padding: 75px 20px 50px;
+}
+.sign-page > .content .title {
+     font-size: 28px;
+}
+.sign-page > .content > .available-login {
+     display: flex;
+     margin: 20px;
+}
+
+.sign-page > .content > .available-login img {
+     height: 35px;
+}
+
+.sign-page > .content > .available-login img:nth-child(1) {
+     margin-right: 10px;
+}
+
+.sign-page .click:hover {
+     color: var(--main-color);
+}
+
+/* pattern button */
+.pattern-button {
+     background-color: var(--main-color);
+     color: white;
+     font-weight: 500;
+     padding: 10px 50px;
+     border-radius: 5px;
+     margin: 20px;
+}
+.pattern-button:hover {
+     background-color: orangered;
+}
+.pattern-button button {
+     outline: none;
+}

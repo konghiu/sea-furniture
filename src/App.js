@@ -1,26 +1,13 @@
-import React from 'react'
-
-const intial = 0;
-
-const reducer = (state = intial, action) => {
-     const type = action.type;
-     switch (type) {
-          case 'INCREASE':
-               
-               break;
-     
-          default:
-               throw Error();
-     }
-}
+import Routers from './Routers';
+import './assets/icons/font-awesome/css/all.css'
+import Provider from './common/context/provider/Provider';
 
 const App = () => {
-
-
-
      return (
-          <div>App</div>
-     )
-}
-
-export default App
+          <Provider>
+               <Routers />          
+          </Provider>
+     );
+};
+  
+export default App;

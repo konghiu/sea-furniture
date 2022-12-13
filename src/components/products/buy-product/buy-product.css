@@ -1,0 +1,135 @@
+.buy-product {
+     position: fixed;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     height: 100vh;
+     top: 0;
+     left: 0;
+     z-index: 20;
+}
+
+.buy-product::after {
+     content: '';
+     position: absolute;
+     width: 100%;
+     height: 100vh;
+     top: 0;
+     left: 0;
+     background-color: #000;
+     opacity: 0.5;
+     z-index: -1;
+}
+
+.buy-product > .content {
+     width: calc(var(--main-width) - 100px);
+     height: auto;
+     background-color: #fff;
+     margin: 0 1rem;
+
+}
+.buy-product > .content > .title {
+     background-color: #eee;
+     padding: 20px 25px;
+     font-size: 20px;
+}
+.buy-product > .content > .title i {
+     color: var(--main-color);
+}
+.buy-product > .content > .title span {
+     margin-left: 10px;
+     font-weight: 500;
+     letter-spacing: -1px;
+}
+.buy-product > .content >  .container-product {
+     border-bottom: 1px solid #eee;
+     padding: 2.5rem 2rem;
+}
+.buy-product > .content >  .container-product > .product-to-buy {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     font-size: 17px;
+}
+.buy-product  .container-product > .product-to-buy > div {
+     flex: 1;
+}
+.buy-product  .container-product > .product-to-buy img {
+     width: 75px;
+     margin-right: 25px;
+}
+.buy-product  .container-product > .product-to-buy > .col-1 {
+     display: flex;
+     align-items: center;
+     color: gray;
+}
+
+.buy-product  .container-product > .product-to-buy > .col-2 {
+     display: flex;
+     justify-content: space-between;
+}
+
+.buy-product  .container-product > .product-to-buy > .col-2 > div:not(:nth-child(2)) {
+     color: var(--main-color);
+     font-weight: 500;
+}
+
+.buy-product  .container-product > .product-to-buy > .col-2 > .col-2_2 {
+     display: flex;
+     align-items: center;
+}
+.buy-product .product-to-buy > .col-2 > .col-2_2 > p {
+     border: 1px solid #ccc;
+     padding: 0 15px;
+}
+.buy-product .product-to-buy > .col-2 > .col-2_2 > button {
+     border: 1px solid #ccc;
+     width: 22px;
+}
+.buy-product > .content > .total-price {
+     display: flex;
+     justify-content: space-between;
+     margin: 1rem;
+}
+.buy-product > .content > .total-price > div:nth-child(1), .buy-product > .content > .total-price > div:nth-child(2) {
+     display: flex;
+     align-items: center;
+     font-weight: 500;
+     color: gray;
+}
+.buy-product > .content > .total-price > div:nth-child(1) p:nth-child(1) {
+     font-size: 20px;
+     color: black;
+}
+.buy-product > .content > .total-price > div:nth-child(2) > p:nth-child(1) {
+     color: black;
+     font-size: 17px;
+}
+.buy-product > .content > .total-price > div:nth-child(2) > p:nth-child(2) {
+     font-size: 22px;
+     color: var(--main-color);
+     margin-left: 20px;
+}
+
+/* container buttons */
+
+.buy-product > .content > .container-buttons {
+     display: flex;
+     margin: 1rem 1rem 2rem;
+     justify-content: end;
+}
+.buy-product > .content > .container-buttons button {
+     background-color: #aaa;
+     border-radius: 3px;
+     padding: 10px 25px;
+     margin-left: 20px;
+     font-weight: 500;
+     color: white;
+}
+.buy-product > .content > .container-buttons button:nth-child(2) {
+     background-color: var(--main-color);
+}
+.buy-product > .content > .container-buttons button:hover {
+     background-color: orangered !important;
+}

@@ -1,0 +1,55 @@
+.banner-adv-1, .banner-adv-2 {
+     display: flex;
+     justify-content: space-between;
+     margin-top: 75px;
+     width: var(--main-width);
+}
+.banner-adv-2 {
+     overflow: hidden;
+     border-radius: 5px;
+}
+.banner-adv-2 > img {
+     transition: all 1.5s ease-in-out;
+}
+.banner-adv-2:hover img {
+     transform: scale(1.1);
+}
+.banner-adv-1 > div {
+     overflow: hidden;
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 48.8%;
+     height: 180px;
+}
+
+.banner-adv-1 > div > img {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     transition: all 1.5s ease;
+}
+.banner-adv-1 > div:hover > img {
+     transform: scale(1.1);
+}
+
+.banner-adv-1 > div > p {
+     position: relative;
+     padding: 10px 50px;
+     font-size: 18px;
+     z-index: 10;
+}
+.banner-adv-1 > div > p::before {
+     position: absolute;
+     content: '';
+     width: 100%;
+     height: 100%;
+     left: 0;
+     top: 0;
+     background-color: #fff;
+     opacity: 0.5;
+     z-index: -1;
+}

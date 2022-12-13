@@ -1,0 +1,42 @@
+.container-brandslist-part > .title {
+     position: relative;
+}
+.container-brandslist-part > .title::after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     width: 90%;
+     height: 1px;
+     background-color: #ccc;
+}
+/* .container-brandslist-part > .title > p {
+     font-size: 18px;
+     color: white;
+     letter-spacing: -1px;
+     margin: 45px 0 30px -5px;
+     background-color: var(--main-color);
+     clip-path: polygon(0 0, 96% 0, 100% 100%, 4% 100%);
+     width: fit-content;
+     padding: 2.5px 20px;
+} */
+
+.container-brandslist-part > .content {
+     border: 1px solid var(--main-color);
+     border-radius: 5px;
+     padding: 20px;
+     color: #6c6c6c;
+     font-size: 14px;
+     height: 200px;
+     overflow-y: scroll;
+}
+/* .container-brandslist-part > .content  div {
+     display: flex;
+} */
+.container-brandslist-part > .content div:not(:last-child) {
+     margin-bottom: 5px;
+}
+.container-brandslist-part > .content input[type="checkbox"] {
+     display: inline-block;
+     margin-right: 10px;
+}

@@ -1,0 +1,38 @@
+.container-colors-part > .title {
+     position: relative;
+}
+.container-colors-part > .title::after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     width: 90%;
+     height: 1px;
+     background-color: #ccc;
+}
+/* .container-colors-part > .title > p {
+     font-size: 18px;
+     color: white;
+     letter-spacing: -1px;
+     margin: 45px 0 30px -5px;
+     background-color: var(--main-color);
+     clip-path: polygon(0 0, 96% 0, 100% 100%, 4% 100%);
+     width: fit-content;
+     padding: 2.5px 20px;
+} */
+.container-colors-part > .content {
+     border: 1px solid var(--main-color);
+     border-radius: 5px;
+     padding: 20px;
+}
+.container-colors-part > .content > ul {
+     display: flex;
+     justify-content: space-between;
+}
+.container-colors-part > .content li {
+     display: inline-block;
+     margin-bottom: 10px;
+     width: 2rem;
+     height: 2rem;
+     border-radius: 50%;
+}

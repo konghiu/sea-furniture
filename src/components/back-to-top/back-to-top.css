@@ -1,0 +1,19 @@
+.back-to-top {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: fixed;
+     right: calc((100% - var(--main-width)) / 2);
+     bottom: 100px;
+     width: 60px;
+     height: 60px;
+     background-color: var(--main-color);
+     border-radius: 50%;
+     border: 5px solid rgb(255, 201, 100);     
+     font-size: 16px;
+     color: white;
+     z-index: 2;
+     cursor: pointer;
+     transition: all 1s ease;
+     opacity: 0;
+}

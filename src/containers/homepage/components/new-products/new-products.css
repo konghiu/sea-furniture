@@ -1,0 +1,40 @@
+.new-products {
+     margin-top: 50px;
+     width: var(--main-width);
+}
+.new-products > .col-1 {
+     display: flex;
+     justify-content: space-between;
+     position: relative;
+     margin: 25px 0;
+}
+.new-products > .col-1::after {
+     content: '';
+     position: absolute;
+     width: 90%;
+     height: 1px;
+     right: 0;
+     z-index: -1;
+     bottom: 0;
+     background-color: #ccc;
+}
+.new-products > .col-1 > .topic {
+     margin-left: -8px;
+     width: fit-content;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     font-size: 22px;
+     padding: 25px 40px;
+     height: 30px;
+     clip-path: polygon(0 0, 96% 0, 100% 100%, 4% 100%);
+     background-color: var(--main-color);
+}
+
+.new-products > .col-1 > .buttons-slide > i {
+     margin-left: 10px;
+}
+.new-products > .col-1 > .buttons-slide > i:hover {
+     color: var(--main-color);
+}

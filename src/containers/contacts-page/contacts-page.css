@@ -1,0 +1,59 @@
+.contacts-page {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.contacts-page > .content {
+     width: var(--main-width);
+     display: flex;
+     padding: 50px 0;
+}
+
+.contacts-page > .content .col-1 {
+     width: calc(100% / 3);
+}
+.contacts-page > .content .col-1 > .info-store p {
+     color: #363636;
+     display: flex;
+     font-family: "Verdana";
+     font-size: 14px;
+     font-weight: 500;
+     line-height: 20px;
+     margin-bottom: 20px;
+}
+.contacts-page > .content .col-1 > .info-store span i {
+     color: var(--main-color);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 30px;
+     height: 30px;
+     border: 1px solid var(--main-color);
+     border-radius: 50%;
+     margin-right: 10px;
+}
+.contacts-page > .content .col-2 iframe {
+     width: 100%;
+}
+.contacts-page > .content .container-form-contacts .title {
+     font-size: 18px;
+     margin-top: 50px;
+}
+.contacts-page > .content .container-form-contacts .form-contacts input, .contacts-page > .content .container-form-contacts .form-contacts textarea {
+     display: block;
+     width: 100%;
+     border: 1px solid #eeeeee;
+     margin-top: 12px;
+     padding: 10px 20px;
+}
+.contacts-page > .content .container-form-contacts .form-contacts textarea {
+     height: 105px;
+}
+.contacts-page > .content .container-form-contacts .form-contacts input::placeholder, .contacts-page > .content .container-form-contacts .form-contacts textarea::placeholder {
+     color: black;
+}
+.contacts-page > .content .col-2 {
+     flex: 1;
+     padding-left: 25px;
+}

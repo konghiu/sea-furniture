@@ -1,0 +1,32 @@
+[
+     {
+          "id": 1,
+          "price-min": 0,
+          "price-max": 100000
+     },
+     {
+          "id": 2,
+          "price-min": 100000,
+          "price-max": 200000
+     },
+     {
+          "id": 3,
+          "price-min": 200000,
+          "price-max": 300000
+     },
+     {
+          "id": 4,
+          "price-min": 300000,
+          "price-max": 500000
+     },
+     {
+          "id": 5,
+          "price-min": 500000,
+          "price-max": 1000000
+     },
+     {
+          "id": 6,
+          "price-min": 1000000,
+          "price-max": "infinity"
+     }
+]

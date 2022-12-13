@@ -1,0 +1,22 @@
+[
+     {
+          "id": 1,
+          "url": "",
+          "title": "Thông tin tài khoản"
+     },
+     {
+          "id": 2,
+          "url": "transaction",
+          "title": "Đơn hàng của bạn"
+     },
+     {
+          "id": 3,
+          "url": "changepassword",
+          "title": "Đổi mật khẩu"
+     },
+     {
+          "id": 4,
+          "url": "addresses",
+          "title": "Số địa chỉ"
+     }
+]

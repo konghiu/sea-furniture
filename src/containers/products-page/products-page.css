@@ -1,0 +1,28 @@
+.container-products-page {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.container-products-page .title > p {
+     font-size: 18px;
+     color: white;
+     letter-spacing: -1px;
+     margin: 45px 0 30px -5px;
+     background-color: var(--main-color);
+     clip-path: polygon(0 0, 96% 0, 100% 100%, 4% 100%);
+     width: fit-content;
+     padding: 2.5px 20px;
+}
+.container-products-page > .content {
+     display: flex;
+     width: var(--main-width);
+     padding-bottom: 50px;
+}
+.container-products-page > .content > .col-1 {
+     width: 25%;
+} 
+.container-products-page > .content > .col-2 {
+     flex: 1;
+     margin-left: 2rem;
+     margin-top: 50px;
+}
