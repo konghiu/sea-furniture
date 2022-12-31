@@ -12,15 +12,18 @@ import GoodTips from "./good-tips/GoodTips";
 import Footer from "../../../components/footer/Footer";
 import BackToTop from "../../../components/back-to-top/BackToTop";
 import context from "../../../common/context";
-import useFetch from "../../../config/useFetch";
+import feature_return_top from "../../../features/feature_return_top";
 
 const Homepage = () => {
-     const [list_products, setList_products] = useState(null);
+     const consumer = useContext(context);
+     const list_products = consumer[0].products_list;
+     const list_news = consumer[0].news_list;
 
-     const api = useFetch("/api/products");
      useEffect(() => {
-          setList_products(api.products);
-     }, [api]);
+          return () => {
+               feature_return_top();
+          };
+     }, []);
 
      return (
           <div className="homepage">
@@ -36,7 +39,7 @@ const Homepage = () => {
                <HotProducts list_products={list_products} />
                <BannerAdvertiseTwo />
                <NewProducts list_products={list_products} />
-               <GoodTips />
+               <GoodTips list_news={list_news} />
                <Footer />
                {/* back to top */}
                <BackToTop />

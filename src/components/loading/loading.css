@@ -1,11 +1,24 @@
-.container-loading {
+/* container loading */
+.loading {
+     position: fixed;
      width: 100%;
      height: 100%;
-     position: fixed;
      top: 0;
      left: 0;
-     background-color: #ccc;
-     opacity: 50%;
+     z-index: 22;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.loading::after {
+     content: "";
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     background-color: #000;
+     opacity: 0.25;
 }
 
 /* component-wait-load */

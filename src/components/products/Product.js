@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import ghemauden from "../../assets/profile/ghemauden.webp";
+import React, { useEffect, useState } from "react";
 import BuyProduct from "./buy-product/BuyProduct";
 import QuickViewProduct from "./quick-view-product/QuickViewProduct";
 import "./product.css";
 import { useNavigate } from "react-router-dom";
 
 const Product = (props) => {
-     const item = props.item;
+     let item = props.item;
+     // console.log("item: ", item);
+
      const navigate = useNavigate();
 
      const [quick_view, set_quick_view] = useState(false);
@@ -44,7 +45,7 @@ const Product = (props) => {
                                    className="banner-shadow"
                                    onClick={(e) =>
                                         navigate(
-                                             `/sea-furniture/products/${item.alias}`
+                                             `/sea-furniture/products/product/${item.alias}`
                                         )
                                    }
                               ></span>
@@ -70,7 +71,7 @@ const Product = (props) => {
                          </div>
                          <p className="name-product">{item.name}</p>
                          <p className="price-product">
-                              {item.price}
+                              {item.price.toLocaleString()}
                               <sup>đ</sup>
                          </p>
                     </div>

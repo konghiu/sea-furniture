@@ -1,0 +1,44 @@
+.container-notify {
+     position: fixed;
+     top: 2rem;
+     right: 2rem;
+     width: fit-content;
+     height: fit-content;
+     z-index: 21;
+}
+.container-notify > .notify {
+     width: 300px;
+     padding: 10px 20px 10px 0;
+     background-color: white;
+     transform: translateX(0);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border: 1px solid;
+     border-left: 10px solid;
+     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2),
+          -1px -1px 15px rgba(255, 255, 255, 0.1);
+     margin-bottom: 20px;
+}
+
+.container-notify > .notify > .message {
+     flex: 1;
+     font-size: 14px;
+}
+.container-notify > .notify > span > i {
+     padding: 0 15px;
+}
+.container-notify > .notify > i {
+     margin-left: 20px;
+     cursor: pointer;
+}
+
+.container-notify > .notify_effect {
+     animation: hide 1s ease forwards;
+}
+
+@keyframes hide {
+     to {
+          transform: translateX(calc(100% + 2.5rem));
+     }
+}

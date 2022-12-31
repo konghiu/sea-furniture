@@ -16,8 +16,14 @@
 .container-list-products .row-1 > .option > select {
      border: 1px solid #ccc;
      outline: none;
-     padding: 4px 5px;     
+     padding: 4px 5px;
 }
 .container-list-products .row-2 {
      margin-top: 25px;
+}
+
+.container-list-products > .not-products {
+     margin-top: 25px;
+     border: 1px solid var(--main-color);
+     padding: 20px 40px;
 }

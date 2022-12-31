@@ -9,11 +9,11 @@
      },
      {
           "id": 3,
-          "name_color": "red"
+          "name_color": "black"
      },
      {
           "id": 4,
-          "name_color": "purple"
+          "name_color": "white"
      },
      {
           "id": 5,
@@ -21,6 +21,6 @@
      },
      {
           "id": 6,
-          "name_color": "green"
+          "name_color": "lightgreen"
      }
 ]

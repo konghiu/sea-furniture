@@ -1,0 +1,33 @@
+.search-products {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.search-products > .content {
+     padding: 50px 0;
+     width: var(--main-width);
+}
+
+.search-products > .content .title {
+     font-size: 24px;
+}
+
+.search-products > .content .container-products {
+     margin-top: 25px;
+}
+
+.search-products > .content .container-products .quantity-products {
+     margin-bottom: 20px;
+     font-size: 20px;
+}
+
+.search-products > .content .no-product {
+     margin-top: 25px;
+     padding: 1rem 2rem;
+     border: 1px solid var(--main-color);
+     border-radius: 2px;
+     font-family: sans-serif;
+     letter-spacing: -0.5px;
+     padding: 20px;
+}

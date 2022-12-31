@@ -1,8 +1,15 @@
-import React, { useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import context from "../../../common/context";
+import { ADD_PRODUCT } from "../../../common/context/reducer/actions";
 import "./buy-product.css";
 
 const BuyProduct = (props) => {
+     const consumer = useContext(context);
+     const dispatch = consumer[1];
      const item = props.item;
+
+     const navigate = useNavigate();
 
      const [quantity, setQuantity] = useState(1);
 
@@ -10,6 +17,16 @@ const BuyProduct = (props) => {
           let total = item.price * quantity;
           return total;
      }, [quantity, item]);
+
+     const handleAccessCart = () => {
+          const add_item = { ...item };
+          add_item.quantity = quantity;
+          add_item.image = item.images[0];
+          dispatch(ADD_PRODUCT(add_item));
+          navigate("/sea-furniture/cart");
+     };
+
+     const handleBuyProduct = () => {};
 
      return (
           <div
@@ -89,8 +106,12 @@ const BuyProduct = (props) => {
                          </div>
                     </div>
                     <div className="container-buttons">
-                         <button>Tới giỏ hàng</button>
-                         <button>Tiến hành thanh toán</button>
+                         <button onClick={() => handleAccessCart()}>
+                              Tới giỏ hàng
+                         </button>
+                         <button onClick={() => handleBuyProduct()}>
+                              Tiến hành thanh toán
+                         </button>
                     </div>
                </div>
           </div>

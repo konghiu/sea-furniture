@@ -45,3 +45,10 @@
      a:hover {
      color: var(--main-color);
 }
+
+.change-password button {
+     margin-top: 25px;
+     padding: 5px 20px;
+     background-color: var(--main-color);
+     color: white;
+}

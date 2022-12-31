@@ -1,4 +1,5 @@
 import { createServer, Model } from "miragejs";
+import news_api from "../news_api";
 import list_product from "../products_api";
 import users_api from "../users_api";
 
@@ -8,6 +9,7 @@ export const VirtualServer = ({ environment = "test" }) => {
           models: {
                products: Model,
                users: Model,
+               news: Model,
           },
           seeds(server) {
                list_product.forEach((item) => {
@@ -15,6 +17,9 @@ export const VirtualServer = ({ environment = "test" }) => {
                });
                users_api.forEach((item) => {
                     return server.create("user", item);
+               });
+               news_api.forEach((item) => {
+                    return server.create("news", item);
                });
           },
           routes() {
@@ -48,6 +53,23 @@ export const VirtualServer = ({ environment = "test" }) => {
                this.namespace = "/api/users";
                this.get("/", (schema, request) => {
                     return schema.users.all();
+               });
+
+               // news
+               this.namespace = "/api/news";
+               this.get("/", (schema, request) => {
+                    return schema.news.all();
+               });
+               this.post("/comment", (schema, request) => {
+                    let newComment = JSON.parse(request.requestBody);
+                    const user_comment = newComment.user_comment;
+                    const id = newComment.id;
+                    let all_comment = schema.news.all();
+                    const findBlog = all_comment.models.findIndex((item) => {
+                         return item.id === id;
+                    });
+                    all_comment.models[findBlog].comments.push(user_comment);
+                    return all_comment.models;
                });
           },
      });

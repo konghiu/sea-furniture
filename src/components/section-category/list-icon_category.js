@@ -28,7 +28,7 @@ export const list_icon_category = [
           id: 4,
           icon: icon_category4,
           title: "Kệ sách",
-          url: "ke-sach",
+          url: "ke",
      },
      {
           id: 5,
@@ -40,6 +40,6 @@ export const list_icon_category = [
           id: 6,
           icon: icon_category6,
           title: "Tủ quần áo",
-          url: "tu-quan-ao",
+          url: "tu",
      },
 ];

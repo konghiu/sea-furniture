@@ -9,7 +9,7 @@
      margin: 25px 0;
 }
 .new-products > .col-1::after {
-     content: '';
+     content: "";
      position: absolute;
      width: 90%;
      height: 1px;
@@ -37,4 +37,9 @@
 }
 .new-products > .col-1 > .buttons-slide > i:hover {
      color: var(--main-color);
+}
+
+.new-products > .col-2 .container-img {
+     height: 200px !important;
+     width: 200px !important;
 }

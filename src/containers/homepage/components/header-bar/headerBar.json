@@ -18,8 +18,8 @@
           "content": [
                {
                     "title": "Sofa",
-                    "to": "sofa",
-                    "isContent": true,
+                    "to": "/sofa",
+                    "isContent": false,
                     "content": [
                          {
                               "title": "sofa giường",
@@ -37,25 +37,25 @@
                },
                {
                     "title": "Ghế",
-                    "to": "chair",
+                    "to": "/ghe",
                     "isContent": false,
                     "content": []
                },
                {
                     "title": "Bàn",
-                    "to": "table",
+                    "to": "/ban",
                     "isContent": false,
                     "content": []
                },
                {
                     "title": "Kệ sách",
-                    "to": "bookshelf",
+                    "to": "/ke",
                     "isContent": false,
                     "content": []
                },
                {
                     "title": "Tủ quần áo",
-                    "to": "wardrobe",
+                    "to": "/tu",
                     "isContent": false,
                     "content": []
                }

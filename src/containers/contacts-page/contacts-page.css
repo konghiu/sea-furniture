@@ -40,7 +40,8 @@
      font-size: 18px;
      margin-top: 50px;
 }
-.contacts-page > .content .container-form-contacts .form-contacts input, .contacts-page > .content .container-form-contacts .form-contacts textarea {
+.contacts-page > .content .container-form-contacts .form-contacts input,
+.contacts-page > .content .container-form-contacts .form-contacts textarea {
      display: block;
      width: 100%;
      border: 1px solid #eeeeee;
@@ -50,7 +51,25 @@
 .contacts-page > .content .container-form-contacts .form-contacts textarea {
      height: 105px;
 }
-.contacts-page > .content .container-form-contacts .form-contacts input::placeholder, .contacts-page > .content .container-form-contacts .form-contacts textarea::placeholder {
+.contacts-page > .content .container-form-contacts .form-contacts button {
+     outline: none;
+     padding: 10px 30px;
+     background-color: var(--main-color);
+     color: white;
+     font-size: 14px;
+     border-radius: 3px;
+     margin-top: 1rem;
+}
+.contacts-page
+     > .content
+     .container-form-contacts
+     .form-contacts
+     input::placeholder,
+.contacts-page
+     > .content
+     .container-form-contacts
+     .form-contacts
+     textarea::placeholder {
      color: black;
 }
 .contacts-page > .content .col-2 {

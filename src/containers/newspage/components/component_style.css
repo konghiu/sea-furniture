@@ -1,0 +1,130 @@
+/* component news search */
+.news-search {
+     padding: 50px 0;
+     border-bottom: 1px solid #ccc;
+}
+
+.news-search > .news_title {
+     font-size: 24px;
+     font-weight: 500;
+}
+
+.news-search > .news_date {
+     margin: 1rem 0;
+     opacity: 0.7;
+}
+.news-search > .news_date i {
+     margin-right: 5px;
+}
+
+/* .news-search > .news_content {
+     font-size: 16px;
+} */
+
+/* other comment  */
+.other-comment > .title {
+     font-size: 18px;
+     font-weight: 500;
+     margin: 2rem 0 1rem;
+}
+/* .other-comment > .user_comment {
+     font-size: 14px;
+} */
+.other-comment > .user_comment {
+     display: flex;
+     margin-bottom: 1.5rem;
+}
+.other-comment > .user_comment img {
+     width: 2.5rem;
+     height: 2.5rem;
+     padding: 1px;
+     border: 1px solid #ccc;
+     border-radius: 50%;
+}
+.other-comment > .user_comment .comment {
+     position: relative;
+     background-color: #eee;
+     width: fit-content;
+     margin-left: 0.5rem;
+     padding: 0.5rem 1rem;
+     border-radius: 5px;
+}
+
+.other-comment > .user_comment .comment span {
+     position: absolute;
+     bottom: -1rem;
+     right: 10px;
+     cursor: pointer;
+}
+.other-comment > .user_comment .comment span:active {
+     color: red;
+}
+/* share and comment */
+.share_comment {
+     margin-top: 25px;
+}
+
+.share_comment > .share i {
+     margin: 0 5px;
+     border-radius: 4px;
+     cursor: pointer;
+}
+
+.share_comment > .share .fa-facebook {
+     color: rgb(74, 74, 255);
+}
+.share_comment > .share .fa-google {
+     color: rgb(247, 24, 24);
+}
+.share_comment > .share .fa-instagram {
+     color: rgb(191, 0, 255);
+     background-image: conic-gradient(
+          from -45deg,
+          blue,
+          red,
+          yellow,
+          red,
+          blue
+     );
+}
+
+.share_comment > .comment {
+     margin-top: 50px;
+}
+
+.share_comment > .comment textarea {
+     border: 1px solid #ccc;
+     padding: 10px 20px;
+}
+.share_comment > .comment textarea::placeholder {
+     font-size: 14px;
+     color: black;
+     opacity: 0.75;
+}
+.share_comment > .comment .title {
+     margin-bottom: 10px;
+}
+
+.share_comment > .comment .row {
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
+}
+.share_comment > .comment textarea {
+     margin-top: 1rem;
+     width: 100%;
+     min-height: 100px;
+}
+.share_comment > .comment button {
+     margin-top: 1rem;
+     background-color: var(--main-color);
+     outline: none;
+     border-radius: 0.25rem;
+     color: white;
+     font-size: 14px;
+     padding: 15px 35px;
+}
+
+.share_comment > .comment button:hover {
+     background-color: #d47500;
+}

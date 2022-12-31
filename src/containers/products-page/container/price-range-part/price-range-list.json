@@ -27,6 +27,6 @@
      {
           "id": 6,
           "price-min": 1000000,
-          "price-max": "infinity"
+          "price-max": "Infinity"
      }
 ]

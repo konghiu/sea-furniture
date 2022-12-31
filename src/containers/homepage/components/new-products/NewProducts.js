@@ -7,17 +7,13 @@ const NewProducts = (props) => {
      useEffect(() => {
           const list = props.list_products;
           if (Array.isArray(list)) {
-               for (let i = 0; i < list.length; i++) {
-                    for (let j = i + 1; j < list.length; j++) {
-                         if (list[i].price < list[j].price) {
-                              let swap = list[i];
-                              list[i] = list[j];
-                              list[j] = swap;
-                         }
-                    }
+               let new_list = [];
+               for (let i = list.length - 1; i > 0; i--) {
+                    new_list.push(list[i]);
+                    if (i === 0 || new_list.length === 5) break;
                }
-               const export_list = list.filter((item, index) => index < 5);
-               setNew_products(export_list);
+               console.log(new_list);
+               setNew_products(new_list);
           }
      }, [props.list_products]);
      return (

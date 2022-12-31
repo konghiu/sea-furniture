@@ -12,8 +12,9 @@
      font-size: 28px;
      margin-bottom: 15px;
 }
-.cart-page .container-content  > .content {
+.cart-page .container-content > .content {
      border: 1px solid var(--main-color);
+     border-radius: 2px;
      padding: 20px;
 }
 .cart-page .container-content > .not-products {
@@ -50,21 +51,44 @@
 .cart-page .container-content > .has-products .container-totals > .totals {
      width: fit-content;
 }
-.cart-page .container-content > .has-products .container-totals > .totals > .total-price {
+.cart-page
+     .container-content
+     > .has-products
+     .container-totals
+     > .totals
+     > .total-price {
      display: flex;
      align-items: center;
      justify-content: center;
 }
-.cart-page .container-content > .has-products .container-totals > .totals > .total-price > p:nth-child(1) {
+.cart-page
+     .container-content
+     > .has-products
+     .container-totals
+     > .totals
+     > .total-price
+     > p:nth-child(1) {
      font-size: 20px;
 }
-.cart-page .container-content > .has-products .container-totals > .totals > .total-price > p:nth-child(2) {
+.cart-page
+     .container-content
+     > .has-products
+     .container-totals
+     > .totals
+     > .total-price
+     > p:nth-child(2) {
      color: var(--main-color);
      font-size: 18px;
      font-weight: 500;
      margin-left: 50px;
 }
-.cart-page .container-content > .has-products .container-totals > .totals > .checkout button {
+.cart-page
+     .container-content
+     > .has-products
+     .container-totals
+     > .totals
+     > .checkout
+     button {
      margin-top: 25px;
      padding: 10px 25px;
      font-size: 14px;
@@ -72,14 +96,32 @@
      background-color: #eee;
      border-radius: 5px;
 }
-.cart-page .container-content > .has-products .container-totals > .totals > .checkout button:nth-child(2) {
+.cart-page
+     .container-content
+     > .has-products
+     .container-totals
+     > .totals
+     > .checkout
+     button:nth-child(2) {
      margin-left: 20px;
      color: white;
      background-color: var(--main-color);
 }
-.cart-page .container-content > .has-products .container-totals > .totals > .checkout button:nth-child(1):hover {
+.cart-page
+     .container-content
+     > .has-products
+     .container-totals
+     > .totals
+     > .checkout
+     button:nth-child(1):hover {
      background-color: #ccc;
 }
-.cart-page .container-content > .has-products .container-totals > .totals > .checkout button:nth-child(2):hover {
+.cart-page
+     .container-content
+     > .has-products
+     .container-totals
+     > .totals
+     > .checkout
+     button:nth-child(2):hover {
      background-color: orange;
 }

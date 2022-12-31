@@ -10,3 +10,43 @@
 .info-user > div p span {
      font-weight: 400;
 }
+.info-user > div > .container_avatar-change {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding-right: 2rem;
+}
+.info-user > div > .container_avatar-change > .container_avatar img {
+     width: 100%;
+     height: 100%;
+     border: 1px solid black;
+     border-radius: 50%;
+}
+.info-user > div > .container_avatar-change > .container_avatar {
+     width: 100px;
+     height: 100px;
+     padding: 3px;
+     border: 1px solid #ccc;
+     border-radius: 50%;
+     overflow: hidden;
+}
+.info-user > div > .container_avatar-change > .container_change {
+     margin-top: 0.5rem;
+     display: flex;
+     justify-content: space-between;
+}
+.info-user > div > .container_avatar-change > .container_change input {
+     display: none !important;
+}
+.info-user > div > .container_avatar-change > .container_change label,
+.info-user > div > .container_avatar-change > .container_change button {
+     cursor: pointer;
+     background-color: var(--main-color);
+     color: white;
+     border-radius: 3px;
+     padding: 1px 0.25rem;
+     height: fit-content;
+}
+.info-user > div > .container_avatar-change > .container_change button {
+     margin-top: 35px;
+}

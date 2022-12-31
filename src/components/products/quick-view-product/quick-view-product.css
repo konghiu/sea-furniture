@@ -21,7 +21,6 @@
      opacity: 0.5;
      z-index: -1;
 }
-
 .quick-view-product > .container-describe-product {
      display: flex;
      width: calc(var(--main-width) - 100px);
@@ -78,9 +77,22 @@
      .more-view-wrapper
      .slick-slider
      .slick-list
+     .slick-track {
+     display: flex !important;
+     justify-content: center;
+     align-items: center;
+}
+.quick-view-product
+     > .container-describe-product
+     > .col-1
+     .more-view-wrapper
+     .slick-slider
+     .slick-list
      .slick-slide {
      padding: 0 10px;
+     width: 25% !important;
 }
+
 .quick-view-product
      > .container-describe-product
      > .col-1

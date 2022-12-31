@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../comopnents/input/Input";
 import {
      validEmailOrPhone,
@@ -8,6 +8,8 @@ import {
 } from "../../../features/feature_regex_sign/feature_regex_sign.js";
 
 const Registerpage = () => {
+     const navigate = useNavigate();
+
      const [valueUsername, setValueUsername] = useState("");
      const [valueEmail, setValueEmail] = useState("");
      const [valuePhone, setValueRePhone] = useState("");
@@ -18,34 +20,66 @@ const Registerpage = () => {
      const [warning_phone, setWarning_phone] = useState(null);
      const [warning_password, setWarning_password] = useState(null);
 
-     const handleValidInfoUser = () => {
+     const handleValidInfoUser = async () => {
           let allowedUsername;
           let allowEmail;
           let allowedPhone;
           let allowedPassword;
 
+          let counter = 0;
+
           allowedUsername = validUserName(valueUsername);
           setWarning_username(allowedUsername);
 
           if (!allowedUsername.allowed) return;
+          ++counter;
 
           allowEmail = validEmailOrPhone(valueEmail);
           setWarning_email(allowEmail);
 
           if (!allowEmail.allowed) return;
+          ++counter;
 
           allowedPhone = validEmailOrPhone(valuePhone);
           setWarning_phone(allowedPhone);
 
           if (!allowedPhone.allowed) return;
+          ++counter;
 
           allowedPassword = validPassword(valuePassword);
           setWarning_password(allowedPassword);
+          ++counter;
 
-          if (allowedPassword.allowed) {
-               console.log("success");
+          await fetch("/api/users", {
+               method: "get",
+          })
+               .then((res) => res.json())
+               .then((res) => {
+                    for (let i = 0; i < res.users.length; i++) {
+                         if (res.users[i].user_email === valueEmail) {
+                              setWarning_email({
+                                   allowed: false,
+                                   message: "Email đã được dùng đăng ký.",
+                              });
+                              --counter;
+                              return;
+                         } else if (res.users[i].user_phone === valuePhone) {
+                              setWarning_phone({
+                                   allowed: false,
+                                   message: "Số điện thoại đã được dùng đăng ký.",
+                              });
+                              --counter;
+                              return;
+                         }
+                    }
+               });
+
+          if (counter === 4) {
+               console.log("login success...");
+               navigate("/sea-furniture/account");
                return;
           }
+          console.log("login failed...");
      };
 
      return (

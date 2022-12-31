@@ -1,28 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "../../config/useFetch";
+import context from "../../common/context";
 import feature_return_top from "../../features/feature_return_top";
 import BackToTop from "../back-to-top/BackToTop";
 import Breadcrum from "../breadcrumb_background/Breadcrum";
 import Footer from "../footer/Footer";
 import ContainerHeader from "../header/ContainerHeader";
 import ComponentWaitLoad from "../loading/ComponentWaitLoad";
-import Loading from "../loading/Loading";
 import QuickViewProduct from "../products/quick-view-product/QuickViewProduct";
 import "./detail-product.css";
 
 const DetailProduct = () => {
-     const [data, setData] = useState("answer return");
-     const api = useFetch("/api/products");
+     const consumer = useContext(context);
+     const list_products = consumer[0].products_list;
+
+     const [data, setData] = useState(null);
      const ID_product = useParams();
+
      useEffect(() => {
-          if (api !== "answer return") {
-               const export_item = api.products.filter(
+          if (list_products) {
+               const export_item = list_products.filter(
                     (item) => item.alias === ID_product.product
                );
                setData(export_item[0]);
           }
-     }, [api, ID_product]);
+     }, [ID_product, list_products]);
 
      useEffect(() => {
           feature_return_top();
@@ -32,7 +34,7 @@ const DetailProduct = () => {
           <div className="detail-product">
                <ContainerHeader />
                <Breadcrum />
-               {data !== "answer return" && data ? (
+               {data && data ? (
                     <div className="container">
                          <QuickViewProduct item={data} />
                          <div className="describe-info">

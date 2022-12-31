@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import list_category from "./list-category.json";
 
 const SectionCategory = (props) => {
+     const location = useLocation();
+
      return (
           <div className="account_category">
                <p className="title">TRANG TÀI KHOẢN</p>
@@ -12,7 +14,15 @@ const SectionCategory = (props) => {
                </p>
                <div className="account_list-category">
                     {list_category.map((item) => (
-                         <Link to={item.url} key={item.id}>
+                         <Link
+                              to={item.url}
+                              key={item.id}
+                              style={
+                                   location.pathname.includes(item.url)
+                                        ? { color: "#f7941d" }
+                                        : {}
+                              }
+                         >
                               {item.title}
                          </Link>
                     ))}

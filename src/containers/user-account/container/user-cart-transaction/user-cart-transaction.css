@@ -1,0 +1,27 @@
+.cart-transaction > p,
+.cart-transaction table,
+.cart-transaction th,
+.cart-transaction td {
+     border: 1px solid #ccc;
+     text-align: center;
+     padding: 5px 0;
+}
+
+.cart-transaction {
+     width: var(--main-width);
+}
+
+.cart-transaction table {
+     width: 100%;
+}
+
+.cart-transaction table thead {
+     background-color: var(--main-color);
+     color: white;
+}
+
+.cart-transaction > p {
+     border: 1px solid #ccc;
+     text-align: center;
+     padding: 5px 0;
+}

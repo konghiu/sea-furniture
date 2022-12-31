@@ -48,6 +48,7 @@ const UserChangepassword = () => {
                               notify ? setWarning_ReNewPassword(null) : null
                          }
                     />
+                    <button className="">Xác nhận</button>
                </div>
           </div>
      );

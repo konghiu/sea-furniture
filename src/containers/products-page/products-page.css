@@ -20,9 +20,33 @@
 }
 .container-products-page > .content > .col-1 {
      width: 25%;
-} 
+}
 .container-products-page > .content > .col-2 {
      flex: 1;
      margin-left: 2rem;
      margin-top: 50px;
+}
+
+.container-products-page > .content > .col-2 > .change-page i {
+     cursor: pointer;
+     font-size: 18px;
+     color: #ccc;
+}
+.container-products-page > .content > .col-2 > .change-page i:hover {
+     color: var(--main-color);
+}
+.container-products-page > .content > .col-2 > .change-page button {
+     border: 1px solid var(--main-color);
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 2rem;
+     height: 2rem;
+     margin: 0 5px;
+}
+
+.container-products-page > .content > .col-2 > .change-page button:hover {
+     color: var(--main-color);
+     border-color: var(--main-color);
 }

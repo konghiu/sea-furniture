@@ -12,7 +12,7 @@ const FeaturedProducts = (props) => {
           if (Array.isArray(list)) {
                for (let i = 0; i < list.length; i++) {
                     for (let j = i + 1; j < list.length; j++) {
-                         if (list[i].price < list[j].price) {
+                         if (list[i].view < list[j].view) {
                               let swap = list[i];
                               list[i] = list[j];
                               list[j] = swap;
@@ -73,7 +73,7 @@ const FeaturedProducts = (props) => {
                               <i className="fa-solid fa-chevron-right"></i>
                          </div>
                     </div>
-                    <div className="col-2-2 grid grid-cols-4 grid-rows-2 gap-x-3 gap-y-9">
+                    <div className="col-2-2 grid grid-cols-4 grid-rows-2 gap-x-5 gap-y-9">
                          {featured_products &&
                               featured_products.map((item) => (
                                    <Product key={item.id} item={item} />
