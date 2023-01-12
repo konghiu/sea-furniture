@@ -25,7 +25,7 @@ export const VirtualServer = ({ environment = "test" }) => {
           routes() {
                // products
                this.namespace = "api/products";
-               this.urlPrefix = "http://localhost:3000";
+               this.urlPrefix = "https://github.com/hieudevelopment";
 
                this.get("/", (schema, request) => {
                     return schema.products.all();
