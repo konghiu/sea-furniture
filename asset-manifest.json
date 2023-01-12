@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sea-furniture/static/css/main.372fe28f.css",
-    "main.js": "/sea-furniture/static/js/main.79dcb40e.js",
+    "main.css": "/sea-furniture/static/css/main.a255bcc9.css",
+    "main.js": "/sea-furniture/static/js/main.be00f764.js",
     "static/media/sofa_giuong_aurora.webp": "/sea-furniture/static/media/sofa_giuong_aurora.aaeca4d6f18ade9b0d8c.webp",
     "static/media/avt_ly.jpg": "/sea-furniture/static/media/avt_ly.3e5c62d4e549b15f3945.jpg",
     "static/media/adv_img_3.webp": "/sea-furniture/static/media/adv_img_3.15da714925f0284fc7aa.webp",
@@ -24,6 +24,7 @@
     "static/media/news_item_1.webp": "/sea-furniture/static/media/news_item_1.1385fd4dd157784ee031.webp",
     "static/media/tranhanh.webp": "/sea-furniture/static/media/tranhanh.4675c231fb55bcd203a5.webp",
     "static/media/news_item_2.webp": "/sea-furniture/static/media/news_item_2.00df70852570d0009934.webp",
+    "static/media/rgb_creative_404.png": "/sea-furniture/static/media/rgb_creative_404.5047648fec660d5787c2.png",
     "static/media/donghomisolimited.webp": "/sea-furniture/static/media/donghomisolimited.90801d50e0f841ff79b3.webp",
     "static/media/ban_arabica_1.webp": "/sea-furniture/static/media/ban_arabica_1.9eab887ee193c509bf65.webp",
     "static/media/donghomiso.webp": "/sea-furniture/static/media/donghomiso.5f39522d8aa56b79fa5a.webp",
@@ -73,11 +74,11 @@
     "static/media/slick.ttf": "/sea-furniture/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/sea-furniture/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/sea-furniture/index.html",
-    "main.372fe28f.css.map": "/sea-furniture/static/css/main.372fe28f.css.map",
-    "main.79dcb40e.js.map": "/sea-furniture/static/js/main.79dcb40e.js.map"
+    "main.a255bcc9.css.map": "/sea-furniture/static/css/main.a255bcc9.css.map",
+    "main.be00f764.js.map": "/sea-furniture/static/js/main.be00f764.js.map"
   },
   "entrypoints": [
-    "static/css/main.372fe28f.css",
-    "static/js/main.79dcb40e.js"
+    "static/css/main.a255bcc9.css",
+    "static/js/main.be00f764.js"
   ]
 }
