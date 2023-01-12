@@ -33,8 +33,12 @@ const Routers = () => {
      const consumer = useContext(context);
      const dispatch = consumer[1];
 
-     const news_api = useFetch("/api/news");
-     const products_api = useFetch("/api/products");
+     const news_api = useFetch(
+          "https://konghiu.github.io/sea-furniture/api/news"
+     );
+     const products_api = useFetch(
+          "https://konghiu.github.io/sea-furniture/api/products"
+     );
 
      useEffect(() => {
           if (news_api && products_api) {
