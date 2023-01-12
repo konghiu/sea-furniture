@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import context from "./common/context";
 import { NEWSLIST, PRODUCTSLIST } from "./common/context/reducer/actions";
 import DetailProduct from "./components/detail-product/DetailProduct";
+import NotFound from "./components/not-found/component/NotFound";
+import Notpage from "./components/not-found/Notpage";
+import BuyProduct from "./components/products/buy-product/BuyProduct";
 import useFetch from "./config/useFetch";
 import Cartpage from "./containers/cart-page/Cartpage";
 import Contactspage from "./containers/contacts-page/Contactspage";
@@ -24,6 +27,7 @@ import UserChangepassword from "./containers/user-account/container/change-passw
 import InfoUserAccount from "./containers/user-account/container/info-user/InfoUserAccount";
 import UserCartTransaction from "./containers/user-account/container/user-cart-transaction/UserCartTransaction";
 import UserAccountpage from "./containers/user-account/UserAccountpage";
+import SeaFurniture from "./SeaFurniture";
 
 const Routers = () => {
      const consumer = useContext(context);
@@ -41,70 +45,72 @@ const Routers = () => {
 
      return (
           <Router>
+               <BuyProduct />
                <Routes>
-                    <Route path="" element={<Homepage />} />
-                    <Route path="sea-furniture" element={<Homepage />} />
+                    {/* homepage */}
+                    <Route path="/sea-furniture" element={<Homepage />} />
                     <Route
                          path="/sea-furniture/homepage"
                          element={<Homepage />}
                     />
-                    <Route
-                         path="sea-furniture/introduction"
-                         element={<Introduction />}
-                    />
-                    <Route path="sea-furniture/news" element={<Newspage />}>
-                         <Route path="" element={<ContainerNewsAll />} />
+                    {/* others */}
+                    <Route path="/sea-furniture" element={<SeaFurniture />}>
                          <Route
-                              path=":search"
-                              element={<ContainerNewsSearch />}
+                              path="introduction"
+                              element={<Introduction />}
                          />
-                    </Route>
-                    <Route
-                         path="sea-furniture/contacts"
-                         element={<Contactspage />}
-                    />
-                    <Route
-                         path="sea-furniture/products"
-                         element={<Productspage />}
-                    />
-                    <Route
-                         path="sea-furniture/products/:type_product"
-                         element={<Productspage />}
-                    />
-                    <Route
-                         path="sea-furniture/products/search/:search"
-                         element={<SearchProducts />}
-                    />
-                    <Route
-                         path="sea-furniture/products/product/:product"
-                         element={<DetailProduct />}
-                    />
-                    <Route
-                         path="sea-furniture/payment"
-                         element={<Paymentpage />}
-                    />
-                    <Route path="sea-furniture/cart" element={<Cartpage />} />
-                    <Route path="sea-furniture/sign" element={<Signpage />}>
-                         <Route path="" element={<Loginpage />} />
-                         <Route path="login" element={<Loginpage />} />
-                         <Route path="register" element={<Registerpage />} />
-                         <Route path="logout" element={<Logoutpage />} />
-                    </Route>
-                    <Route
-                         path="sea-furniture/account"
-                         element={<UserAccountpage />}
-                    >
-                         <Route path="" element={<InfoUserAccount />} />
+                         <Route path="news" element={<Newspage />}>
+                              <Route path="" element={<ContainerNewsAll />} />
+                              <Route
+                                   path=":search"
+                                   element={<ContainerNewsSearch />}
+                              />
+                         </Route>
+                         <Route path="contacts" element={<Contactspage />} />
+                         <Route path="products" element={<Productspage />} />
                          <Route
-                              path="transaction"
-                              element={<UserCartTransaction />}
+                              path="products/:type_product"
+                              element={<Productspage />}
                          />
                          <Route
-                              path="changepassword"
-                              element={<UserChangepassword />}
+                              path="products/search/:search"
+                              element={<SearchProducts />}
                          />
-                         <Route path="addresses" element={<UserAddresses />} />
+                         <Route
+                              path="products/product/:product"
+                              element={<DetailProduct />}
+                         />
+                         <Route path="payment" element={<Paymentpage />} />
+                         <Route path="cart" element={<Cartpage />} />
+                         <Route path="sign" element={<Signpage />}>
+                              <Route path="" element={<Loginpage />} />
+                              <Route path="login" element={<Loginpage />} />
+                              <Route
+                                   path="register"
+                                   element={<Registerpage />}
+                              />
+                              <Route path="logout" element={<Logoutpage />} />
+                         </Route>
+                         <Route path="account" element={<UserAccountpage />}>
+                              <Route path="" element={<InfoUserAccount />} />
+                              <Route
+                                   path="transaction"
+                                   element={<UserCartTransaction />}
+                              />
+                              <Route
+                                   path="changepassword"
+                                   element={<UserChangepassword />}
+                              />
+                              <Route
+                                   path="addresses"
+                                   element={<UserAddresses />}
+                              />
+                         </Route>
+                         {/* not found */}
+                         <Route path="*" element={<NotFound />} />
                     </Route>
+                    {/* not found */}
+                    <Route path="*" element={<Notpage />} />
                </Routes>
           </Router>
      );

@@ -1,20 +1,14 @@
-.introduction {
-     width: 100%;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-}
-.introduction .content-introduction {
+.content-introduction {
      width: var(--main-width);
      margin-bottom: 25px;
 }
-.introduction .content-introduction > .title {
+.content-introduction > .title {
      font-size: 2.2rem;
      letter-spacing: -1px;
      margin-top: 50px;
 }
 
-.introduction .content-introduction > .content > p {
+.content-introduction > .content > p {
      margin-top: 15px;
      font-size: 15px;
      font-weight: 450;

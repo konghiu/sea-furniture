@@ -1,23 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import hours24 from "../../../assets/profile/24-hours.svg";
 import logo from "../../../assets/profile/logo.webp";
 import headerBar from "../../../containers/homepage/components/header-bar/headerBar.json";
+import { HEADERQUATERS, HOTLINE, EMAIL } from "../../../assets/auth/auth";
 
 const MidFooter = () => {
+     const navigate = useNavigate();
+
      return (
           <div className="mid-footer">
                <div className="col-1">
-                    <div>
+                    <div
+                         onClick={() => navigate("/sea-furniture/homepage")}
+                         className="cursor-pointer"
+                    >
                          <img src={logo} alt="" />
                     </div>
                     <p className="title">Siêu thị nội thất Sea Furniture</p>
                     <p className="address">
-                         Trụ sở chính: Toà nhà Ladeco, 266 Đội Cấn, phường Liễu
-                         Giai, Quận Ba Đình, Hà Nội
+                         Trụ sở chính:{" "}
+                         <span
+                              dangerouslySetInnerHTML={{
+                                   __html: HEADERQUATERS,
+                              }}
+                         ></span>
                     </p>
-                    <p className="phone">Hotline: 1900 6750</p>
-                    <p className="email">Email: seateam@gmail.com</p>
+                    <p className="phone">Hotline: {HOTLINE}</p>
+                    <p className="email">Email: {EMAIL}</p>
                </div>
                <div className="col-2">
                     <p className="title">VỀ CHÚNG TÔI</p>
@@ -51,7 +61,7 @@ const MidFooter = () => {
                          <div className="container-img">
                               <img src={hours24} alt="" />
                          </div>
-                         <p>1900 1010</p>
+                         <p>{HOTLINE}</p>
                     </div>
                     <p className="title">NHẬN TIN KHUYẾN MÃI</p>
                     <div className="content">

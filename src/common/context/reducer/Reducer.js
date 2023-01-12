@@ -5,6 +5,9 @@ export const initStore = {
      notify_for_user: [],
      news_list: [],
      products_list: [],
+     quick_view_product: null,
+     buy_product: null,
+     history: null,
 };
 
 const ReducerStore = (state = initStore, action) => {
@@ -14,7 +17,6 @@ const ReducerStore = (state = initStore, action) => {
           // executed user's account
           case "account/login":
                let new_account = payload;
-               console.log(payload);
                return {
                     ...state,
                     user_account: new_account,
@@ -103,7 +105,6 @@ const ReducerStore = (state = initStore, action) => {
                     list_addresses_changedefault.findIndex((item, index) => {
                          return index === payload;
                     });
-               console.log(findAddressTochangedefault);
                if (findAddressTochangedefault !== -1) {
                     list_addresses_changedefault.forEach((item, index) => {
                          if (index === findAddressTochangedefault) {
@@ -117,7 +118,6 @@ const ReducerStore = (state = initStore, action) => {
                          }
                     });
                }
-               console.log(list_addresses_changedefault);
                return {
                     ...state,
                     user_addresses: [...list_addresses_changedefault],
@@ -165,6 +165,22 @@ const ReducerStore = (state = initStore, action) => {
                return {
                     ...state,
                     products_list: products_list,
+               };
+          case "QUICKVIEWPRODUCT":
+               return {
+                    ...state,
+                    quick_view_product: payload,
+               };
+          case "BUYPRODUCT":
+               return {
+                    ...state,
+                    buy_product: payload,
+               };
+
+          case "HISTORY":
+               return {
+                    ...state,
+                    history: payload,
                };
           default:
                break;

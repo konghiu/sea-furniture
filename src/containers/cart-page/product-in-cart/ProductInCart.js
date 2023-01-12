@@ -39,15 +39,17 @@ const ProductInCart = (props) => {
 
      return (
           <div className="product-in-cart">
-               <div>
+               <div className="product">
                     <i
                          className="fa-solid fa-xmark cursor-pointer"
                          onClick={() => handleRemoveProductCart(item.image)}
                     ></i>
-                    <img src={item.image} alt="" />
+                    <div>
+                         <img src={item.image} alt="" />
+                    </div>
                     <p>{item.name}</p>
                </div>
-               <div className="">
+               <div className="price">
                     <p>
                          {item.price.toLocaleString()}
                          <sup>đ</sup>
@@ -72,7 +74,7 @@ const ProductInCart = (props) => {
                          </div>
                     </div>
                </div>
-               <div>
+               <div className="total">
                     <p>
                          {(item.price * item.quantity).toLocaleString()}
                          <sup>đ</sup>

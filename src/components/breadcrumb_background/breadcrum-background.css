@@ -1,7 +1,28 @@
 .breadcrum-background {
+     position: relative;
      width: 100%;
      height: 200px;
-     background-image: url('../../assets/profile/bg_breadcrumb.webp');
+     background-image: url("../../assets/profile/bg_breadcrumb.webp");
      background-repeat: no-repeat;
      background-size: cover;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     color: white;
+}
+.breadcrum-background::after {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: black;
+     opacity: 0.25;
+     z-index: 0;
+}
+.breadcrum-background > p,
+.breadcrum-background > div {
+     z-index: 2;
 }

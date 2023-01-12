@@ -1,10 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import ContainerHeader from "../../components/header/ContainerHeader";
-import Breadcrum from "../../components/breadcrumb_background/Breadcrum";
-import Footer from "../../components/footer/Footer";
+import React, { useContext, useState } from "react";
 import Loading from "../../components/loading/Loading";
-import BackToTop from "../../components/back-to-top/BackToTop";
-import feature_return_top from "../../features/feature_return_top";
 import context from "../../common/context";
 import "./contacts-page.css";
 import {
@@ -12,6 +7,7 @@ import {
      validUserName,
 } from "../../features/feature_regex_sign/feature_regex_sign";
 import { NOTIFY_ADD } from "../../common/context/reducer/actions";
+import { EMAIL, HEADERQUATERS, HOTLINE } from "../../assets/auth/auth";
 
 const Contactspage = () => {
      const consumer = useContext(context);
@@ -24,12 +20,6 @@ const Contactspage = () => {
      const [content_contact, setContent_contact] = useState("");
      const [fullname_contact, setFullname_contact] = useState("");
      const [email_contact, setEmail_contact] = useState("");
-
-     useEffect(() => {
-          return () => {
-               feature_return_top();
-          };
-     }, []);
 
      const handleSendMessage = () => {
           setIsLoading(true);
@@ -81,31 +71,32 @@ const Contactspage = () => {
      };
 
      return (
-          <div className="contacts-page">
+          <>
                {isLoading && <Loading />}
-               <ContainerHeader />
-               <Breadcrum />
-               <div className="content">
+               <div className="content-contacts-page">
                     <div className="col-1">
                          <div className="info-store">
                               <p className="locate">
                                    <span>
                                         <i className="fa-solid fa-location-dot"></i>
                                    </span>
-                                   Toà nhà Ladeco, 266 Đội Cấn, phường Liễu
-                                   Giai, Quận Ba Đình, Hà Nội
+                                   <span
+                                        dangerouslySetInnerHTML={{
+                                             __html: HEADERQUATERS,
+                                        }}
+                                   ></span>
                               </p>
                               <p className="phone">
                                    <span>
                                         <i className="fa-solid fa-mobile-screen-button"></i>
                                    </span>
-                                   1900 1010
+                                   {HOTLINE}
                               </p>
                               <p className="email">
                                    <span>
                                         <i className="fa-regular fa-envelope"></i>
                                    </span>
-                                   seateam@gmail.com
+                                   {EMAIL}
                               </p>
                          </div>
                          <div className="container-form-contacts">
@@ -152,10 +143,7 @@ const Contactspage = () => {
                          ></iframe>
                     </div>
                </div>
-               <Footer />
-               {/* back to top */}
-               <BackToTop />
-          </div>
+          </>
      );
 };
 

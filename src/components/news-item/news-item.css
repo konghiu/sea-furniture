@@ -1,7 +1,6 @@
 .container-news-item .container-img {
      width: 345px;
      height: 234px;
-     padding-bottom: 20px;
      border-bottom: 20px solid white;
      position: relative;
      background-color: white;
@@ -15,11 +14,10 @@
 .container-news-item .container-title .title {
      font-size: 16px;
      font-weight: 700;
-     margin: 15px 0;
+     padding: 15px 0;
      cursor: pointer;
 }
-
-.container-news-item .container-title .title:hover {
+.container-news-item .container-title .title span:hover {
      color: var(--main-color);
 }
 .container-news-item .container-title .describe {

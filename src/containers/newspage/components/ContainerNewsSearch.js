@@ -3,7 +3,6 @@ import { useOutletContext, useParams } from "react-router-dom";
 import slugify from "react-slugify";
 import ComponentWaitLoad from "../../../components/loading/ComponentWaitLoad";
 import Loading from "../../../components/loading/Loading";
-import feature_return_top from "../../../features/feature_return_top";
 import blank_avatar from "../../../assets/profile/blank_avatar.webp";
 import { NEWSLIST, NOTIFY_ADD } from "../../../common/context/reducer/actions";
 import "./component_style.css";
@@ -24,7 +23,6 @@ const ContainerNewsSearch = () => {
      const [content_comment, setContent_comment] = useState("");
 
      useEffect(() => {
-          feature_return_top();
           if (search.search && list_news) {
                console.log(search.search);
                const find_index_news = list_news.findIndex((item) => {
@@ -44,9 +42,6 @@ const ContainerNewsSearch = () => {
                     }, 1000);
                }
           }
-          return () => {
-               feature_return_top();
-          };
      }, [list_news, search.search]);
 
      const handleOpenNewApp = (target) => {

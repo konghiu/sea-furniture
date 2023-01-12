@@ -1,28 +1,22 @@
-.search-products {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-}
-
-.search-products > .content {
+.content-search-products {
      padding: 50px 0;
      width: var(--main-width);
 }
 
-.search-products > .content .title {
+.content-search-products .title {
      font-size: 24px;
 }
 
-.search-products > .content .container-products {
+.content-search-products .container-products {
      margin-top: 25px;
 }
 
-.search-products > .content .container-products .quantity-products {
+.content-search-products .container-products .quantity-products {
      margin-bottom: 20px;
      font-size: 20px;
 }
 
-.search-products > .content .no-product {
+.content-search-products .no-product {
      margin-top: 25px;
      padding: 1rem 2rem;
      border: 1px solid var(--main-color);

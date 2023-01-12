@@ -1,13 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import Breadcrum from "../../components/breadcrumb_background/Breadcrum";
-import Footer from "../../components/footer/Footer";
-import ContainerHeader from "../../components/header/ContainerHeader";
 import button_gg from "../../assets/profile/gp-btn.svg";
 import button_fb from "../../assets/profile/fb-btn.svg";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import BackToTop from "../../components/back-to-top/BackToTop";
-import feature_return_top from "../../features/feature_return_top";
-import ComponentWaitLoad from "../../components/loading/ComponentWaitLoad";
 import "./sign-page.css";
 import context from "../../common/context";
 import { NOTIFY_ADD, USER_LOGIN } from "../../common/context/reducer/actions";
@@ -26,9 +20,6 @@ const Signpage = () => {
                navigate("/sea-furniture/sign");
                return;
           }
-          return () => {
-               feature_return_top();
-          };
      }, [location.pathname]);
 
      const handleLoginAvailable = (account_available) => {
@@ -42,11 +33,9 @@ const Signpage = () => {
      };
 
      return (
-          <div className="sign-page">
-               <ContainerHeader />
-               <Breadcrum />
+          <React.Fragment>
                {!account ? (
-                    <div className="content">
+                    <div className="content-signpage">
                          {location.pathname.includes("logout") ? null : (
                               <React.Fragment>
                                    <p className="title">
@@ -91,11 +80,7 @@ const Signpage = () => {
                          </p>
                     </div>
                )}
-               <Footer />
-               {/* back to top */}
-
-               <BackToTop />
-          </div>
+          </React.Fragment>
      );
 };
 

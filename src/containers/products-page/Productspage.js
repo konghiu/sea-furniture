@@ -1,14 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import ContainerHeader from "../../components/header/ContainerHeader";
-import Breadcum from "../../components/breadcrumb_background/Breadcrum";
 import SectionCategory from "../../components/section-category/SectionCategory";
-import Footer from "../../components/footer/Footer";
 import "./products-page.css";
 import BrandsPart from "./container/brands-part/BrandsPart";
 import PriceRangePart from "./container/price-range-part/PriceRangePart";
 import ColorsPart from "./container/colors-part/ColorsPart";
 import ContainerListProducts from "./container/container-products/ContainerListProducts";
-import BackToTop from "../../components/back-to-top/BackToTop";
 import ComponentWaitLoad from "../../components/loading/ComponentWaitLoad";
 import feature_return_top from "../../features/feature_return_top";
 import { useParams } from "react-router-dom";
@@ -83,9 +79,6 @@ const Productspage = () => {
                     });
                }
           }
-          return () => {
-               feature_return_top();
-          };
      }, [api_products, params]);
 
      useEffect(() => {
@@ -150,8 +143,6 @@ const Productspage = () => {
 
      return (
           <div className="container-products-page">
-               <ContainerHeader />
-               <Breadcum />
                <SectionCategory />
                <div className="content">
                     <div className="col-1">
@@ -205,9 +196,6 @@ const Productspage = () => {
                          ) : null}
                     </div>
                </div>
-               <Footer />
-               {/* back to top */}
-               <BackToTop />
           </div>
      );
 };

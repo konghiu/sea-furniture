@@ -23,7 +23,7 @@ const NewsItem = (props) => {
                </div>
                <div className="container-title">
                     <p className="title" onClick={() => handleShowNews()}>
-                         {props.news.title}
+                         <span>{props.news.title}</span>
                     </p>
                     <p
                          className="describe"

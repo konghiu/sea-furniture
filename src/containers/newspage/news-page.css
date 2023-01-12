@@ -1,18 +1,12 @@
-.news-page {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-}
-
-.news-page .news-content {
+.content-news-page {
      width: var(--main-width);
      margin-bottom: 50px;
 }
-.news-page > .news-content > .title {
+.content-news-page > .title {
      position: relative;
      width: 100%;
 }
-.news-page > .news-content > .title p {
+.content-news-page > .title p {
      font-size: 22px;
      color: white;
      letter-spacing: -1px;
@@ -22,7 +16,7 @@
      width: fit-content;
      padding: 5px 25px;
 }
-.news-page .news-content > .title::before {
+.content-news-page > .title::before {
      content: "";
      position: absolute;
      width: 100%;
@@ -32,10 +26,10 @@
      background-color: #ccc;
      z-index: 10;
 }
-.news-page .news-content > .container-news-item {
+.content-news-page > .container-news-item {
      width: 100%;
 }
-.news-page .news-content > .container-news-item .container-title {
+.content-news-page > .container-news-item .container-title {
      border: 1px solid #ccc;
      border-top: 0;
      padding: 20px;

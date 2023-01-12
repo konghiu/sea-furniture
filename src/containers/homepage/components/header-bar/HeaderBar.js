@@ -1,7 +1,8 @@
 import React from "react";
 import headerBar from "./headerBar.json";
-import "./headerBar.css";
+import { HOTLINE } from "../../../../assets/auth/auth";
 import { Link, useLocation } from "react-router-dom";
+import "./headerBar.css";
 
 const HeaderBar = () => {
      const location = useLocation();
@@ -38,21 +39,16 @@ const HeaderBar = () => {
                                              <ul className="sub-menu sub-menu-level0">
                                                   {item.content.map(
                                                        (child, inChild) => (
-                                                            <li
-                                                                 className="sub-link sub-link-level1"
+                                                            <Link
                                                                  key={inChild}
+                                                                 className="sub-link sub-link-level1"
+                                                                 to={
+                                                                      item.to +
+                                                                      child.to
+                                                                 }
                                                             >
-                                                                 <Link
-                                                                      to={
-                                                                           item.to +
-                                                                           child.to
-                                                                      }
-                                                                 >
-                                                                      {
-                                                                           child.title
-                                                                      }
-                                                                 </Link>
-                                                            </li>
+                                                                 {child.title}
+                                                            </Link>
                                                        )
                                                   )}
                                              </ul>
@@ -64,7 +60,7 @@ const HeaderBar = () => {
                </ul>
                <div className="hotline">
                     <p className="">Hotline:</p>
-                    <h2>1900 1010</h2>
+                    <h2>{HOTLINE}</h2>
                </div>
           </div>
      );

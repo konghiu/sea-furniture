@@ -1,12 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import BackToTop from "../../components/back-to-top/BackToTop";
-import Breadcrum from "../../components/breadcrumb_background/Breadcrum";
-import Footer from "../../components/footer/Footer";
-import ContainerHeader from "../../components/header/ContainerHeader";
+import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import context from "../../common/context";
 import "./news-page.css";
-import feature_return_top from "../../features/feature_return_top";
 
 const Newspage = () => {
      const consumer = useContext(context);
@@ -15,17 +10,9 @@ const Newspage = () => {
      const notify_for_user = consumer[0].notify_for_user;
      const dispatch = consumer[1];
 
-     // useEffect(() => {
-     //      return () => {
-     //           feature_return_top();
-     //      };
-     // }, []);
-
      return (
-          <div className="news-page">
-               <ContainerHeader />
-               <Breadcrum />
-               <div className="news-content">
+          <>
+               <div className="content-news-page">
                     <Outlet
                          context={{
                               list_news,
@@ -35,11 +22,7 @@ const Newspage = () => {
                          }}
                     />
                </div>
-               <Footer />
-
-               {/* back to top */}
-               <BackToTop />
-          </div>
+          </>
      );
 };
 

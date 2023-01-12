@@ -1,18 +1,16 @@
-import React, { useContext, useEffect, useMemo } from "react";
-import ContainerHeader from "../../components/header/ContainerHeader";
-import BreadCrum from "../../components/breadcrumb_background/Breadcrum";
-import Footer from "../../components/footer/Footer";
-import "./cart-page.css";
+import React, { useContext, useMemo } from "react";
 import ProductInCart from "./product-in-cart/ProductInCart";
 import context from "../../common/context";
 import { Link, useNavigate } from "react-router-dom";
-import feature_return_top from "../../features/feature_return_top";
+import "./cart-page.css";
+import { HISTORY } from "../../common/context/reducer/actions";
 
 const Cartpage = () => {
      const navigate = useNavigate();
      const consumer = useContext(context);
      const user_cart = consumer[0].user_cart;
      const user_account = consumer[0].user_account;
+     const dispatch = consumer[1];
 
      const total_price = useMemo(() => {
           let total = 0;
@@ -26,28 +24,31 @@ const Cartpage = () => {
           if (user_account) {
                navigate("/sea-furniture/payment");
           } else {
+               dispatch(HISTORY("/sea-furniture/payment"));
                navigate("/sea-furniture/sign/login");
+               dispatch(HISTORY(null));
           }
      };
-     useEffect(() => {
-          return () => {
-               feature_return_top();
-          };
-     }, []);
 
      return (
-          <div className="cart-page">
-               <ContainerHeader />
-               <BreadCrum />
-               <div className="container-content">
+          <>
+               <div className="container-content-cart-page">
                     <p className="title">Giỏ hàng của bạn</p>
                     {user_cart.length > 0 ? (
                          <div className="content has-products">
                               <div className="header">
-                                   <p>Sản phẩm</p>
-                                   <p>Giá</p>
-                                   <p>Số lượng</p>
-                                   <p>Thành tiền</p>
+                                   <p className="product">
+                                        <span>Sản phẩm</span>
+                                   </p>
+                                   <p className="price">
+                                        <span>Giá</span>
+                                   </p>
+                                   <p className="quantity">
+                                        <span>Số lượng</span>
+                                   </p>
+                                   <p className="total">
+                                        <span>Thành tiền</span>
+                                   </p>
                               </div>
                               <div className="container-products">
                                    {user_cart.map((item, index) => (
@@ -105,8 +106,7 @@ const Cartpage = () => {
                          </div>
                     )}
                </div>
-               <Footer />
-          </div>
+          </>
      );
 };
 

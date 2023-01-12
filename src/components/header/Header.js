@@ -86,10 +86,10 @@ const Header = () => {
                          </div>
                     )}
                     <div className="icon-cart">
-                         {user_cart.length > 0 && (
-                              <span>{user_cart.length}</span>
-                         )}
                          <Link to="/sea-furniture/cart">
+                              {user_cart.length > 0 && (
+                                   <span>{user_cart.length}</span>
+                              )}
                               <i className="fa-solid fa-cart-shopping main-color text-lg cursor-pointer"></i>
                          </Link>
                     </div>

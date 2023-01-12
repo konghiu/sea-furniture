@@ -30,10 +30,6 @@ export const VirtualServer = ({ environment = "test" }) => {
                this.get("/", (schema, request) => {
                     return schema.products.all();
                });
-               this.get("/:id", (schema, request) => {
-                    let id = request.params.id;
-                    return schema.products.find(id);
-               });
                this.post("/", (schema, request) => {
                     let attrs = JSON.parse(request.requestBody);
                     return schema.products.create(attrs);
@@ -50,9 +46,55 @@ export const VirtualServer = ({ environment = "test" }) => {
                });
 
                // users
-               this.namespace = "/api/users";
+               this.namespace = "http://localhost:3000/sea-furniture/api/users";
                this.get("/", (schema, request) => {
                     return schema.users.all();
+               });
+
+               this.post("/transaction/:id", (schema, request) => {
+                    let id = request.params.id;
+                    let order = JSON.parse(request.requestBody);
+                    let user = schema.users.findBy({ user_ID: Number(id) });
+                    user.transaction.push(order);
+                    return user;
+               });
+
+               this.post("/address/:id", (schema, request) => {
+                    let id = request.params.id;
+                    let address = JSON.parse(request.requestBody);
+                    let user = schema.users.findBy({ user_ID: Number(id) });
+                    user.user_list_address.push(address);
+                    return user;
+               });
+
+               this.post("/address/default/:id", (schema, request) => {
+                    let id = request.params.id;
+                    let reqIndex = JSON.parse(request.requestBody);
+                    let user = schema.users.findBy({ user_ID: Number(id) });
+
+                    user.attrs.user_list_address.forEach((address, index) => {
+                         if (index === reqIndex.index) {
+                              address.default = true;
+                         } else {
+                              address.default = false;
+                         }
+                    });
+
+                    return user;
+               });
+
+               this.post("/address/remove/:id", (schema, request) => {
+                    let id = request.params.id;
+                    let reqIndex = JSON.parse(request.requestBody);
+                    let user = schema.users.findBy({ user_ID: Number(id) });
+
+                    let next_list_address = user.attrs.user_list_address.filter(
+                         (item, index) => index !== reqIndex.index
+                    );
+                    user.update({
+                         user_list_address: next_list_address,
+                    });
+                    return user;
                });
 
                // news

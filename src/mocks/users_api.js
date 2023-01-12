@@ -10,6 +10,7 @@ const users_api = [
           password: "conghieudeptrai123",
           user_cart: [],
           user_list_address: [],
+          transaction: [],
      },
      {
           user_ID: 123456790,
@@ -20,6 +21,7 @@ const users_api = [
           password: "thaolynguyen.46",
           user_cart: [],
           user_list_address: [],
+          transaction: [],
      },
      {
           user_ID: 123456791,
@@ -30,6 +32,7 @@ const users_api = [
           password: "conghieudeptrai123",
           user_cart: [],
           user_list_address: [],
+          transaction: [],
      },
 ];
 

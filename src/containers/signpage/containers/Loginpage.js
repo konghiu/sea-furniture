@@ -7,6 +7,7 @@ import Input from "../comopnents/input/Input";
 
 const Loginpage = () => {
      const consumer = useContext(context);
+     const history = consumer[0].history;
      const dispatch = consumer[1];
 
      // direction
@@ -85,6 +86,11 @@ const Loginpage = () => {
                          // login
                          console.log("login...");
                          dispatch(USER_LOGIN(list_user[i]));
+                         // history
+                         if (history) {
+                              navigate(history);
+                              return;
+                         }
                          navigate("/sea-furniture/account");
                     } else {
                          return setWarning_password({
@@ -109,6 +115,7 @@ const Loginpage = () => {
                <Input
                     type="password"
                     placeholder="Mật khẩu"
+                    handleEnter={(sign) => sign && handleLogin()}
                     handleSetValue={(text) => setValuePassword(text)}
                     warning={warning_password}
                     handleRemoveWarning={(notify) =>

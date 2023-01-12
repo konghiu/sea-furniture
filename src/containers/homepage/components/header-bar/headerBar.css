@@ -121,7 +121,7 @@
      padding: 15px 0;
      width: 100%;
 }
-.nav .sub-menu-level0 .sub-link-level1:hover > a,
+.nav .sub-menu-level0 .sub-link-level1:hover,
 .nav .sub-menu-level1 .sub-link-level2:hover {
      color: var(--main-color);
 }

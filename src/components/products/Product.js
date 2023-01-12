@@ -1,69 +1,55 @@
-import React, { useEffect, useState } from "react";
-import BuyProduct from "./buy-product/BuyProduct";
-import QuickViewProduct from "./quick-view-product/QuickViewProduct";
+import React, { useContext } from "react";
 import "./product.css";
 import { useNavigate } from "react-router-dom";
+import context from "../../common/context";
+import {
+     BUYPRODUCT,
+     QUICKVIEWPRODUCT,
+} from "../../common/context/reducer/actions";
 
 const Product = (props) => {
      let item = props.item;
-     // console.log("item: ", item);
 
      const navigate = useNavigate();
+     const consumer = useContext(context);
+     const dispatch = consumer[1];
 
-     const [quick_view, set_quick_view] = useState(false);
-     const [buy_product, set_buy_product] = useState(false);
-
-     const handleCloseQuickView = (statementClose) => {
-          statementClose && set_quick_view(false);
+     const handleCloseQuickView = () => {
+          dispatch(QUICKVIEWPRODUCT(item));
      };
-     const handleCloseBuyProduct = (statementClose) => {
-          statementClose && set_buy_product(false);
+     const handleCloseBuyProduct = () => {
+          dispatch(
+               BUYPRODUCT({
+                    product: item,
+                    view: true,
+               })
+          );
      };
 
      return (
           <React.Fragment>
                {item ? (
                     <div className="product">
-                         {quick_view && (
-                              <QuickViewProduct
-                                   closeQuickView={(statementClose) =>
-                                        handleCloseQuickView(statementClose)
-                                   }
-                                   item={item}
-                              />
-                         )}
-                         {buy_product && (
-                              <BuyProduct
-                                   closeBuyProduct={(statementClose) =>
-                                        handleCloseBuyProduct(statementClose)
-                                   }
-                                   item={item}
-                              />
-                         )}
                          <div className="container-img">
                               <span
                                    className="banner-shadow"
-                                   onClick={(e) =>
+                                   onClick={() => {
                                         navigate(
-                                             `/sea-furniture/products/product/${item.alias}`
-                                        )
-                                   }
+                                             `/sea-furniture/products/product${item.url}`
+                                        );
+                                   }}
                               ></span>
                               <img src={item.images[0]} alt="" />
                               <div className="container-option">
                                    <span
                                         className="span"
-                                        onClick={() =>
-                                             set_quick_view(!quick_view)
-                                        }
+                                        onClick={() => handleCloseQuickView()}
                                    >
                                         <i className="fa-solid fa-eye"></i>
                                    </span>
                                    <span
                                         className="span"
-                                        onClick={() =>
-                                             set_buy_product(!buy_product)
-                                        }
+                                        onClick={() => handleCloseBuyProduct()}
                                    >
                                         <i className="fa-solid fa-cart-shopping"></i>
                                    </span>

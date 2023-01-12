@@ -1,62 +1,86 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import context from "../../common/context";
-import feature_return_top from "../../features/feature_return_top";
-import BackToTop from "../back-to-top/BackToTop";
-import Breadcrum from "../breadcrumb_background/Breadcrum";
-import Footer from "../footer/Footer";
-import ContainerHeader from "../header/ContainerHeader";
 import ComponentWaitLoad from "../loading/ComponentWaitLoad";
-import QuickViewProduct from "../products/quick-view-product/QuickViewProduct";
+import NotFound from "../not-found/component/NotFound";
+import ViewProduct from "../products/view-product/ViewProduct";
 import "./detail-product.css";
 
 const DetailProduct = () => {
      const consumer = useContext(context);
      const list_products = consumer[0].products_list;
 
-     const [data, setData] = useState(null);
+     const [product, setProduct] = useState();
+
+     // payload of URL
      const ID_product = useParams();
 
+     // show describe
+     const [isShowDescribe, setIsShowDescribe] = useState(true);
+
      useEffect(() => {
-          if (list_products) {
+          if (list_products && list_products.length > 0) {
                const export_item = list_products.filter(
                     (item) => item.alias === ID_product.product
                );
-               setData(export_item[0]);
+               if (export_item.length === 0) {
+                    setProduct(null);
+                    return;
+               }
+               setProduct(export_item[0]);
           }
      }, [ID_product, list_products]);
 
-     useEffect(() => {
-          feature_return_top();
-     }, []);
-
      return (
           <div className="detail-product">
-               <ContainerHeader />
-               <Breadcrum />
-               {data && data ? (
+               {product ? (
                     <div className="container">
-                         <QuickViewProduct item={data} />
+                         <ViewProduct view_product={product} />
                          <div className="describe-info">
                               <div className="container-title">
-                                   <p>Mô tả</p>
-                                   <p>thông tin</p>
+                                   <button
+                                        className={
+                                             isShowDescribe ? "clicked" : null
+                                        }
+                                        onClick={() => setIsShowDescribe(true)}
+                                   >
+                                        Mô tả
+                                   </button>
+                                   <button
+                                        className={
+                                             !isShowDescribe ? "clicked" : null
+                                        }
+                                        onClick={() => setIsShowDescribe(false)}
+                                   >
+                                        Thông tin
+                                   </button>
                               </div>
                               <div className="content">
-                                   <div
-                                        dangerouslySetInnerHTML={{
-                                             __html: data.content,
-                                        }}
-                                   ></div>
+                                   {isShowDescribe ? (
+                                        <div
+                                             dangerouslySetInnerHTML={{
+                                                  __html: product.content,
+                                             }}
+                                        ></div>
+                                   ) : (
+                                        <div>
+                                             <p>
+                                                  Thông tin đang được cập nhật.
+                                             </p>
+                                        </div>
+                                   )}
                               </div>
                          </div>
                     </div>
                ) : (
-                    <ComponentWaitLoad />
+                    <React.Fragment>
+                         {product === null ? (
+                              <NotFound />
+                         ) : (
+                              <ComponentWaitLoad />
+                         )}
+                    </React.Fragment>
                )}
-
-               <Footer />
-               <BackToTop />
           </div>
      );
 };

@@ -15,10 +15,14 @@ const SectionCategory = (props) => {
                <div className="account_list-category">
                     {list_category.map((item) => (
                          <Link
-                              to={item.url}
+                              to={item.url.replace("/", "")}
                               key={item.id}
+                              className="w-fit"
                               style={
-                                   location.pathname.includes(item.url)
+                                   location.pathname.replace(
+                                        "/sea-furniture/account",
+                                        ""
+                                   ) === item.url
                                         ? { color: "#f7941d" }
                                         : {}
                               }
@@ -31,4 +35,4 @@ const SectionCategory = (props) => {
      );
 };
 
-export default SectionCategory;
+export default React.memo(SectionCategory);

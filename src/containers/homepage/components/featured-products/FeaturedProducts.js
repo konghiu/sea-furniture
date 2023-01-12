@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import headerBar from "../header-bar/headerBar.json";
-import ghemauden from "../../../../assets/profile/ghemauden.webp";
-import "./featured-products.css";
-import { Link } from "react-router-dom";
-import Product from "../../../../components/products/Product";
+import ProductSale from "../pattern/ProductSale";
+import PatternFeatureHot from "../pattern/PatternFeatureHot";
+import ComponentWaitLoad from "../../../../components/loading/ComponentWaitLoad";
 
 const FeaturedProducts = (props) => {
      const [featured_products, setFeatured_products] = useState(null);
@@ -19,67 +17,30 @@ const FeaturedProducts = (props) => {
                          }
                     }
                }
-               const export_list = list.filter((item, index) => index < 8);
+               const export_list = list.filter((item, index) => index < 11);
                setFeatured_products(export_list);
           }
      }, [props.list_products]);
 
      return (
-          <div className="container-featured-products">
-               <div className="col-1">
-                    <div className="container-img">
-                         <img src={ghemauden} alt="" />
-                    </div>
-                    <div className="container-timer">
-                         <p>
-                              <span>324</span>
-                              <span>Năm</span>
-                         </p>
-                         <p>
-                              <span>27</span>
-                              <span>Ngày</span>
-                         </p>
-                         <p>
-                              <span>11</span>
-                              <span>Giờ</span>
-                         </p>
-                         <p>
-                              <span>14</span>
-                              <span>Giây</span>
-                         </p>
-                    </div>
-                    <div className="container-info-product">
-                         <p>Ghế Luxury</p>
-                         <p>Luxury</p>
-                         <p>
-                              570.000<sup>đ</sup>
-                         </p>
-                    </div>
-               </div>
-               <div className="col-2">
-                    <div className="col-2-1">
-                         <div className="topic">
-                              <p>SẢN PHẨM NỔI BẬT</p>
+          <div className="flex justify-between screen-width mt-16">
+               {featured_products ? (
+                    <React.Fragment>
+                         <ProductSale
+                              product={featured_products[0]}
+                              time={36000}
+                         />
+                         <div className="ml-10">
+                              <PatternFeatureHot
+                                   list_products={featured_products.filter(
+                                        (item, index) => index > 0
+                                   )}
+                              />
                          </div>
-                         <div className="categories">
-                              {headerBar[2].content.map((item, index) => (
-                                   <Link key={index} to={item.to}>
-                                        {item.title}
-                                   </Link>
-                              ))}
-                         </div>
-                         <div className="buttons-slide">
-                              <i className="fa-solid fa-chevron-left"></i>
-                              <i className="fa-solid fa-chevron-right"></i>
-                         </div>
-                    </div>
-                    <div className="col-2-2 grid grid-cols-4 grid-rows-2 gap-x-5 gap-y-9">
-                         {featured_products &&
-                              featured_products.map((item) => (
-                                   <Product key={item.id} item={item} />
-                              ))}
-                    </div>
-               </div>
+                    </React.Fragment>
+               ) : (
+                    <ComponentWaitLoad />
+               )}
           </div>
      );
 };

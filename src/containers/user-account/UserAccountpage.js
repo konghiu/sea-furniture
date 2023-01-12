@@ -1,17 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import ContainerHeader from "../../components/header/ContainerHeader";
-import BreadCrum from "../../components/breadcrumb_background/Breadcrum";
-import Footer from "../../components/footer/Footer";
 import ComponentWaitLoad from "../../components/loading/ComponentWaitLoad";
 import SectionCategory from "./section-category/SectionCategory";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import feature_return_top from "../../features/feature_return_top";
-import "./user-account-page.css";
+import { Link, Outlet } from "react-router-dom";
 import context from "../../common/context";
+import "./user-account-page.css";
 
 const UserAccountpage = () => {
-     const location = useLocation();
-
      const consumer = useContext(context);
      const account = consumer[0].user_account;
      const addresses = consumer[0].user_addresses;
@@ -27,16 +21,8 @@ const UserAccountpage = () => {
           }, 2500);
      }, []);
 
-     useEffect(() => {
-          return () => {
-               feature_return_top();
-          };
-     }, [location.pathname]);
-
      return (
           <div className="container-user-account">
-               <ContainerHeader />
-               <BreadCrum />
                <div className="content">
                     {account ? (
                          <React.Fragment>
@@ -44,7 +30,6 @@ const UserAccountpage = () => {
                               <Outlet
                                    context={{
                                         account,
-                                        addresses,
                                         dispatch,
                                    }}
                               />
@@ -60,7 +45,6 @@ const UserAccountpage = () => {
                          </p>
                     )}
                </div>
-               <Footer />
           </div>
      );
 };

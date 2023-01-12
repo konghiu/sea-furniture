@@ -1,11 +1,14 @@
-import React, { useContext, useEffect, useMemo } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import context from "../../common/context";
-import { CLEAR_PRODUCT } from "../../common/context/reducer/actions";
-import Breadcrum from "../../components/breadcrumb_background/Breadcrum";
-import Footer from "../../components/footer/Footer";
-import ContainerHeader from "../../components/header/ContainerHeader";
-import feature_return_top from "../../features/feature_return_top";
+import {
+     BUYPRODUCT,
+     CLEAR_PRODUCT,
+     NOTIFY_ADD,
+     USER_LOGIN,
+} from "../../common/context/reducer/actions";
+import ComponentWaitLoad from "../../components/loading/ComponentWaitLoad";
+import Loading from "../../components/loading/Loading";
 import "./payment-page.css";
 
 const Paymentpage = () => {
@@ -13,196 +16,248 @@ const Paymentpage = () => {
 
      const consumer = useContext(context);
      const dispatch = consumer[1];
+     const buy_product = consumer[0].buy_product;
      const user_cart = consumer[0].user_cart;
+     const account = consumer[0].user_account;
+
+     // thong tin nguoi dat hang
+     const [fullName, setFullName] = useState("");
+     const [phone, setPhone] = useState("");
+     const [address, setAddress] = useState("");
+     const [district, setDistrict] = useState("");
+     const [city, setCity] = useState("");
+     const [zip, setZip] = useState("");
+
+     // check allow
+     const [checkbox, setCheckbox] = useState(false);
+
+     const [products, setProducts] = useState(null);
+
+     // loading when payment
+     const [loading, setLoading] = useState(false);
 
      useEffect(() => {
-          if (user_cart.length <= 0) {
-               navigate("/sea-furniture/cart");
+          if (account && account.user_list_address.length > 0) {
+               let find = account.user_list_address.findIndex((item) => {
+                    return item.default === true;
+               });
+               const addressDefault = account.user_list_address[find];
+               setFullName(addressDefault.fullName);
+               setPhone(addressDefault.phone);
+               setAddress(addressDefault.address);
+               setDistrict(addressDefault.district);
+               setCity(addressDefault.city);
+               setZip(address.zip);
           }
-          return () => {
-               feature_return_top();
-          };
-     }, []);
+     }, [account.user_list_address]);
+
+     useEffect(() => {
+          if (user_cart.length <= 0 && buy_product === null) {
+               navigate("/sea-furniture/cart");
+          } else if (buy_product) {
+               setProducts([buy_product.product]);
+               dispatch(BUYPRODUCT(null));
+               return;
+          } else if (user_cart.length > 0) {
+               setProducts(user_cart);
+          }
+     }, [user_cart]);
 
      const totalPrice = useMemo(() => {
           let total = 0;
-          user_cart.forEach((item) => {
-               total += item.quantity * item.price;
-          });
+          if (products) {
+               products.forEach((item) => {
+                    total += item.quantity * item.price;
+               });
+          }
           return total;
-     }, [user_cart]);
+     }, [products]);
+
+     const handlePayment = () => {
+          setLoading(true);
+          if (
+               fullName === "" ||
+               phone === "" ||
+               address === "" ||
+               district === "" ||
+               city === ""
+          ) {
+               dispatch(
+                    NOTIFY_ADD({
+                         id: Math.floor(Math.random(1, 10) * 1000000),
+                         type: "error",
+                         message: "Yêu cầu điền đầy đủ thông tin trước khi mua hàng",
+                    })
+               );
+          } else {
+               if (checkbox === true) {
+                    const date = new Date();
+                    const day = date.getDay();
+                    const month = date.getMonth();
+                    const year = date.getFullYear();
+                    const create_order = {
+                         code: Math.floor(Math.random(1, 10) * 10000),
+                         date: `${day}/${month}/${year}`,
+                         address: `${address}, ${district}, ${city}`,
+                         totalPrice: totalPrice,
+                         paymentPrice: totalPrice,
+                         transferPrice: 0,
+                    };
+
+                    fetch("/api/users/transaction/" + account.user_ID, {
+                         method: "post",
+                         body: JSON.stringify(create_order),
+                    })
+                         .then((res) => res.json())
+                         .then((res) => {
+                              if (res.users) {
+                                   dispatch(USER_LOGIN(res.users));
+                                   dispatch(
+                                        NOTIFY_ADD({
+                                             id: Math.floor(
+                                                  Math.random(1, 10) * 1000000
+                                             ),
+                                             type: "success",
+                                             message: "Bạn đã đặt hàng thành công",
+                                        })
+                                   );
+                                   dispatch(CLEAR_PRODUCT());
+                              }
+                         });
+               } else {
+                    dispatch(
+                         NOTIFY_ADD({
+                              id: Math.floor(Math.random(1, 10) * 100),
+                              type: "error",
+                              message: "Bạn cần xác nhận thông tin",
+                         })
+                    );
+               }
+          }
+          setTimeout(() => {
+               setLoading(false);
+          }, 1000);
+     };
 
      return (
-          <div className="payment-page">
-               <ContainerHeader />
-               <Breadcrum />
-               <div className="content">
-                    <div id="form-wrapper">
-                         <div id="form-left-wrapper">
-                              <div id="form-tab-menu">
-                                   <div className="tab-menu-item current payment-tab">
-                                        Thanh toán
+          <>
+               {products && products.length > 0 ? (
+                    <div className="content-payment-page">
+                         {loading ? <Loading /> : null}
+                         <div className="address">
+                              <p className="title">Địa chỉ</p>
+                              <label>
+                                   Tên người nhận
+                                   <span className="text-red-500"> *</span>
+                              </label>
+                              <input
+                                   type="text"
+                                   value={fullName}
+                                   onChange={(e) => setFullName(e.target.value)}
+                              />
+                              <label>
+                                   Số điện thoại
+                                   <span className="text-red-500"> *</span>
+                              </label>
+                              <input
+                                   type="text"
+                                   value={phone}
+                                   onChange={(e) => setPhone(e.target.value)}
+                              />
+                              <label>
+                                   Địa chỉ
+                                   <span className="text-red-500"> *</span>
+                              </label>
+                              <input
+                                   type="text"
+                                   value={address}
+                                   onChange={(e) => setAddress(e.target.value)}
+                              />
+                              <label>
+                                   Quận / huyện
+                                   <span className="text-red-500"> *</span>
+                              </label>
+                              <input
+                                   type="text"
+                                   value={district}
+                                   onChange={(e) => setDistrict(e.target.value)}
+                              />
+                              <label>
+                                   Tỉnh / thành
+                                   <span className="text-red-500"> *</span>
+                              </label>
+                              <input
+                                   type="text"
+                                   value={city}
+                                   onChange={(e) => setCity(e.target.value)}
+                              />
+                              <label>Zip</label>
+                              <input
+                                   type="text"
+                                   value={zip}
+                                   onChange={(e) => setZip(e.target.value)}
+                              />
+                              <div className="flex justify-between mt-4">
+                                   <div className="flex items-center">
+                                        <input
+                                             type="checkbox"
+                                             className="mr-2"
+                                             checked={checkbox}
+                                             onChange={() =>
+                                                  setCheckbox(!checkbox)
+                                             }
+                                        />
+                                        <label>
+                                             Tôi cam kết các thông tin trên là
+                                             chính xác
+                                        </label>
                                    </div>
-                              </div>
-                              <div id="form-body">
-                                   <div id="shipping-body">
-                                        <div id="contact-details">
-                                             <div className="form-input input-small">
-                                                  <label>Họ và tên</label>
-                                                  <br />
-                                                  <input
-                                                       type="text"
-                                                       placeholder="Họ và tên"
-                                                       className="name-input"
-                                                  />
-                                             </div>
-                                             <div className="form-input input-small">
-                                                  <label>Số điện thoại</label>
-                                                  <br />
-                                                  <input
-                                                       type="number"
-                                                       placeholder="Số điện thoại"
-                                                       className="phone-input"
-                                                  />
-                                             </div>
-                                             <div className="form-input input-small">
-                                                  <label>E-mail</label>
-                                                  <br />
-                                                  <input
-                                                       type="email"
-                                                       placeholder="Email"
-                                                       className="email-input"
-                                                  />
-                                             </div>
-                                        </div>
-                                        <div className="hr"></div>
-                                        <div id="Address-details">
-                                             <div className="form-input input-small">
-                                                  <label>Contact Number</label>
-                                                  <br />
-                                                  <input
-                                                       type="number"
-                                                       name="company"
-                                                       placeholder="Contact Number"
-                                                       id="contact-input"
-                                                       className="number-input"
-                                                  />
-                                             </div>
-                                             <div className="form-input input-medium">
-                                                  <label>Street Address</label>
-                                                  <br />
-                                                  <input
-                                                       type="text"
-                                                       name="address"
-                                                       placeholder="Street Address"
-                                                       id="address-input"
-                                                       className="address-input"
-                                                  />
-                                             </div>
-                                             <div className="form-input input-small">
-                                                  <label>Country</label>
-                                                  <br />
-                                                  <input
-                                                       type="text"
-                                                       name="country"
-                                                       placeholder="Country"
-                                                       id="country-input"
-                                                       className="country-input"
-                                                  />
-                                             </div>
-                                             <div className="form-input input-small">
-                                                  <label>City</label>
-                                                  <br />
-                                                  <input
-                                                       type="text"
-                                                       name="city"
-                                                       placeholder="City"
-                                                       id="city-input"
-                                                       className="city-input"
-                                                  />
-                                             </div>
-                                             <div className="form-input input-small">
-                                                  <label>Post Code</label>
-                                                  <br />
-                                                  <input
-                                                       type="number"
-                                                       name="postcode"
-                                                       placeholder="Post Code"
-                                                       id="postcode-input"
-                                                       className="postcode-input"
-                                                  />
-                                             </div>
-                                             <div
-                                                  className="hr"
-                                                  Style="margin-bottom: 5px;"
-                                             ></div>
-                                             <div className="form-input-checkbox">
-                                                  <input
-                                                       type="checkbox"
-                                                       id="shipping-checkbox"
-                                                  />{" "}
-                                                  Cam kết những thông tin trên
-                                                  là chính xác.
-                                             </div>
-                                        </div>
-                                        <div id="form-submit">
-                                             <button
-                                                  onClick={() => {
-                                                       alert(
-                                                            "Bạn đã đặt hàng thành công"
-                                                       );
-                                                       dispatch(
-                                                            CLEAR_PRODUCT()
-                                                       );
-                                                       navigate(
-                                                            "/sea-furniture/homepage"
-                                                       );
-                                                  }}
-                                             >
-                                                  Next
-                                             </button>
-                                        </div>
-                                   </div>
+                                   <button onClick={() => handlePayment()}>
+                                        Mua hàng
+                                   </button>
                               </div>
                          </div>
-                         <div id="form-cart-menu">
-                              <div className="shopping-cart-head">
-                                   <h1 className="mb-5">Shopping Cart</h1>
-                                   <div>
-                                        {user_cart.map((item) => (
-                                             <div className="flex my-2 justify-between text-white">
-                                                  <div className="w-10 ">
-                                                       <img
-                                                            src={item.image}
-                                                            alt=""
-                                                       />
-                                                  </div>
-                                                  <div>
-                                                       <p>{item.name}</p>
-                                                       <p>{item.quantity}</p>
-                                                  </div>
-                                                  <div>
-                                                       <p>
-                                                            {item.price.toLocaleString()}
-                                                            <sup>đ</sup>
-                                                       </p>
-                                                  </div>
+                         <div className="cart">
+                              <p className="title">Đơn hàng của bạn</p>
+                              <div className="">
+                                   {products.map((item) => (
+                                        <div key={item.id} className="product">
+                                             <div className="w-20">
+                                                  <img
+                                                       src={
+                                                            item.image ||
+                                                            item.images[0]
+                                                       }
+                                                       alt=""
+                                                  />
                                              </div>
-                                        ))}
+                                             <div className="flex flex-col w-1/3 justify-around">
+                                                  <p className="name">
+                                                       {item.name}
+                                                  </p>
+                                                  <p className="quantity">
+                                                       {item.quantity}
+                                                  </p>
+                                             </div>
+                                             <div>
+                                                  <p>
+                                                       {item.price.toLocaleString()}
+                                                       <sup>đ</sup>
+                                                  </p>
+                                             </div>
+                                        </div>
+                                   ))}
+                                   <div className="flex justify-between px-4 mt-4">
+                                        <p>Tổng:</p>
+                                        <p>{totalPrice.toLocaleString()}</p>
                                    </div>
-                              </div>
-                              <div className="shopping-cart-total w-full flex justify-between">
-                                   <p className="cart-total">Tổng giá: </p>
-                                   <p className="">
-                                        {totalPrice.toLocaleString()}
-                                        <sup>đ</sup>
-                                   </p>
                               </div>
                          </div>
                     </div>
-               </div>
-               <Footer />
-          </div>
+               ) : (
+                    <ComponentWaitLoad />
+               )}
+          </>
      );
 };
 

@@ -1,0 +1,103 @@
+/* container product sale */
+.product-sale {
+     width: 344px;
+     border: 2px solid var(--main-color);
+     padding: 25px 20px;
+}
+.product-sale > .container-timer {
+     display: flex;
+     justify-content: center;
+     margin: 20px 0;
+}
+.product-sale > .container-timer > p {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     width: 65px;
+     height: 65px;
+     margin: 0 5px;
+     border-radius: 50%;
+     font-size: 14px;
+     font-weight: 500;
+     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2),
+          -2px -2px 15px rgba(255, 255, 255, 0.1);
+}
+
+.product-sale > .container-timer > p > span:nth-child(1) {
+     font-size: 24px;
+}
+.product-sale > .container-info-product {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.product-sale > .container-info-product > .name {
+     font-size: 18px;
+     font-weight: 500;
+     cursor: pointer;
+}
+.product-sale > .container-info-product > .name:hover {
+     color: var(--main-color);
+}
+.product-sale > .container-info-product p:nth-child(2) {
+     font-size: 16px;
+     color: #ccc;
+     margin: 10px 0;
+}
+.product-sale > .container-info-product p:nth-child(3) {
+     font-size: 24px;
+     color: var(--main-color);
+     font-weight: 500;
+     margin: 10px 0;
+}
+
+/* container topic and products  */
+.container-pattern {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+}
+/* container topic */
+
+.container-pattern > .row-1 .categories {
+     font-size: 14px;
+     font-weight: 500;
+     flex: 1;
+     display: flex;
+     justify-content: end;
+     margin-right: 4rem;
+}
+.container-pattern > .row-1 > .categories > a:hover {
+     color: var(--main-color);
+}
+
+.container-pattern > .row-1 > .categories > a {
+     margin-right: 20px;
+}
+
+/* container slide products */
+.container-pattern > .row-2 {
+     width: calc(var(--main-width) - 383px) !important;
+}
+.container-pattern > .row-2 .container-img {
+     width: 165px !important;
+     height: 165px !important;
+}
+.container-pattern .row-2 > .slick-list > .slick-track > .slick-slide > div {
+     margin-top: 1rem;
+}
+.container-pattern .row-2 .slick-arrow {
+     border-radius: 50%;
+     display: block;
+     position: absolute;
+     right: 0;
+     top: -2.5rem;
+}
+.container-pattern .row-2 .slick-arrow::before {
+     color: var(--main-color);
+}
+
+.container-pattern .row-2 .slick-prev {
+     left: calc(100% - 3rem);
+}

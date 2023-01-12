@@ -4,6 +4,10 @@ import "./input.css";
 const Input = (props) => {
      const [value, setValue] = useState("");
 
+     const handleEnter = () => {
+          props.handleEnter(true);
+     };
+
      useEffect(() => {
           props.handleSetValue(value);
      }, [value, props]);
@@ -37,6 +41,10 @@ const Input = (props) => {
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                     onFocus={(e) => handleRemoveWarning(e.target)}
+                    onKeyDown={(e) => {
+                         if (e.key === "Enter" && props.type === "password")
+                              handleEnter();
+                    }}
                />
                {props.type === "password" ? (
                     <i

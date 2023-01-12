@@ -1,28 +1,23 @@
-.sign-page {
+.content-signpage {
      display: flex;
      flex-direction: column;
      align-items: center;
-}
-.sign-page > .content {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     width: 30%;
+     width: 40%;
      padding: 75px 20px 50px;
 }
-.sign-page > .content .title {
+.content-signpage .title {
      font-size: 28px;
 }
-.sign-page > .content > .available-login {
+.content-signpage > .available-login {
      display: flex;
      margin: 20px;
 }
 
-.sign-page > .content > .available-login img {
+.content-signpage > .available-login img {
      height: 35px;
 }
 
-.sign-page > .content > .available-login img:nth-child(1) {
+.content-signpage > .available-login img:nth-child(1) {
      margin-right: 10px;
 }
 
@@ -48,7 +43,7 @@
 
 /* log out */
 .container-logout::after {
-     content: "";
+     content-signpage: "";
      position: fixed;
      top: 0;
      left: 0;

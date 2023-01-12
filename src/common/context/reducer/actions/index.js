@@ -91,3 +91,22 @@ export const PRODUCTSLIST = (payload) => {
           payload,
      };
 };
+
+export const QUICKVIEWPRODUCT = (payload) => {
+     return {
+          type: "QUICKVIEWPRODUCT",
+          payload,
+     };
+};
+export const BUYPRODUCT = (payload) => {
+     return {
+          type: "BUYPRODUCT",
+          payload,
+     };
+};
+export const HISTORY = (payload) => {
+     return {
+          type: "HISTORY",
+          payload,
+     };
+};

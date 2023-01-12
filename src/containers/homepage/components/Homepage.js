@@ -20,9 +20,7 @@ const Homepage = () => {
      const list_news = consumer[0].news_list;
 
      useEffect(() => {
-          return () => {
-               feature_return_top();
-          };
+          feature_return_top();
      }, []);
 
      return (

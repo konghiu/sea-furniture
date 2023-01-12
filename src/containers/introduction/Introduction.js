@@ -1,22 +1,9 @@
-import React, { useEffect } from "react";
-import Breadcrum from "../../components/breadcrumb_background/Breadcrum";
-import Footer from "../../components/footer/Footer";
-import ContainerHeader from "../../components/header/ContainerHeader";
-import BackToTop from "../../components/back-to-top/BackToTop";
+import React from "react";
 import "./introduction.css";
-import feature_return_top from "../../features/feature_return_top";
 
 const Introduction = () => {
-     useEffect(() => {
-          return () => {
-               feature_return_top();
-          };
-     }, []);
-
      return (
-          <div className="introduction">
-               <ContainerHeader />
-               <Breadcrum />
+          <>
                <div className="content-introduction">
                     <p className="title">Giới thiệu</p>
                     <div className="content">
@@ -49,10 +36,7 @@ const Introduction = () => {
                          </p>
                     </div>
                </div>
-               <Footer />
-               {/* back to top */}
-               <BackToTop />
-          </div>
+          </>
      );
 };
 

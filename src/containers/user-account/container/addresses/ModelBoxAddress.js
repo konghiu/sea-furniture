@@ -1,10 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import context from "../../../../common/context/";
-import { ADDRESSES_ADD } from "../../../../common/context/reducer/actions";
+import Loading from "../../../../components/loading/Loading";
+import {
+     ADDRESSES_ADD,
+     USER_LOGIN,
+} from "../../../../common/context/reducer/actions";
 import Input from "./Input";
 
 const ModelBoxAddress = (props) => {
      const consumer = useContext(context);
+     const account = consumer[0].user_account;
      const dispatch = consumer[1];
 
      const [closeModel, setCloseModel] = useState(false);
@@ -12,32 +17,52 @@ const ModelBoxAddress = (props) => {
      // address
      const [fullName, setFullName] = useState("");
      const [company, setCompany] = useState("");
-     const [address, setAddress] = useState("");
      const [phone, setPhone] = useState("");
+     const [address, setAddress] = useState("");
+     const [district, setDistrict] = useState("");
+     const [city, setCity] = useState("");
      const [zip, setZip] = useState("");
 
      // checkbox
      const [checkbox, setCheckbox] = useState(false);
+
+     // loading when handle anything
+     const [loading, setLoading] = useState(false);
 
      useEffect(() => {
           props.handleCloseModel(closeModel);
      }, [closeModel]);
 
      const handleAddAddress = () => {
+          setLoading(true);
           let address_ = {
+               id: account.user_list_address.length,
                fullName: fullName,
                company: company,
                address: address,
+               district: district,
+               city: city,
                phone: phone,
                zip: zip,
                default: checkbox,
           };
-          dispatch(ADDRESSES_ADD(address_));
+          // dispatch(ADDRESSES_ADD(address_));
+          fetch("/api/users/address/" + account.user_ID, {
+               method: "post",
+               body: JSON.stringify(address_),
+          })
+               .then((res) => res.json())
+               .then((res) => {
+                    if (res.users) {
+                         dispatch(USER_LOGIN(res.users));
+                    }
+               });
           setCloseModel(true);
      };
 
      return (
           <div className="model-address">
+               {loading ? <Loading /> : null}
                <span onClick={() => setCloseModel(true)}></span>
                <div className="container-content">
                     <div>
@@ -57,12 +82,20 @@ const ModelBoxAddress = (props) => {
                               handleSetText={(text) => setCompany(text)}
                          />
                          <Input
+                              title="Số điện thoại"
+                              handleSetText={(text) => setPhone(text)}
+                         />
+                         <Input
                               title="Địa chỉ"
                               handleSetText={(text) => setAddress(text)}
                          />
                          <Input
-                              title="Số điện thoại"
-                              handleSetText={(text) => setPhone(text)}
+                              title="Quận / huyện"
+                              handleSetText={(text) => setDistrict(text)}
+                         />
+                         <Input
+                              title="Tỉnh / thành"
+                              handleSetText={(text) => setCity(text)}
                          />
                          <Input
                               title="Mã Zip"
