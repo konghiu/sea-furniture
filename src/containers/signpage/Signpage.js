@@ -4,19 +4,20 @@ import button_fb from "../../assets/profile/fb-btn.svg";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./sign-page.css";
 import context from "../../common/context";
-import { NOTIFY_ADD, USER_LOGIN } from "../../common/context/reducer/actions";
+import { NOTIFY_ADD, USER_LOGOUT } from "../../common/context/reducer/actions";
 
 const Signpage = () => {
      const location = useLocation();
      const navigate = useNavigate();
      const consumer = useContext(context);
      const account = consumer[0].user_account;
+     const users_list = consumer[0].users_list;
      const notify_for_user = consumer[0].notify_for_user;
      const dispatch = consumer[1];
 
      useEffect(() => {
           if (location.pathname.includes("logout")) {
-               dispatch(USER_LOGIN(null));
+               dispatch(USER_LOGOUT(null));
                navigate("/sea-furniture/sign");
                return;
           }
@@ -64,7 +65,7 @@ const Signpage = () => {
                                    </div>
                               </React.Fragment>
                          )}
-                         <Outlet />
+                         <Outlet context={{ users_list, dispatch }} />
                     </div>
                ) : (
                     <div className="my-10">

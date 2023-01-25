@@ -4,7 +4,11 @@ import slugify from "react-slugify";
 import ComponentWaitLoad from "../../../components/loading/ComponentWaitLoad";
 import Loading from "../../../components/loading/Loading";
 import blank_avatar from "../../../assets/profile/blank_avatar.webp";
-import { NEWSLIST, NOTIFY_ADD } from "../../../common/context/reducer/actions";
+import {
+     NEWSCOMMENT,
+     NEWSLIST,
+     NOTIFY_ADD,
+} from "../../../common/context/reducer/actions";
 import "./component_style.css";
 
 const ContainerNewsSearch = () => {
@@ -49,6 +53,54 @@ const ContainerNewsSearch = () => {
      };
 
      const handleSendComment = () => {
+          // setIsLoading(true);
+          // if (!account) {
+          //      setTimeout(() => {
+          //           setIsLoading(false);
+          //           dispatch(
+          //                NOTIFY_ADD({
+          //                     id: notify_for_user.length * 10,
+          //                     type: "error",
+          //                     message: "Bạn cần đăng nhập để bình luận.",
+          //                })
+          //           );
+          //      }, 1000);
+          //      return;
+          // }
+          // if (content_comment !== "") {
+          //      fetch("/api/news/comment", {
+          //           method: "post",
+          //           body: JSON.stringify({
+          //                user_comment: {
+          //                     user_ID: account.user_ID,
+          //                     avatar: account.user_avatar
+          //                          ? account.user_avatar
+          //                          : null,
+          //                     user_name: account.user_name,
+          //                     comment: content_comment,
+          //                     like: 0,
+          //                },
+          //                id: indexNews,
+          //           }),
+          //      })
+          //           .then((res) => res.json())
+          //           .then((res) => {
+          //                dispatch(NEWSLIST(res));
+          //           });
+          //      setContent_comment("");
+          //      setIsLoading(false);
+          // } else {
+          //      setTimeout(() => {
+          //           setIsLoading(false);
+          //           dispatch(
+          //                NOTIFY_ADD({
+          //                     id: notify_for_user.length * 10,
+          //                     type: "error",
+          //                     message: "Bạn cần nhập nội dung bình luận.",
+          //                })
+          //           );
+          //      }, 1000);
+          // }
           setIsLoading(true);
           if (!account) {
                setTimeout(() => {
@@ -64,25 +116,19 @@ const ContainerNewsSearch = () => {
                return;
           }
           if (content_comment !== "") {
-               fetch("/api/news/comment", {
-                    method: "post",
-                    body: JSON.stringify({
-                         user_comment: {
-                              user_ID: account.user_ID,
-                              avatar: account.user_avatar
-                                   ? account.user_avatar
-                                   : null,
-                              user_name: account.user_name,
-                              comment: content_comment,
-                              like: 0,
-                         },
-                         id: indexNews,
-                    }),
-               })
-                    .then((res) => res.json())
-                    .then((res) => {
-                         dispatch(NEWSLIST(res));
-                    });
+               const payload = {
+                    user_comment: {
+                         user_ID: account.user_ID,
+                         avatar: account.user_avatar
+                              ? account.user_avatar
+                              : null,
+                         user_name: account.user_name,
+                         comment: content_comment,
+                         like: 0,
+                    },
+                    id: indexNews,
+               };
+               dispatch(NEWSCOMMENT(payload));
                setContent_comment("");
                setIsLoading(false);
           } else {

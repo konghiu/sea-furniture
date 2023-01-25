@@ -105,10 +105,10 @@ const Breadcrum = () => {
 
      return (
           <div className="breadcrum-background">
-               <p className="text-4xl font-semibold">
+               <p className="text-4xl font-semibold px-4 ">
                     {currentPage ? currentPage[currentPage.length - 1] : ""}
                </p>
-               <div className="flex items-center mt-3">
+               <div className="w-5/6 flex flex-wrap justify-center items-center mt-3">
                     <Link
                          to={"/sea-furniture/homepage"}
                          className="hover:underline cursor-pointer"

@@ -4,11 +4,32 @@ import { lists_section_policy } from "./lists-section-policy";
 
 const SectionPolicy = () => {
      const settings = {
-          dots: true,
-          infinite: true,
+          dots: false,
+          infinite: false,
+          arrows: false,
           speed: 500,
           slidesToShow: 4,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
+          responsive: [
+               {
+                    breakpoint: 1200,
+                    settings: {
+                         slidesToShow: 3,
+                    },
+               },
+               {
+                    breakpoint: 999,
+                    settings: {
+                         slidesToShow: 2,
+                    },
+               },
+               {
+                    breakpoint: 600,
+                    settings: {
+                         slidesToShow: 1,
+                    },
+               },
+          ],
      };
      return (
           <div className="section-policy">

@@ -8,7 +8,6 @@ import "./user-account-page.css";
 const UserAccountpage = () => {
      const consumer = useContext(context);
      const account = consumer[0].user_account;
-     const addresses = consumer[0].user_addresses;
      const dispatch = consumer[1];
      const [loading, setLoading] = useState(true);
 

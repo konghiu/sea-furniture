@@ -67,3 +67,9 @@
      color: var(--main-color);
      font-weight: 500;
 }
+
+@media only screen and (max-width: 999px) {
+     .product > .container-img:hover > .container-option > span {
+          display: none;
+     }
+}

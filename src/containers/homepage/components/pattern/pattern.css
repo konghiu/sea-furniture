@@ -1,4 +1,12 @@
+/* pattern */
+.pattern {
+     display: flex;
+     justify-content: space-between;
+     width: var(--main-width);
+     margin-top: 4rem;
+}
 /* container product sale */
+
 .product-sale {
      width: 344px;
      border: 2px solid var(--main-color);
@@ -77,7 +85,7 @@
 }
 
 /* container slide products */
-.container-pattern > .row-2 {
+.container-pattern {
      width: calc(var(--main-width) - 383px) !important;
 }
 .container-pattern > .row-2 .container-img {
@@ -100,4 +108,42 @@
 
 .container-pattern .row-2 .slick-prev {
      left: calc(100% - 3rem);
+}
+
+.mg-l-10 {
+     margin-left: 2.5rem;
+}
+.mg-r-10 {
+     margin-right: 2.5rem;
+}
+
+@media only screen and (max-width: 1199px) {
+     .container-pattern .row-2 .slick-arrow {
+          top: -1.5rem;
+     }
+}
+
+@media only screen and (max-width: 999px) {
+     .product-sale {
+          display: none;
+     }
+     .container-pattern {
+          width: calc(var(--main-width) - 100px) !important;
+     }
+     .mg-r-10,
+     .mg-l-10 {
+          margin: 0;
+     }
+     .container-pattern > .row-1 > .categories > a {
+          display: none;
+     }
+     .pattern {
+          justify-content: center;
+     }
+}
+
+@media only screen and (max-width: 765px) {
+     .container-pattern {
+          width: var(--main-width);
+     }
 }

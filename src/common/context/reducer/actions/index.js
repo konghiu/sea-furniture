@@ -1,7 +1,14 @@
-// action user's account
+// user's account
 export const USER_LOGIN = (payload) => {
      return {
           type: "account/login",
+          payload,
+     };
+};
+
+export const USER_REGISTER = (payload) => {
+     return {
+          type: "account/register",
           payload,
      };
 };
@@ -12,7 +19,35 @@ export const USER_LOGOUT = (payload) => {
      };
 };
 
-// action user's cart
+// change password
+export const CHANGE_PASSWORD = (payload) => {
+     return {
+          type: "account/changepassword",
+          payload,
+     };
+};
+
+// addresses
+export const ADDRESSES_ADD = (payload) => {
+     return {
+          type: "ADDRESSES/add",
+          payload,
+     };
+};
+export const ADDRESSES_CHANGE_DEFAULT = (payload) => {
+     return {
+          type: "ADDRESSES/changdefault",
+          payload,
+     };
+};
+export const ADDRESSES_REMOVE = (payload) => {
+     return {
+          type: "ADDRESSES/remove",
+          payload,
+     };
+};
+
+// user's cart
 export const ADD_PRODUCT = (payload) => {
      return {
           type: "ADD_PRODUCT",
@@ -47,31 +82,14 @@ export const UPDATE_DECREASE = (payload) => {
      };
 };
 
-// addresses
-export const ADDRESSES_ADD = (payload) => {
-     return {
-          type: "ADDRESSES/add",
-          payload,
-     };
-};
-export const ADDRESSES_CHANGE_DEFAULT = (payload) => {
-     return {
-          type: "ADDRESSES/changdefault",
-          payload,
-     };
-};
-export const ADDRESSES_REMOVE = (payload) => {
-     return {
-          type: "ADDRESSES/remove",
-          payload,
-     };
-};
+// notify
 export const NOTIFY_ADD = (payload) => {
      return {
           type: "NOTIFY/add",
           payload,
      };
 };
+
 export const NOTIFY_REMOVE = (payload) => {
      return {
           type: "NOTIFY/remove",
@@ -79,12 +97,22 @@ export const NOTIFY_REMOVE = (payload) => {
      };
 };
 
+// news
 export const NEWSLIST = (payload) => {
      return {
           type: "NEWSLIST",
           payload,
      };
 };
+
+export const NEWSCOMMENT = (payload) => {
+     return {
+          type: "news/comment",
+          payload,
+     };
+};
+
+// products
 export const PRODUCTSLIST = (payload) => {
      return {
           type: "PRODUCTSLIST",
@@ -92,6 +120,7 @@ export const PRODUCTSLIST = (payload) => {
      };
 };
 
+// view product
 export const QUICKVIEWPRODUCT = (payload) => {
      return {
           type: "QUICKVIEWPRODUCT",
@@ -104,6 +133,8 @@ export const BUYPRODUCT = (payload) => {
           payload,
      };
 };
+
+// history router
 export const HISTORY = (payload) => {
      return {
           type: "HISTORY",

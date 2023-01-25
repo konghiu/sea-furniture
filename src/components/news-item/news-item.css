@@ -1,6 +1,6 @@
 .container-news-item .container-img {
-     width: 345px;
-     height: 234px;
+     /* width: 345px;
+     height: 234px; */
      border-bottom: 20px solid white;
      position: relative;
      background-color: white;
@@ -33,3 +33,11 @@
      white-space: wrap;
      text-overflow: ellipsis;
 }
+
+/*293*/
+/* @media only screen and (max-width: 1199px) {
+     .container-news-item .container-img {
+          width: 293px;
+          height: 207px;
+     }
+} */

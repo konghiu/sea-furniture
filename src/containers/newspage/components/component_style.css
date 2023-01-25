@@ -128,3 +128,15 @@
 .share_comment > .comment button:hover {
      background-color: #d47500;
 }
+
+@media only screen and (max-width: 999px) {
+     .container-news-item {
+          grid-template-columns: repeat(2, 1fr) !important;
+     }
+}
+
+@media only screen and (max-width: 567px) {
+     .container-news-item {
+          grid-template-columns: 1fr !important;
+     }
+}

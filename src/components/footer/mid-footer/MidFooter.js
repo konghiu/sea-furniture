@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import hours24 from "../../../assets/profile/24-hours.svg";
 import logo from "../../../assets/profile/logo.webp";
-import headerBar from "../../../containers/homepage/components/header-bar/headerBar.json";
+import headerBar from "../../header/header-bar/headerBar.json";
 import { HEADERQUATERS, HOTLINE, EMAIL } from "../../../assets/auth/auth";
 
 const MidFooter = () => {
@@ -29,7 +29,7 @@ const MidFooter = () => {
                     <p className="phone">Hotline: {HOTLINE}</p>
                     <p className="email">Email: {EMAIL}</p>
                </div>
-               <div className="col-2">
+               <div className="col-2 float-left">
                     <p className="title">VỀ CHÚNG TÔI</p>
                     <ul className="content">
                          {headerBar.map((item, index) => {

@@ -48,6 +48,7 @@ const Productspage = () => {
      const [list_products, setList_products] = useState(null);
      const [isLoading, setIsLoading] = useState(true);
 
+     // category
      const [checkBrand, setCheckBrand] = useState(null);
      const [checkPrice, setCheckPrice] = useState(null);
      const [checkColor, setCheckColor] = useState(null);
@@ -141,9 +142,29 @@ const Productspage = () => {
           setIsLoading(false);
      }, [checkBrand, checkPrice, checkColor, totalProduct, numberPage]);
 
+     const handleOpenCategory = (notify) => {
+          const banner = document.querySelector(".open-category-mb-tb span");
+          const category = document.querySelector(".content .col-1");
+          if (notify) {
+               category.style = "right: 0;";
+               banner.style.display = "block";
+               return;
+          }
+          banner.style.display = "none";
+          category.style = "right: -100%;";
+     };
+
      return (
           <div className="container-products-page">
                <SectionCategory />
+               {/* open category on mobile tablet */}
+               <div className="open-category-mb-tb">
+                    <span onClick={() => handleOpenCategory(false)}></span>
+                    <i
+                         className="fa-solid fa-filter"
+                         onClick={() => handleOpenCategory(true)}
+                    ></i>
+               </div>
                <div className="content">
                     <div className="col-1">
                          {/* <CategoryPart /> */}

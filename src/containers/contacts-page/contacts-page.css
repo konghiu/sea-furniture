@@ -70,3 +70,33 @@
      flex: 1;
      padding-left: 25px;
 }
+
+@media only screen and (max-width: 1199px) {
+     .content-contacts-page {
+          flex-direction: column;
+     }
+     .content-contacts-page .col-1 {
+          width: var(--main-width);
+          display: flex;
+          margin-bottom: 2rem;
+     }
+     .content-contacts-page .col-1 > div {
+          width: 50%;
+     }
+     .content-contacts-page .col-1 .container-form-contacts p {
+          margin-top: 0;
+     }
+
+     .content-contacts-page .col-2 {
+          padding-left: 0;
+     }
+}
+
+@media only screen and (max-width: 765px) {
+     .content-contacts-page .col-1 {
+          flex-direction: column;
+     }
+     .content-contacts-page .col-1 > div {
+          width: 100%;
+     }
+}

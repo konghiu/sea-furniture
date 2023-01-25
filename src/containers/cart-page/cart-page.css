@@ -91,7 +91,7 @@
      > .totals
      > .checkout
      button {
-     margin-top: 25px;
+     margin: 25px 10px 0 0;
      padding: 10px 25px;
      font-size: 14px;
      font-weight: 500;
@@ -104,7 +104,6 @@
      > .totals
      > .checkout
      button:nth-child(2) {
-     margin-left: 20px;
      color: white;
      background-color: var(--main-color);
 }
@@ -123,4 +122,29 @@
      > .checkout
      button:nth-child(2):hover {
      background-color: orange;
+}
+
+@media only screen and (max-width: 765px) {
+     .container-content-cart-page > .has-products .header {
+          display: none;
+     }
+     .container-content-cart-page > .content {
+          border: none;
+     }
+}
+
+@media only screen and (max-width: 567px) {
+     .container-content-cart-page {
+          margin-top: 1rem;
+          margin-bottom: 0;
+     }
+     .container-content-cart-page
+          > .has-products
+          .container-totals
+          > .totals
+          > .checkout
+          button {
+          width: 100%;
+          margin: 10px 0;
+     }
 }

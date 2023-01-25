@@ -37,27 +37,34 @@ const ModelBoxAddress = (props) => {
           setLoading(true);
           let address_ = {
                id: account.user_list_address.length,
-               fullName: fullName,
+               fullName: fullName || account.user_name,
                company: company,
                address: address,
                district: district,
                city: city,
-               phone: phone,
+               phone: phone || account.user_phone,
                zip: zip,
                default: checkbox,
           };
-          // dispatch(ADDRESSES_ADD(address_));
-          fetch("/api/users/address/" + account.user_ID, {
-               method: "post",
-               body: JSON.stringify(address_),
-          })
-               .then((res) => res.json())
-               .then((res) => {
-                    if (res.users) {
-                         dispatch(USER_LOGIN(res.users));
-                    }
-               });
-          setCloseModel(true);
+          dispatch(
+               ADDRESSES_ADD({
+                    user_ID: account.user_ID,
+                    address: address_,
+               })
+          );
+          // fetch("/api/users/address/" + account.user_ID, {
+          //      method: "post",
+          //      body: JSON.stringify(address_),
+          // })
+          //      .then((res) => res.json())
+          //      .then((res) => {
+          //           if (res.users) {
+          //                dispatch(USER_LOGIN(res.users));
+          //           }
+          //      });
+          setTimeout(() => {
+               setCloseModel(true);
+          }, 500);
      };
 
      return (

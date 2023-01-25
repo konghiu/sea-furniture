@@ -1,5 +1,5 @@
 import React from "react";
-import headerBar from "../header-bar/headerBar.json";
+import headerBar from "../../../../components/header/header-bar/headerBar.json";
 import { Link } from "react-router-dom";
 import Product from "../../../../components/products/Product";
 import Slider from "react-slick";
@@ -13,6 +13,22 @@ const settings = {
      slidesToScroll: 4,
      rows: 2,
      arrows: true,
+     responsive: [
+          {
+               breakpoint: 1200,
+               settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+               },
+          },
+          {
+               breakpoint: 567,
+               settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+               },
+          },
+     ],
 };
 const PatternFeatureHot = (props) => {
      const list_products = props.list_products;

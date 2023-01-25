@@ -44,10 +44,11 @@ const ProductInCart = (props) => {
                          className="fa-solid fa-xmark cursor-pointer"
                          onClick={() => handleRemoveProductCart(item.image)}
                     ></i>
+                    <img src={item.image} alt="" />
                     <div>
-                         <img src={item.image} alt="" />
+                         <p>{item.name}</p>
+                         <p className="price-mobile">{item.price}</p>
                     </div>
-                    <p>{item.name}</p>
                </div>
                <div className="price">
                     <p>
@@ -73,6 +74,7 @@ const ProductInCart = (props) => {
                               ></i>
                          </div>
                     </div>
+                    <p>xoa</p>
                </div>
                <div className="total">
                     <p>

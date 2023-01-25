@@ -3,9 +3,9 @@ import { useOutletContext } from "react-router-dom";
 import "./user-cart-transaction.css";
 
 const UserCartTransaction = () => {
-     const contexts = useOutletContext();
+     const contextRouter = useOutletContext();
 
-     const account = contexts.account;
+     const account = contextRouter.account;
 
      return (
           <div className="cart-transaction">

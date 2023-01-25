@@ -24,8 +24,8 @@ export const VirtualServer = ({ environment = "test" }) => {
           },
           routes() {
                // products
-               this.namespace = "api/products";
-               this.urlPrefix = "https://github.com/hieudevelopment";
+               this.namespace = "/api/products";
+               this.urlPrefix = "http://localhost:3000";
 
                this.get("/", (schema, request) => {
                     return schema.products.all();
@@ -46,7 +46,7 @@ export const VirtualServer = ({ environment = "test" }) => {
                });
 
                // users
-               this.namespace = "http://localhost:3000/sea-furniture/api/users";
+               this.namespace = "api/users";
                this.get("/", (schema, request) => {
                     return schema.users.all();
                });
@@ -98,7 +98,8 @@ export const VirtualServer = ({ environment = "test" }) => {
                });
 
                // news
-               this.namespace = "/api/news";
+               this.namespace = "api/news";
+
                this.get("/", (schema, request) => {
                     return schema.news.all();
                });

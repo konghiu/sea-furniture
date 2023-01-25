@@ -11,6 +11,27 @@ const settings = {
      slidesToShow: 5,
      slidesToScroll: 3,
      arrows: true,
+     responsive: [
+          {
+               breakpoint: 1200,
+               settings: {
+                    slidesToShow: 4,
+               },
+          },
+          {
+               breakpoint: 999,
+               settings: {
+                    slidesToShow: 3,
+               },
+          },
+          {
+               breakpoint: 765,
+               settings: {
+                    slidesToScroll: 2,
+                    slidesToShow: 2,
+               },
+          },
+     ],
 };
 
 const NewProducts = (props) => {

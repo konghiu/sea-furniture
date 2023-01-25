@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../../../components/header/Header";
 import "../style/homepage.css";
-import HeaderBar from "./header-bar/HeaderBar";
+import HeaderBar from "../../../components/header/header-bar/HeaderBar";
 import SectionCategory from "../../../components/section-category/SectionCategory";
 import FeaturedProducts from "./featured-products/FeaturedProducts";
 import BannerAdvertiseOne from "./banner-adv/BannerAdvertiseOne";
@@ -26,7 +26,7 @@ const Homepage = () => {
      return (
           <div className="homepage">
                <div className="homepage-banner">
-                    <div className="screen-width">
+                    <div className="flex flex-col items-center">
                          <Header />
                          <HeaderBar />
                     </div>

@@ -1,13 +1,8 @@
-import { useEffect } from "react";
-import { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import context from "./common/context";
-import { NEWSLIST, PRODUCTSLIST } from "./common/context/reducer/actions";
 import DetailProduct from "./components/detail-product/DetailProduct";
 import NotFound from "./components/not-found/component/NotFound";
 import Notpage from "./components/not-found/Notpage";
 import BuyProduct from "./components/products/buy-product/BuyProduct";
-import useFetch from "./config/useFetch";
 import Cartpage from "./containers/cart-page/Cartpage";
 import Contactspage from "./containers/contacts-page/Contactspage";
 import Homepage from "./containers/homepage/components/Homepage";
@@ -30,22 +25,18 @@ import UserAccountpage from "./containers/user-account/UserAccountpage";
 import SeaFurniture from "./SeaFurniture";
 
 const Routers = () => {
-     const consumer = useContext(context);
-     const dispatch = consumer[1];
+     // const consumer = useContext(context);
+     // const dispatch = consumer[1];
 
-     const news_api = useFetch(
-          "https://konghiu.github.io/sea-furniture/api/news"
-     );
-     const products_api = useFetch(
-          "https://konghiu.github.io/sea-furniture/api/products"
-     );
+     // const news_api = useFetch("/api/news");
+     // const products_api = useFetch("/api/products");
 
-     useEffect(() => {
-          if (news_api && products_api) {
-               dispatch(NEWSLIST(news_api.news));
-               dispatch(PRODUCTSLIST(products_api.products));
-          }
-     }, [news_api, products_api]);
+     // useEffect(() => {
+     //      if (news_api && products_api) {
+     //           dispatch(NEWSLIST(news_api.news));
+     //           dispatch(PRODUCTSLIST(products_api.products));
+     //      }
+     // }, [news_api, products_api]);
 
      return (
           <Router>

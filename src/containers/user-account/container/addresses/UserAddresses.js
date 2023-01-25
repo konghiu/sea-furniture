@@ -1,15 +1,19 @@
 import React, { useContext, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import { USER_LOGIN } from "../../../../common/context/reducer/actions";
+import {
+     ADDRESSES_CHANGE_DEFAULT,
+     ADDRESSES_REMOVE,
+     USER_LOGIN,
+} from "../../../../common/context/reducer/actions";
 import ModelBoxAddress from "./ModelBoxAddress";
-import context from "../../../../common/context";
 import "./addresses.css";
 import Loading from "../../../../components/loading/Loading";
 
 const UserAddresses = () => {
-     const contexts = useOutletContext();
-     const consumer = useContext(context);
-     const dispatch = consumer[1];
+     const contextRouter = useOutletContext();
+     const account = contextRouter.account;
+     const dispatch = contextRouter.dispatch;
+     console.log(account);
 
      const [openModel, setOpenModel] = useState(false);
 
@@ -18,40 +22,52 @@ const UserAddresses = () => {
 
      const handleChoseDefault = (index) => {
           setLoading(true);
-          fetch("/api/users/address/default/" + contexts.account.user_ID, {
-               method: "post",
-               body: JSON.stringify({
-                    index: index,
-               }),
-          })
-               .then((res) => res.json())
-               .then((res) => {
-                    if (res.users) {
-                         dispatch(USER_LOGIN(res.users));
-                    }
-               });
+          // fetch("/api/users/address/default/" + account.user_ID, {
+          //      method: "post",
+          //      body: JSON.stringify({
+          //           index: index,
+          //      }),
+          // })
+          //      .then((res) => res.json())
+          //      .then((res) => {
+          //           if (res.users) {
+          //                dispatch(USER_LOGIN(res.users));
+          //           }
+          //      });
           setTimeout(() => {
+               dispatch(
+                    ADDRESSES_CHANGE_DEFAULT({
+                         user_ID: account.user_ID,
+                         index_adr: index,
+                    })
+               );
                setLoading(false);
           }, 500);
      };
 
      const handleRemoveAddress = (index) => {
           setLoading(true);
-          fetch("/api/users/address/remove/" + contexts.account.user_ID, {
-               method: "post",
-               body: JSON.stringify({
-                    index: index,
-               }),
-          })
-               .then((res) => res.json())
-               .then((res) => {
-                    if (res.users) {
-                         dispatch(USER_LOGIN(res.users));
-                    }
-               });
           setTimeout(() => {
+               dispatch(
+                    ADDRESSES_REMOVE({
+                         user_ID: account.user_ID,
+                         index_adr: index,
+                    })
+               );
                setLoading(false);
           }, 500);
+          // fetch("/api/users/address/remove/" + account.user_ID, {
+          //      method: "post",
+          //      body: JSON.stringify({
+          //           index: index,
+          //      }),
+          // })
+          //      .then((res) => res.json())
+          //      .then((res) => {
+          //           if (res.users) {
+          //                dispatch(USER_LOGIN(res.users));
+          //           }
+          //      });
      };
 
      return (
@@ -64,50 +80,44 @@ const UserAddresses = () => {
                     </button>
                </div>
                <div className="row-2">
-                    {contexts.account.user_list_address.length > 0 ? (
+                    {account.user_list_address.length > 0 ? (
                          <div className="addresses">
-                              {contexts.account.user_list_address.map(
-                                   (item, index) => (
+                              {account.user_list_address.map(
+                                   (info_adr, index) => (
                                         <div className="address" key={index}>
                                              <ul>
                                                   <li>
                                                        <span>Họ tên: </span>
-                                                       {item.fullName !== ""
-                                                            ? item.fullName
-                                                            : contexts.account
-                                                                   .user_name}
+                                                       {info_adr.fullName}
                                                   </li>
-                                                  {item.company !== "" ? (
+                                                  {info_adr.company !== "" ? (
                                                        <li>
                                                             <span>
                                                                  Địa chỉ:{" "}
                                                             </span>
-                                                            {item.company}
+                                                            {info_adr.company}
                                                        </li>
                                                   ) : null}
-                                                  {item.address !== "" ? (
+                                                  {info_adr.address !== "" ? (
                                                        <li>
                                                             <span>
                                                                  Địa chỉ:{" "}
                                                             </span>
-                                                            {item.address}
+                                                            {info_adr.address}
                                                        </li>
                                                   ) : null}
                                                   <li>
                                                        <span>
                                                             Số điện thoại:{" "}
                                                        </span>
-                                                       {item.phone !== ""
-                                                            ? item.phone
-                                                            : contexts.account
-                                                                   .user_phone}
+                                                       {info_adr.phone}
                                                   </li>
-                                                  {item.zip !== "" ? (
+                                                  {info_adr.zip !== "" ? (
                                                        <li>
                                                             <span>
                                                                  Mã Zip:{" "}
                                                             </span>
-                                                            {item.zip}
+                                                            {info_adr.zip}
                                                        </li>
                                                   ) : null}
                                              </ul>
@@ -129,7 +139,7 @@ const UserAddresses = () => {
                                                        <input
                                                             type="checkbox"
                                                             checked={
-                                                                 item.default
+                                                                 info_adr.default
                                                             }
                                                             onChange={() =>
                                                                  handleChoseDefault(

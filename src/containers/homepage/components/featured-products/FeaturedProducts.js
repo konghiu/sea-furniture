@@ -23,20 +23,20 @@ const FeaturedProducts = (props) => {
      }, [props.list_products]);
 
      return (
-          <div className="flex justify-between screen-width mt-16">
+          <div className="pattern">
                {featured_products ? (
                     <React.Fragment>
-                         <ProductSale
-                              product={featured_products[0]}
-                              time={36000}
-                         />
-                         <div className="ml-10">
-                              <PatternFeatureHot
-                                   list_products={featured_products.filter(
-                                        (item, index) => index > 0
-                                   )}
+                         <div className="mg-r-10">
+                              <ProductSale
+                                   product={featured_products[0]}
+                                   time={36000}
                               />
                          </div>
+                         <PatternFeatureHot
+                              list_products={featured_products.filter(
+                                   (item, index) => index > 0
+                              )}
+                         />
                     </React.Fragment>
                ) : (
                     <ComponentWaitLoad />

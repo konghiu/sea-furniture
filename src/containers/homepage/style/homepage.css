@@ -35,7 +35,7 @@
 }
 .homepage .homepage-banner {
      position: relative;
-     width: 100%;
+     width: 100vw;
      height: 100vh;
      display: flex;
      flex-direction: column;
@@ -45,4 +45,19 @@
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
+}
+
+@media only screen and (max-width: 1199px) {
+     .homepage .container-topic {
+          margin: 0 0 0.5rem;
+     }
+     .homepage .container-topic > .topic {
+          font-size: 16px;
+          padding: 20px 25px;
+          /* padding: 25px 40px; */
+          height: 30px;
+     }
+     .homepage .homepage-banner {
+          height: 500px;
+     }
 }

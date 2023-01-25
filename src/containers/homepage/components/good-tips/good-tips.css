@@ -1,23 +1,21 @@
 .good-tips {
      width: var(--main-width);
      margin: 50px 0;
-     overflow: hidden;
 }
 
 .good-tips > .col-1 {
      margin-bottom: 2rem !important;
 }
-.good-tips > .col-2 .slick-track {
-     width: 2000px !important;
+.good-tips > .col-2 {
+     width: var(--main-width) !important;
 }
 .good-tips > .col-2 .slick-slide {
-     width: 345px !important;
-}
-.good-tips > .col-2 .slick-slide {
-     margin-right: 2rem;
+     width: calc((var(--main-width) / 3)) !important;
+     padding: 0 1rem;
+     /* padding-right: 2rem; */
 }
 .good-tips > .col-2 .slick-slide .container-img {
-     width: 345px !important;
+     width: 100% !important;
 }
 .good-tips > .col-2 .slick-arrow {
      border-radius: 50%;
@@ -32,4 +30,20 @@
 
 .good-tips > .col-2 .slick-prev {
      left: calc(100% - 3rem);
+}
+
+@media only screen and (max-width: 1199px) {
+     /* .good-tips > .col-2 .slick-slide {
+          width: calc(var(--main-width) / 3) !important;
+     } */
+}
+@media only screen and (max-width: 999px) {
+     .good-tips > .col-2 .slick-slide {
+          width: calc(var(--main-width) / 2) !important;
+     }
+}
+@media only screen and (max-width: 765px) {
+     .good-tips > .col-2 .slick-slide {
+          width: calc(var(--main-width) / 4) !important;
+     }
 }

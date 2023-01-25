@@ -11,9 +11,10 @@ import "./pattern.css";
 
 const settings = {
      dots: false,
+     arrows: false,
      infinite: false,
      speed: 500,
-     // slidesToShow: 2,
+     slidesToShow: 3,
      slidesToScroll: 1,
 };
 
@@ -84,12 +85,7 @@ const Pattern = (props) => {
                                         </div>
                                         {item.images.length !== 1 ? (
                                              <div className="more-view-wrapper">
-                                                  <Slider
-                                                       {...settings}
-                                                       slidesToShow={
-                                                            item.images.length
-                                                       }
-                                                  >
+                                                  <Slider {...settings}>
                                                        {item.images.map(
                                                             (img, index) => (
                                                                  <div

@@ -1,6 +1,6 @@
 import React from "react";
 import headerBar from "./headerBar.json";
-import { HOTLINE } from "../../../../assets/auth/auth";
+import { HOTLINE } from "../../../assets/auth/auth";
 import { Link, useLocation } from "react-router-dom";
 import "./headerBar.css";
 
@@ -8,12 +8,17 @@ const HeaderBar = () => {
      const location = useLocation();
 
      return (
-          <div className="flex justify-between items-center">
+          <div className="header-bar flex justify-between">
                <div className="block-title">
                     <div className="container-bars">
                          <span className="bars"></span>
                     </div>
                     <h4>DANH MỤC SẢN PHẨM</h4>
+                    <div className="nav-mobile">
+                         <div>
+                              <i className="fa-solid fa-magnifying-glass"></i>
+                         </div>
+                    </div>
                </div>
                <ul className="nav">
                     {headerBar.map((item, index) => {

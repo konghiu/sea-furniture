@@ -1,14 +1,22 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import Input from "../comopnents/input/Input";
 import {
      validEmailOrPhone,
      validPassword,
      validUserName,
 } from "../../../features/feature_regex_sign/feature_regex_sign.js";
+import { USER_REGISTER } from "../../../common/context/reducer/actions";
+import Loading from "../../../components/loading/Loading";
 
 const Registerpage = () => {
      const navigate = useNavigate();
+
+     const contextRouter = useOutletContext();
+     const users_list = contextRouter.users_list;
+     const dispatch = contextRouter.dispatch;
+
+     const [loading, setLoading] = useState(false);
 
      const [valueUsername, setValueUsername] = useState("");
      const [valueEmail, setValueEmail] = useState("");
@@ -21,69 +29,81 @@ const Registerpage = () => {
      const [warning_password, setWarning_password] = useState(null);
 
      const handleValidInfoUser = async () => {
+          let createUser = {
+               user_ID: 0,
+               user_avatar: null,
+               user_name: valueUsername,
+               user_email: valueEmail,
+               user_phone: valuePhone,
+               password: valuePassword,
+               user_cart: [],
+               user_list_address: [],
+               transaction: [],
+          };
+
           let allowedUsername;
           let allowEmail;
           let allowedPhone;
           let allowedPassword;
 
-          let counter = 0;
-
           allowedUsername = validUserName(valueUsername);
-          setWarning_username(allowedUsername);
 
-          if (!allowedUsername.allowed) return;
-          ++counter;
+          // return neu ten sai cu phap
+          if (!allowedUsername.allowed)
+               return setWarning_username(allowedUsername);
 
           allowEmail = validEmailOrPhone(valueEmail);
-          setWarning_email(allowEmail);
 
-          if (!allowEmail.allowed) return;
-          ++counter;
+          // return neu email trung hoac sai cu phap
+          if (!allowEmail.allowed) return setWarning_email(allowEmail);
 
           allowedPhone = validEmailOrPhone(valuePhone);
-          setWarning_phone(allowedPhone);
 
-          if (!allowedPhone.allowed) return;
-          ++counter;
+          // return neu phone trung hoac sai cu phap
+          if (!allowedPhone.allowed) return setWarning_phone(allowedPhone);
 
           allowedPassword = validPassword(valuePassword);
-          setWarning_password(allowedPassword);
-          ++counter;
 
-          await fetch("/api/users", {
-               method: "get",
-          })
-               .then((res) => res.json())
-               .then((res) => {
-                    for (let i = 0; i < res.users.length; i++) {
-                         if (res.users[i].user_email === valueEmail) {
-                              setWarning_email({
-                                   allowed: false,
-                                   message: "Email đã được dùng đăng ký.",
-                              });
-                              --counter;
-                              return;
-                         } else if (res.users[i].user_phone === valuePhone) {
-                              setWarning_phone({
-                                   allowed: false,
-                                   message: "Số điện thoại đã được dùng đăng ký.",
-                              });
-                              --counter;
-                              return;
-                         }
-                    }
-               });
+          // return neu password sai cu phap
+          if (!allowedPassword.allowed)
+               return setWarning_password(allowedPassword);
 
-          if (counter === 4) {
-               console.log("login success...");
-               navigate("/sea-furniture/account");
-               return;
+          // await fetch("/api/users", {
+          //      method: "get",
+          // })
+          //      .then((res) => res.json())
+          //      .then((res) => {
+          setLoading(true);
+          for (let i = 0; i < users_list.length; i++) {
+               if (users_list[i].user_email === valueEmail) {
+                    setWarning_email({
+                         allowed: false,
+                         message: "Email đã được dùng đăng ký.",
+                    });
+                    setLoading(false);
+                    return;
+               } else if (users_list[i].user_phone === valuePhone) {
+                    setWarning_phone({
+                         allowed: false,
+                         message: "Số điện thoại đã được dùng đăng ký.",
+                    });
+                    setLoading(false);
+                    return;
+               }
           }
-          console.log("login failed...");
+          // });
+
+          dispatch(USER_REGISTER(createUser));
+          setTimeout(() => {
+               setLoading(false);
+               navigate("/sea-furniture/sign/login");
+          }, 1000);
+          return;
      };
 
      return (
           <React.Fragment>
+               {loading && <Loading />}
                <Input
                     type="text"
                     placeholder="Họ và tên"

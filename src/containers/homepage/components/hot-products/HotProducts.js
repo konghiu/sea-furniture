@@ -23,7 +23,7 @@ const HotProducts = (props) => {
      }, [props.list_products]);
 
      return (
-          <div className="flex justify-between screen-width mt-16">
+          <div className="pattern">
                {hot_products ? (
                     <React.Fragment>
                          <PatternFeatureHot
@@ -31,7 +31,7 @@ const HotProducts = (props) => {
                                    (item, index) => index > 0
                               )}
                          />
-                         <div className="ml-10">
+                         <div className="mg-l-10">
                               <ProductSale
                                    product={hot_products[0]}
                                    time={179800}
