@@ -1,5 +1,6 @@
 .header-bar {
      width: 100%;
+     z-index: 3;
 }
 .block-title {
      display: flex;
@@ -49,7 +50,9 @@
      padding-left: 75px;
      z-index: 10;
 }
-
+.nav > div {
+     display: none;
+}
 .nav > li > a {
      font-size: 15px;
      position: relative;
@@ -108,15 +111,11 @@
 .nav .sub-menu-level0 {
      width: 220%;
 }
-.nav .sub-menu-level1 {
-     width: 120%;
-}
 .nav .sub-link:hover > .sub-menu {
      display: block;
 }
 
-.nav .sub-menu-level0 .sub-link-level1,
-.nav .sub-menu-level1 .sub-link-level2 {
+.nav .sub-menu-level0 .sub-link-level1 {
      position: relative;
      display: flex;
      justify-content: space-between;
@@ -124,12 +123,10 @@
      padding: 15px 0;
      width: 100%;
 }
-.nav .sub-menu-level0 .sub-link-level1:hover,
-.nav .sub-menu-level1 .sub-link-level2:hover {
+.nav .sub-menu-level0 .sub-link-level1:hover {
      color: var(--main-color);
 }
-.nav .sub-menu-level0 .sub-link-level1:not(:last-child)::after,
-.nav .sub-menu-level1 .sub-link-level2:not(:last-child)::after {
+.nav .sub-menu-level0 .sub-link-level1:not(:last-child)::after {
      border-bottom: 1px solid var(--main-color);
      content: "";
      width: 100%;
@@ -175,8 +172,40 @@
      .header-bar .block-title h4 {
           display: none;
      }
-     .header-bar .nav {
+     .header-bar > .banner {
           display: none;
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          background-color: black;
+          opacity: 0.5;
+     }
+     /* container logo */
+     .header-bar .nav > div {
+          display: flex;
+          justify-content: center;
+          margin: 20px;
+          margin-bottom: 0;
+          z-index: 10;
+     }
+     .header-bar .nav > div img {
+          width: 120px;
+     }
+     .header-bar .nav {
+          flex-direction: column;
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: calc(var(--main-width) / 3);
+          height: 100%;
+          transform: translateX(calc(-200%));
+          border-right: 2px solid var(--main-color);
+          background-color: white;
+          padding-left: 0;
+          transition: all 0.25s linear;
+          z-index: 82;
      }
      .header-bar .hotline {
           display: none;
@@ -196,5 +225,11 @@
      }
      .nav-mobile i {
           font-size: 1rem;
+     }
+}
+
+@media only screen and (max-width: 567px) {
+     .header-bar .nav {
+          width: 75%;
      }
 }

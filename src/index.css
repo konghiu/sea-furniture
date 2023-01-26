@@ -21,6 +21,7 @@ textarea {
      --main-color: #f7941d;
      --sub-color: #000084;
      --main-width: 1100px;
+     --gap-component: 50px;
 }
 /* custom css */
 .screen-width {
@@ -67,5 +68,6 @@ textarea {
      }
      :root {
           --main-width: 100%;
+          --gap-component: 1rem;
      }
 }

@@ -2,7 +2,7 @@
 .banner-adv-2 {
      display: flex;
      justify-content: space-between;
-     margin-top: 75px;
+     margin-top: var(--gap-component);
      width: var(--main-width);
 }
 .banner-adv-2 {
@@ -39,7 +39,7 @@
 
 .banner-adv-1 > div > p {
      position: relative;
-     padding: 10px 50px;
+     padding: 10px var(--gap-component);
      font-size: 18px;
      z-index: 10;
 }

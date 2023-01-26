@@ -134,6 +134,9 @@
 .container-addresses > .model-address > .container-content .container-button {
      margin-bottom: 20px;
 }
+.model-address .container-checkbox label {
+     margin-left: 10px;
+}
 .container-button button {
      padding: 5px 20px;
      border-width: 1px;
@@ -156,4 +159,37 @@
 }
 .container-button button:last-child:hover {
      opacity: 0.75;
+}
+
+@media only screen and (max-width: 999px) {
+     .container-addresses > .model-address > .container-content {
+          width: 75%;
+     }
+}
+
+@media only screen and (max-width: 567px) {
+     .container-addresses .container-content {
+          padding: 1rem;
+     }
+     .container-addresses > .model-address > .container-content {
+          position: fixed;
+          width: 100%;
+          overflow-y: scroll;
+          height: 100%;
+     }
+     .container-addresses > .model-address > .container-content > div {
+          padding: 0;
+     }
+     .container-addresses .accept_buy {
+          display: flex;
+          flex-direction: column;
+          margin-top: 1rem;
+     }
+     .container-button {
+          margin-top: 1rem;
+     }
+     .container-addresses > .model-address .container-input {
+          padding: 15px 15px 5px;
+          margin: 10px 0;
+     }
 }

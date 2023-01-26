@@ -1,17 +1,34 @@
 import React from "react";
 import headerBar from "./headerBar.json";
 import { HOTLINE } from "../../../assets/auth/auth";
-import { Link, useLocation } from "react-router-dom";
+import logo from "../../../assets/profile/logo.webp";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./headerBar.css";
 
 const HeaderBar = () => {
      const location = useLocation();
+     const navigate = useNavigate();
+
+     const handleOpenNav = (notify) => {
+          const nav = document.querySelector(".header-bar .nav");
+          const banner = document.querySelector(".header-bar .banner");
+          if (notify) {
+               nav.style.transform = "translateX(0)";
+               banner.style.display = "block";
+               return;
+          }
+          nav.style.transform = "translateX(calc(-200%))";
+          banner.style.display = "none";
+     };
 
      return (
           <div className="header-bar flex justify-between">
                <div className="block-title">
                     <div className="container-bars">
-                         <span className="bars"></span>
+                         <span
+                              className="bars"
+                              onClick={() => handleOpenNav(true)}
+                         ></span>
                     </div>
                     <h4>DANH MỤC SẢN PHẨM</h4>
                     <div className="nav-mobile">
@@ -20,7 +37,17 @@ const HeaderBar = () => {
                          </div>
                     </div>
                </div>
+               <span
+                    className="banner"
+                    onClick={() => handleOpenNav(false)}
+               ></span>
                <ul className="nav">
+                    <div
+                         className="cursor-pointer container-logo"
+                         onClick={() => navigate("/sea-furniture/homepage")}
+                    >
+                         <img src={logo} alt="" />
+                    </div>
                     {headerBar.map((item, index) => {
                          return (
                               <li
@@ -35,6 +62,7 @@ const HeaderBar = () => {
                                                   ? { color: "#f7941d" }
                                                   : { color: "black" }
                                         }
+                                        onClick={() => handleOpenNav(false)}
                                    >
                                         {item.title}
                                    </Link>
@@ -50,6 +78,11 @@ const HeaderBar = () => {
                                                                  to={
                                                                       item.to +
                                                                       child.to
+                                                                 }
+                                                                 onClick={() =>
+                                                                      handleOpenNav(
+                                                                           false
+                                                                      )
                                                                  }
                                                             >
                                                                  {child.title}

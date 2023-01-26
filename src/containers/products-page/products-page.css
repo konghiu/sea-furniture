@@ -16,7 +16,7 @@
 .container-products-page > .content {
      display: flex;
      width: var(--main-width);
-     padding-bottom: 50px;
+     padding-bottom: var(--gap-component);
 }
 .container-products-page > .content > .col-1 {
      width: 25%;
@@ -24,7 +24,7 @@
 .container-products-page > .content > .col-2 {
      flex: 1;
      margin-left: 2rem;
-     margin-top: 50px;
+     margin-top: var(--gap-component);
 }
 
 .container-products-page > .content > .col-2 > .change-page i {

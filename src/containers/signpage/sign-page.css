@@ -3,7 +3,7 @@
      flex-direction: column;
      align-items: center;
      width: 40%;
-     padding: 75px 20px 50px;
+     margin: var(--gap-component) 0;
 }
 .content-signpage .title {
      font-size: 28px;
@@ -43,7 +43,7 @@
 
 /* log out */
 .container-logout::after {
-     content-signpage: "";
+     content: "";
      position: fixed;
      top: 0;
      left: 0;
@@ -61,5 +61,16 @@
 @media only screen and (max-width: 765px) {
      .content-signpage {
           width: var(--main-width);
+     }
+}
+@media only screen and (max-width: 567px) {
+     .content-signpage > .available-login {
+          margin: 10px 0;
+     }
+     .content-signpage > .available-login img {
+          width: 100px;
+     }
+     .pattern-button {
+          padding: 5px 25px;
      }
 }

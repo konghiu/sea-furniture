@@ -17,7 +17,7 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
-     padding: 25px 0 50px;
+     padding: 25px 0 var(--gap-component);
 }
 /* search input */
 .search-input .warning {

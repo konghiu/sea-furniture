@@ -2,11 +2,12 @@
      display: flex;
      flex-direction: column;
      align-items: center;
+     width: var(--main-width);
 }
 
 .container-user-account > .content {
      width: var(--main-width);
-     margin: 50px 0;
+     margin: var(--gap-component) 0;
      display: flex;
      letter-spacing: -0.5px;
 }
@@ -51,4 +52,13 @@
      padding: 5px 20px;
      background-color: var(--main-color);
      color: white;
+}
+
+@media only screen and (max-width: 999px) {
+     .container-user-account > .content {
+          flex-direction: column;
+     }
+     .container-user-account > .content .account_category {
+          width: 100%;
+     }
 }

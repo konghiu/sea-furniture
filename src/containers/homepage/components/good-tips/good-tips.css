@@ -1,6 +1,6 @@
 .good-tips {
      width: var(--main-width);
-     margin: 50px 0;
+     margin: var(--gap-component) 0;
 }
 
 .good-tips > .col-1 {

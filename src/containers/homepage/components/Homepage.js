@@ -25,13 +25,15 @@ const Homepage = () => {
 
      return (
           <div className="homepage">
-               <div className="homepage-banner">
+               <div className="homepage-banner mb-12">
                     <div className="flex flex-col items-center">
                          <Header />
                          <HeaderBar />
+                         <div className="absolute -bottom-12">
+                              <SectionCategory />
+                         </div>
                     </div>
                </div>
-               <SectionCategory />
                <FeaturedProducts list_products={list_products} />
                <BannerAdvertiseOne />
                <HotProducts list_products={list_products} />

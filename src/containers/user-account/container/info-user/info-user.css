@@ -50,3 +50,16 @@
 .info-user > div > .container_avatar-change > .container_change button {
      margin-top: 35px;
 }
+
+@media only screen and (max-width: 567px) {
+     .info-user > div > .container_avatar-change > .container_change {
+          flex-direction: column;
+     }
+     .info-user > div > .container_avatar-change > .container_change label,
+     .info-user > div > .container_avatar-change > .container_change button {
+          width: 100%;
+     }
+     .info-user > div > .container_avatar-change > .container_change button {
+          margin-top: 0.5rem;
+     }
+}

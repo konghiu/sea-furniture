@@ -1,14 +1,9 @@
 .new-products {
-     margin-top: 50px;
+     margin-top: var(--gap-component);
      width: var(--main-width);
 }
 .new-products > .col-1 {
      margin-bottom: 2rem !important;
-}
-
-.new-products > .col-2 .container-img {
-     height: 200px !important;
-     width: 200px !important;
 }
 
 .new-products > .col-2 .slick-arrow {
@@ -24,4 +19,11 @@
 
 .new-products > .col-2 .slick-prev {
      left: calc(100% - 3rem);
+}
+
+@media only screen and (min-width: 568px) {
+     .new-products > .col-2 .container-img {
+          height: 200px;
+          width: 200px !important;
+     }
 }

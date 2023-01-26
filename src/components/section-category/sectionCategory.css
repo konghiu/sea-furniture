@@ -2,6 +2,7 @@
      margin-top: -3%;
      box-shadow: 1px 1px 15px #ccc;
      z-index: 2;
+     background-color: white;
 }
 .ctner-sec-category > .icon_category {
      display: flex;

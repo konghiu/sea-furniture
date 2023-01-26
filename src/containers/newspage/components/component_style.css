@@ -1,6 +1,6 @@
 /* component news search */
 .news-search {
-     padding: 50px 0;
+     padding: var(--gap-component) 0;
      border-bottom: 1px solid #ccc;
 }
 
@@ -89,7 +89,7 @@
 }
 
 .share_comment > .comment {
-     margin-top: 50px;
+     margin-top: var(--gap-component);
 }
 
 .share_comment > .comment textarea {

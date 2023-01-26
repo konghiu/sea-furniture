@@ -91,7 +91,7 @@
 /*  */
 
 .mid-footer {
-     margin: 50px 0;
+     margin: var(--gap-component) 0;
      width: var(--main-width);
      /* display: flex; */
 }

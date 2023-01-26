@@ -109,7 +109,7 @@ const ModelBoxAddress = (props) => {
                               handleSetText={(text) => setZip(text)}
                          />
                     </div>
-                    <div className="">
+                    <div className="accept_buy">
                          <div className="container-checkbox">
                               <input
                                    type="checkbox"

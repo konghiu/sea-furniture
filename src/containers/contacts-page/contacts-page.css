@@ -1,7 +1,7 @@
 .content-contacts-page {
      width: var(--main-width);
      display: flex;
-     padding: 50px 0;
+     padding: var(--gap-component) 0;
 }
 
 .content-contacts-page .col-1 {
@@ -32,7 +32,7 @@
 }
 .content-contacts-page .container-form-contacts .title {
      font-size: 18px;
-     margin-top: 50px;
+     margin-top: var(--gap-component);
 }
 .content-contacts-page .container-form-contacts .form-contacts input,
 .content-contacts-page .container-form-contacts .form-contacts textarea {

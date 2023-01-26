@@ -10,7 +10,7 @@
      position: relative;
      width: var(--main-width);
      height: fit-content !important;
-     margin: 50px 0 !important;
+     margin: var(--gap-component) 0 !important;
 }
 .detail-product
      > .container
@@ -48,7 +48,7 @@
 /* content */
 .detail-product > .container > .describe-info {
      width: var(--main-width);
-     margin-bottom: 50px;
+     margin-bottom: var(--gap-component);
 }
 .detail-product > .container > .describe-info .container-title {
      width: 100%;
