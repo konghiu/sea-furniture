@@ -32,6 +32,7 @@ textarea {
      --sub-color: #000084;
      --main-width: 1100px;
      --gap-component: 50px;
+     --font-title: 24px;
 }
 /* custom css */
 .screen-width {

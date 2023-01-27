@@ -197,11 +197,11 @@ const Paymentpage = () => {
                                    value={zip}
                                    onChange={(e) => setZip(e.target.value)}
                               />
-                              <div className="flex justify-between mt-4">
-                                   <div className="flex items-center">
+                              <div className="mt-4">
+                                   <div className="flex items-start">
                                         <input
                                              type="checkbox"
-                                             className="mr-2"
+                                             className="mr-2 mt-1"
                                              checked={checkbox}
                                              onChange={() =>
                                                   setCheckbox(!checkbox)
@@ -219,6 +219,7 @@ const Paymentpage = () => {
                          </div>
                          <div className="cart">
                               <p className="title">Đơn hàng của bạn</p>
+                              <span></span>
                               <div className="">
                                    {products.map((item) => (
                                         <div key={item.id} className="product">
@@ -247,7 +248,7 @@ const Paymentpage = () => {
                                              </div>
                                         </div>
                                    ))}
-                                   <div className="flex justify-between px-4 mt-4">
+                                   <div className="flex justify-between p-4">
                                         <p>Tổng:</p>
                                         <p>{totalPrice.toLocaleString()}</p>
                                    </div>

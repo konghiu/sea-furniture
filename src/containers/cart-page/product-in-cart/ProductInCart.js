@@ -74,7 +74,9 @@ const ProductInCart = (props) => {
                               ></i>
                          </div>
                     </div>
-                    <p>xoa</p>
+                    <p onClick={() => handleRemoveProductCart(item.image)}>
+                         xóa
+                    </p>
                </div>
                <div className="total">
                     <p>

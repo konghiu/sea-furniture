@@ -135,6 +135,7 @@
 
 @media only screen and (max-width: 999px) {
      .container-header {
+          z-index: 22;
           width: 100vw !important;
      }
      .container-header .content-header {

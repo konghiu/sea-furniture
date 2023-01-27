@@ -152,4 +152,12 @@
           width: 100%;
           margin: 10px 0;
      }
+     .container-content-cart-page
+          > .has-products
+          .container-totals
+          > .totals
+          > .total-price
+          > p:nth-child(1) {
+          font-size: 16px;
+     }
 }

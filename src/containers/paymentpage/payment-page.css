@@ -1,5 +1,5 @@
 .content-payment-page {
-     padding: 3rem 0;
+     padding: var(--gap-component) 0;
      width: 100%;
      font-family: arial, sans-serif;
      color: #313a73;
@@ -31,7 +31,9 @@
 }
 
 .content-payment-page .address > div > button {
-     padding: 0.5rem 2rem;
+     margin-top: 1rem;
+     padding: 0.5rem 0;
+     width: 120px;
      background-color: var(--main-color);
      border-radius: 3px;
      color: white;
@@ -62,4 +64,32 @@
      width: 100%;
      overflow: hidden;
      text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 999px) {
+     .content-payment-page .address {
+          padding-right: 2rem;
+     }
+     .content-payment-page .cart {
+          width: 40%;
+     }
+}
+
+@media only screen and (max-width: 765px) {
+     .content-payment-page {
+          flex-direction: column-reverse;
+     }
+     .content-payment-page .address {
+          padding-right: 0;
+     }
+     .content-payment-page .cart {
+          width: 100%;
+          margin-bottom: 1rem;
+     }
+}
+
+@media only screen and (max-width: 567px) {
+     .content-payment-page .cart .product {
+          padding: 0;
+     }
 }
