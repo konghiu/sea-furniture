@@ -40,13 +40,12 @@
      display: flex;
      flex-direction: column;
      align-items: center;
-     z-index: 82;
+     z-index: 10;
      background-image: url("../../../assets/profile/bg-homepage-default.webp");
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
 }
-
 @media only screen and (max-width: 1199px) {
      .homepage .container-topic {
           margin: 0 0 0.5rem;

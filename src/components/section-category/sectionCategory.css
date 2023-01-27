@@ -1,14 +1,17 @@
 .ctner-sec-category {
+     width: var(--main-width) !important;
      margin-top: -3%;
      box-shadow: 1px 1px 15px #ccc;
      z-index: 2;
      background-color: white;
 }
 .ctner-sec-category > .icon_category {
-     display: flex;
+     /* width: calc(var(--main-width) / 7) !important; */
+     display: flex !important;
      flex-direction: column;
      align-items: center;
      justify-content: center;
+     cursor: pointer;
      padding: 20px 0;
 }
 .ctner-sec-category > .icon_category:not(:last-child) {
@@ -27,12 +30,12 @@
 .icon_category {
      position: relative;
      padding: 20px 0;
-     display: flex;
+     display: flex !important;
      flex-direction: column;
      align-items: center;
      justify-content: center;
      background-color: transparent;
-     width: calc(var(--main-width) / 6);
+     /* width: calc(var(--main-width) / 7); */
      background-color: #fff;
      border: 1px solid #f1f1f1;
      perspective: 1000px;
@@ -40,10 +43,9 @@
 
 .icon_category .icon_category-inner {
      position: relative;
-     width: 60px;
+     width: calc(var(--main-width) / 6);
      height: 60px;
-     background-color: #fff;
-     display: flex;
+     display: flex !important;
      align-items: center;
      justify-content: center;
      text-align: center;
@@ -70,4 +72,37 @@
 
 .icon_category-back {
      transform: rotateY(-360deg);
+}
+
+@media only screen and (max-width: 1199px) {
+     .icon_category {
+          width: calc(var(--main-width) / 5);
+     }
+     .icon_category .icon_category-inner {
+          width: calc(var(--main-width) / 5);
+     }
+}
+@media only screen and (max-width: 999px) {
+     .icon_category {
+          width: calc(var(--main-width) / 4);
+     }
+     .icon_category .icon_category-inner {
+          width: calc(var(--main-width) / 4);
+     }
+}
+@media only screen and (max-width: 765px) {
+     .icon_category {
+          padding: 0 0 5px;
+     }
+     .icon_category .icon_category-inner {
+          width: 25%;
+     }
+     .ctner-sec-category .slick-track {
+          width: calc(var(--main-width) * 3) !important;
+     }
+}
+@media only screen and (max-width: 567px) {
+     .ctner-sec-category .slick-track {
+          width: calc(var(--main-width) * 4) !important;
+     }
 }

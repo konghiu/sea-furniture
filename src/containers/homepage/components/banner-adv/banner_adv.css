@@ -41,7 +41,7 @@
      position: relative;
      padding: 10px var(--gap-component);
      font-size: 18px;
-     z-index: 10;
+     z-index: 1;
 }
 .banner-adv-1 > div > p::before {
      position: absolute;

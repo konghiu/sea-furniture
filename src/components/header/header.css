@@ -1,6 +1,7 @@
 /* container header */
 .container-header {
      width: calc(var(--main-width) + 30px);
+     z-index: 10;
 }
 .container-header .content-header {
      width: 100%;

@@ -3,6 +3,7 @@
      z-index: 3;
 }
 .block-title {
+     position: relative;
      display: flex;
      width: fit-content;
      font-weight: 500;
@@ -13,13 +14,13 @@
      border-radius: 5px;
 }
 
-.block-title div {
+.block-title > .container-bars {
      position: relative;
-     width: 12px;
+     width: 1rem;
      margin-right: 10px;
 }
 
-.block-title div .bars {
+.block-title > .container-bars .bars {
      position: absolute;
      width: 100%;
      height: 3px;
@@ -29,8 +30,8 @@
      transform: translate(-50%, -50%);
 }
 
-.block-title div .bars::before,
-.block-title div .bars::after {
+.block-title .container-bars .bars::before,
+.block-title .container-bars .bars::after {
      content: "";
      position: absolute;
      background-color: white;
@@ -39,7 +40,7 @@
      top: calc(100% + 2px);
      left: 0;
 }
-.block-title div .bars::after {
+.block-title .container-bars .bars::after {
      top: calc(-100% - 1.5px);
 }
 
@@ -66,15 +67,18 @@
      list-style: none;
 }
 
+.nav-mobile-tablet .main-link,
 .nav .main-link {
      position: relative;
      padding: 10px 0;
 }
+.nav-mobile-tablet .sub-link-level0,
 .nav .sub-link-level0 {
      display: flex;
      align-items: center;
      margin: 0 12px;
 }
+.nav-mobile-tablet .sub-open-button,
 .nav .sub-open-button {
      background-color: black;
      width: 10px;
@@ -139,6 +143,48 @@
      top: 40px;
      left: 0;
 }
+/* navbar mobile or tablet */
+.open_nav-mobile-tablet {
+     height: 400px !important;
+}
+.nav-mobile-tablet {
+     z-index: 11;
+     border: 2px solid var(--main-color);
+     border-top: none;
+     position: absolute !important;
+     width: 100% !important;
+     height: 0;
+     left: 0;
+     top: 100%;
+     display: flex;
+     flex-direction: column;
+     /* justify-content: space-evenly; */
+     background-color: white;
+     color: black;
+     overflow-y: hidden;
+     transition: all 0.25s linear;
+     list-style: none;
+}
+.nav-mobile-tablet > .container-logo {
+     display: none;
+}
+.nav-mobile-tablet .sub-link {
+     display: block;
+     padding: 0.5rem;
+}
+.nav-mobile-tablet .sub-link .sub-menu {
+     padding: 0 0.5rem;
+     height: 0;
+     overflow: hidden;
+     transition: all 0.25s linear;
+}
+
+.nav-mobile-tablet .sub-open-button {
+     float: right;
+}
+.nav-mobile-tablet .sub-link:hover .sub-menu {
+     height: 200px !important;
+}
 /* hotline */
 
 .hotline {
@@ -162,6 +208,11 @@
      display: none;
 }
 
+@media only screen and (max-width: 1199px) {
+     .nav {
+          padding-left: 50px;
+     }
+}
 @media only screen and (max-width: 999px) {
      .header-bar .block-title {
           justify-content: space-between;
@@ -172,7 +223,7 @@
      .header-bar .block-title h4 {
           display: none;
      }
-     .header-bar > .banner {
+     .header-bar .banner {
           display: none;
           position: fixed;
           width: 100%;
@@ -182,30 +233,38 @@
           background-color: black;
           opacity: 0.5;
      }
+     .header-bar .nav {
+          display: none;
+     }
+     /* .nav mobile or tablet */
      /* container logo */
-     .header-bar .nav > div {
+     .nav-mobile-tablet > .container-logo {
           display: flex;
           justify-content: center;
           margin: 20px;
           margin-bottom: 0;
           z-index: 10;
      }
-     .header-bar .nav > div img {
+     .nav-mobile-tablet > .container-logo img {
           width: 120px;
      }
-     .header-bar .nav {
-          flex-direction: column;
-          position: fixed;
+     .open_nav-mobile-tablet {
+          transform: translateX(0) !important;
+     }
+     .nav-mobile-tablet {
+          justify-content: initial;
+          position: fixed !important;
           left: 0;
           top: 0;
-          width: calc(var(--main-width) / 3);
-          height: 100%;
+          width: calc(var(--main-width) / 3) !important;
+          height: 100vh !important;
           transform: translateX(calc(-200%));
           border-right: 2px solid var(--main-color);
           background-color: white;
           padding-left: 0;
           transition: all 0.25s linear;
           z-index: 82;
+          overflow-y: hidden;
      }
      .header-bar .hotline {
           display: none;
@@ -229,7 +288,10 @@
 }
 
 @media only screen and (max-width: 567px) {
-     .header-bar .nav {
-          width: 75%;
+     .nav-mobile-tablet {
+          width: 60% !important;
+     }
+     .header-bar .block-title {
+          padding: 0.5rem 1rem;
      }
 }

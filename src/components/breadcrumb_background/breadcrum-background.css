@@ -11,6 +11,9 @@
      align-items: center;
      color: white;
 }
+.breadcrum-background .title {
+     font-size: 2.25rem;
+}
 .breadcrum-background::after {
      content: "";
      position: absolute;
@@ -25,4 +28,13 @@
 .breadcrum-background > p,
 .breadcrum-background > div {
      z-index: 2;
+}
+
+@media only screen and (max-width: 567px) {
+     .breadcrum-background {
+          height: 150px;
+     }
+     .breadcrum-background .title {
+          font-size: 1.25rem;
+     }
 }

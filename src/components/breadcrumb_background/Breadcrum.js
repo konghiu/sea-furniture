@@ -105,7 +105,7 @@ const Breadcrum = () => {
 
      return (
           <div className="breadcrum-background">
-               <p className="text-4xl font-semibold px-4 ">
+               <p className="title font-semibold px-4">
                     {currentPage ? currentPage[currentPage.length - 1] : ""}
                </p>
                <div className="w-5/6 flex flex-wrap justify-center items-center mt-3">
