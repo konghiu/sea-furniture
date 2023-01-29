@@ -32,7 +32,7 @@ textarea {
      --sub-color: #000084;
      --main-width: 1100px;
      --gap-component: 50px;
-     --font-title: 24px;
+     --font-title: 2rem;
 }
 /* custom css */
 .screen-width {
@@ -67,6 +67,7 @@ textarea {
      }
      :root {
           --main-width: 720px;
+          --font-title: 1.5rem;
      }
 }
 /*  */
@@ -80,5 +81,6 @@ textarea {
      :root {
           --main-width: 100%;
           --gap-component: 1rem;
+          --font-title: 1rem;
      }
 }

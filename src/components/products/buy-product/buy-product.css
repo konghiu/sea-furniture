@@ -11,7 +11,7 @@
 }
 
 .buy-product::after {
-     content: '';
+     content: "";
      position: absolute;
      width: 100%;
      height: 100vh;
@@ -27,7 +27,6 @@
      height: auto;
      background-color: #fff;
      margin: 0 1rem;
-
 }
 .buy-product > .content > .title {
      background-color: #eee;
@@ -42,40 +41,44 @@
      font-weight: 500;
      letter-spacing: -1px;
 }
-.buy-product > .content >  .container-product {
+.buy-product > .content > .container-product {
      border-bottom: 1px solid #eee;
      padding: 2.5rem 2rem;
 }
-.buy-product > .content >  .container-product > .product-to-buy {
+.buy-product > .content > .container-product > .product-to-buy {
      display: flex;
      align-items: center;
      justify-content: space-between;
      font-size: 17px;
 }
-.buy-product  .container-product > .product-to-buy > div {
+.buy-product .container-product > .product-to-buy > div {
      flex: 1;
 }
-.buy-product  .container-product > .product-to-buy img {
+.buy-product .container-product > .product-to-buy img {
      width: 75px;
      margin-right: 25px;
 }
-.buy-product  .container-product > .product-to-buy > .col-1 {
+.buy-product .container-product > .product-to-buy > .col-1 {
      display: flex;
      align-items: center;
      color: gray;
 }
 
-.buy-product  .container-product > .product-to-buy > .col-2 {
+.buy-product .container-product > .product-to-buy > .col-2 {
      display: flex;
      justify-content: space-between;
 }
 
-.buy-product  .container-product > .product-to-buy > .col-2 > div:not(:nth-child(2)) {
+.buy-product
+     .container-product
+     > .product-to-buy
+     > .col-2
+     > div:not(:nth-child(2)) {
      color: var(--main-color);
      font-weight: 500;
 }
 
-.buy-product  .container-product > .product-to-buy > .col-2 > .col-2_2 {
+.buy-product .container-product > .product-to-buy > .col-2 > .col-2_2 {
      display: flex;
      align-items: center;
 }
@@ -92,7 +95,8 @@
      justify-content: space-between;
      margin: 1rem;
 }
-.buy-product > .content > .total-price > div:nth-child(1), .buy-product > .content > .total-price > div:nth-child(2) {
+.buy-product > .content > .total-price > div:nth-child(1),
+.buy-product > .content > .total-price > div:nth-child(2) {
      display: flex;
      align-items: center;
      font-weight: 500;
@@ -132,4 +136,9 @@
 }
 .buy-product > .content > .container-buttons button:hover {
      background-color: orangered !important;
+}
+@media only screen and (max-width: 999px) {
+     .buy-product {
+          display: none;
+     }
 }

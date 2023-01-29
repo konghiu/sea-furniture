@@ -11,15 +11,13 @@
      display: flex;
      letter-spacing: -0.5px;
 }
-.container-user-account > .content > div > .title {
-     font-size: 24px;
+.container-user-account > .content > div > .title,
+.container-user-account > .content .account_category .title {
+     font-size: var(--font-title);
 }
 .container-user-account > .content .account_category {
      width: 25%;
      margin-right: 50px;
-}
-.container-user-account > .content .account_category .title {
-     font-size: 24px;
 }
 .container-user-account > .content .account_category .title-hello {
      margin-top: 5px 0 25px;

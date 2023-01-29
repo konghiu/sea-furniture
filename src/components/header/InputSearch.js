@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const InputSearch = () => {
+const InputSearch = (props) => {
      const navigate = useNavigate();
 
      const [warning, setWarning] = useState(null);
@@ -14,6 +14,12 @@ const InputSearch = () => {
           }
           navigate("/sea-furniture/products/search/" + searchText.trim());
      };
+
+     useEffect(() => {
+          if (props.notifySearch !== null) {
+               handleSearchProducts();
+          }
+     }, [props.notifySearch]);
 
      return (
           <div className="search-input">
@@ -41,4 +47,4 @@ const InputSearch = () => {
      );
 };
 
-export default InputSearch;
+export default React.memo(InputSearch);

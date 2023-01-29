@@ -14,10 +14,10 @@ const Product = (props) => {
      const consumer = useContext(context);
      const dispatch = consumer[1];
 
-     const handleCloseQuickView = () => {
+     const handleQuickViewProduct = () => {
           dispatch(QUICKVIEWPRODUCT(item));
      };
-     const handleCloseBuyProduct = () => {
+     const handleBuyProduct = () => {
           dispatch(
                BUYPRODUCT({
                     product: item,
@@ -43,13 +43,13 @@ const Product = (props) => {
                               <div className="container-option">
                                    <span
                                         className="span"
-                                        onClick={() => handleCloseQuickView()}
+                                        onClick={() => handleQuickViewProduct()}
                                    >
                                         <i className="fa-solid fa-eye"></i>
                                    </span>
                                    <span
                                         className="span"
-                                        onClick={() => handleCloseBuyProduct()}
+                                        onClick={() => handleBuyProduct()}
                                    >
                                         <i className="fa-solid fa-cart-shopping"></i>
                                    </span>

@@ -7,7 +7,7 @@
      width: 100%;
 }
 .content-news-page > .title p {
-     font-size: 22px;
+     font-size: var(--font-title);
      color: white;
      letter-spacing: -1px;
      margin: 45px 0 30px -5px;

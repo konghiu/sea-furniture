@@ -3,7 +3,7 @@
 }
 
 .container-addresses > .row-1 > .title {
-     font-size: 24px;
+     font-size: var(--font-title);
 }
 
 .container-addresses > .row-1 > button {
@@ -45,7 +45,7 @@
      display: flex;
      justify-content: center;
      align-items: center;
-     z-index: 10;
+     z-index: 25;
 }
 .container-addresses > .model-address > span {
      position: fixed;

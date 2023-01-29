@@ -66,7 +66,7 @@ const InfoUserAccount = () => {
           <div className="info-user">
                {isLoading && <Loading />}
                <p className="title">THÔNG TIN TÀI KHOẢN</p>
-               <div className="flex">
+               <div className="content flex">
                     <div className="container_avatar-change">
                          <div className="container_avatar">
                               <img src={changeAvatar} alt="" />
@@ -89,7 +89,7 @@ const InfoUserAccount = () => {
                               </button>
                          </div>
                     </div>
-                    <div>
+                    <div className="info">
                          <p className="full-name">
                               Họ tên: <span>{account.user_name}</span>
                          </p>

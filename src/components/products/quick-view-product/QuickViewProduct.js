@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import context from "../../../common/context";
 import PatternViewProduct from "../pattern/PatternViewProduct";
+import "./quick-view-product.css";
 
 const QuickViewProduct = () => {
      const consumer = useContext(context);
@@ -8,7 +9,11 @@ const QuickViewProduct = () => {
 
      return (
           <React.Fragment>
-               {quick_view ? <PatternViewProduct item={quick_view} /> : null}
+               {quick_view ? (
+                    <div className="quick-view-product">
+                         <PatternViewProduct item={quick_view} />
+                    </div>
+               ) : null}
           </React.Fragment>
      );
 };
