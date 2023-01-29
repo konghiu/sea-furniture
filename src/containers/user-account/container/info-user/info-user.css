@@ -63,3 +63,15 @@
           margin-top: 0.5rem;
      }
 }
+
+@media only screen and (max-width: 400px) {
+     .info-user .content {
+          flex-direction: column;
+     }
+     .info-user > div > .container_avatar-change {
+          flex-direction: row;
+     }
+     .info-user > div > .container_avatar-change .container_avatar {
+          margin-right: 1rem;
+     }
+}

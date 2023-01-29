@@ -139,6 +139,22 @@ const Paymentpage = () => {
           }, 1000);
      };
 
+     const handleShowMoreProducts = (target) => {
+          const container_products =
+               document.querySelector(".container-product");
+          const product = document.querySelector(".product");
+          // if (type === "+") {
+          if (target.innerHTML === "+") {
+               target.innerHTML = "-";
+               let height = (product.clientHeight + 2) * products.length;
+               container_products.style.height = `${height}px`;
+               return;
+          }
+          target.innerHTML = "+";
+          container_products.style.height = "0";
+          // }
+     };
+
      return (
           <>
                {products && products.length > 0 ? (
@@ -219,35 +235,50 @@ const Paymentpage = () => {
                          </div>
                          <div className="cart">
                               <p className="title">Đơn hàng của bạn</p>
-                              <span></span>
-                              <div className="">
-                                   {products.map((item) => (
-                                        <div key={item.id} className="product">
-                                             <div className="w-20">
-                                                  <img
-                                                       src={
-                                                            item.image ||
-                                                            item.images[0]
-                                                       }
-                                                       alt=""
-                                                  />
+                              <div className="product_total">
+                                   <div className="container-product">
+                                        {products.map((item) => (
+                                             <div
+                                                  key={item.id}
+                                                  className="product"
+                                             >
+                                                  <div className="w-20">
+                                                       <img
+                                                            src={
+                                                                 item.image ||
+                                                                 item.images[0]
+                                                            }
+                                                            alt=""
+                                                       />
+                                                  </div>
+                                                  <div className="flex flex-col w-1/3 justify-around">
+                                                       <p className="name">
+                                                            {item.name}
+                                                       </p>
+                                                       <p className="quantity">
+                                                            {item.quantity}
+                                                       </p>
+                                                  </div>
+                                                  <div>
+                                                       <p>
+                                                            {item.price.toLocaleString()}
+                                                            <sup>đ</sup>
+                                                       </p>
+                                                  </div>
                                              </div>
-                                             <div className="flex flex-col w-1/3 justify-around">
-                                                  <p className="name">
-                                                       {item.name}
-                                                  </p>
-                                                  <p className="quantity">
-                                                       {item.quantity}
-                                                  </p>
-                                             </div>
-                                             <div>
-                                                  <p>
-                                                       {item.price.toLocaleString()}
-                                                       <sup>đ</sup>
-                                                  </p>
-                                             </div>
-                                        </div>
-                                   ))}
+                                        ))}
+                                   </div>
+                                   <div className="plus-containter-product">
+                                        <span
+                                             onClick={(e) =>
+                                                  handleShowMoreProducts(
+                                                       e.target
+                                                  )
+                                             }
+                                        >
+                                             +
+                                        </span>
+                                   </div>
                                    <div className="flex justify-between p-4">
                                         <p>Tổng:</p>
                                         <p>{totalPrice.toLocaleString()}</p>

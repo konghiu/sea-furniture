@@ -6,7 +6,7 @@
      margin: var(--gap-component) 0;
 }
 .content-signpage .title {
-     font-size: 28px;
+     font-size: var(--font-title);
 }
 .content-signpage > .available-login {
      display: flex;

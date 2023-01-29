@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import logo from "../../../assets/profile/logo.webp";
 import { useLocation, useNavigate } from "react-router-dom";
 import Nav from "./Nav";
+import InputSearch from "../InputSearch";
 
 const BlockTittle = () => {
      const location = useLocation();
      const navigate = useNavigate();
 
      const [openNav, setOpenNav] = useState(false);
+     const [notifySearch, setNotifySearch] = useState(null);
 
      useEffect(() => {
           const nav_mo_tb = document.querySelector(".nav-mobile-tablet");
@@ -35,7 +37,7 @@ const BlockTittle = () => {
                </div>
                <h4>DANH MỤC SẢN PHẨM</h4>
                {/* mobile or tablet */}
-               <ul className="nav-mobile-tablet">
+               <div className="nav-mobile-tablet">
                     <div
                          className="cursor-pointer container-logo"
                          onClick={() => navigate("/sea-furniture/homepage")}
@@ -47,9 +49,14 @@ const BlockTittle = () => {
                               if (notify) setOpenNav(false);
                          }}
                     />
-               </ul>
+               </div>
                <div className="nav-mobile">
-                    <i className="fa-solid fa-magnifying-glass"></i>
+                    {/* search-input */}
+                    <InputSearch notifySearch={notifySearch} />
+                    <i
+                         className="fa-solid fa-magnifying-glass"
+                         onClick={() => setNotifySearch(!notifySearch)}
+                    ></i>
                </div>
                <span
                     className="banner"

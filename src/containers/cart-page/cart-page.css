@@ -4,7 +4,7 @@
 }
 .container-content-cart-page > .title {
      font-weight: 500;
-     font-size: 28px;
+     font-size: var(--font-title);
      margin-bottom: 15px;
 }
 .container-content-cart-page > .content {
