@@ -10,9 +10,8 @@
      width: var(--main-width) !important;
 }
 .good-tips > .col-2 .slick-slide {
-     width: calc((var(--main-width) / 3)) !important;
+     /* width: calc((var(--main-width) / 3)) !important; */
      padding: 0 1rem;
-     /* padding-right: 2rem; */
 }
 .good-tips > .col-2 .slick-slide .container-img {
      width: 100% !important;
@@ -32,11 +31,6 @@
      left: calc(100% - 3rem);
 }
 
-@media only screen and (max-width: 1199px) {
-     /* .good-tips > .col-2 .slick-slide {
-          width: calc(var(--main-width) / 3) !important;
-     } */
-}
 @media only screen and (max-width: 999px) {
      .good-tips > .col-2 .slick-slide {
           width: calc(var(--main-width) / 2) !important;
