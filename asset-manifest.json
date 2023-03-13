@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sea-furniture/static/css/main.aac770a0.css",
+    "main.css": "/sea-furniture/static/css/main.98031396.css",
     "main.js": "/sea-furniture/static/js/main.37d62157.js",
     "static/media/sofa_giuong_aurora.webp": "/sea-furniture/static/media/sofa_giuong_aurora.aaeca4d6f18ade9b0d8c.webp",
     "static/media/avt_ly.jpg": "/sea-furniture/static/media/avt_ly.3e5c62d4e549b15f3945.jpg",
@@ -74,11 +74,11 @@
     "static/media/slick.ttf": "/sea-furniture/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/sea-furniture/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/sea-furniture/index.html",
-    "main.aac770a0.css.map": "/sea-furniture/static/css/main.aac770a0.css.map",
+    "main.98031396.css.map": "/sea-furniture/static/css/main.98031396.css.map",
     "main.37d62157.js.map": "/sea-furniture/static/js/main.37d62157.js.map"
   },
   "entrypoints": [
-    "static/css/main.aac770a0.css",
+    "static/css/main.98031396.css",
     "static/js/main.37d62157.js"
   ]
 }
