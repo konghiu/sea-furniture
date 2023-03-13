@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const InputSearch = (props) => {
+const InputSearch = () => {
      const navigate = useNavigate();
+     const location = useLocation();
 
      const [warning, setWarning] = useState(null);
-     const [searchText, setSearchText] = useState("");
+     const [searchText, setSearchText] = useState(
+          sessionStorage.getItem("inputSearch") || ""
+     );
 
      const handleSearchProducts = () => {
           if (searchText.trim() === "") {
@@ -15,11 +18,11 @@ const InputSearch = (props) => {
           navigate("/sea-furniture/products/search/" + searchText.trim());
      };
 
-     useEffect(() => {
-          if (props.notifySearch !== null) {
-               handleSearchProducts();
-          }
-     }, [props.notifySearch]);
+     React.useEffect(() => {
+          return () => {
+               setWarning(false);
+          };
+     }, [location.pathname]);
 
      return (
           <div className="search-input">
@@ -27,11 +30,13 @@ const InputSearch = (props) => {
                     <span className="warning">Yêu cầu nhập thông tin</span>
                )}
                <input
-                    className=""
                     placeholder="Nhập từ khóa tìm kiếm"
                     value={searchText}
                     onFocus={() => setWarning(null)}
-                    onChange={(e) => setSearchText(e.target.value)}
+                    onChange={(e) => {
+                         sessionStorage.setItem("inputSearch", e.target.value);
+                         setSearchText(e.target.value);
+                    }}
                     onKeyDown={(e) => {
                          if (warning) setWarning(null);
                          if (e.key === "Enter") handleSearchProducts();

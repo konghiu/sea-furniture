@@ -84,9 +84,13 @@ export const UPDATE_DECREASE = (payload) => {
 
 // notify
 export const NOTIFY_ADD = (payload) => {
+     const time = new Date();
      return {
           type: "NOTIFY/add",
-          payload,
+          payload: {
+               ...payload,
+               timer: time.getSeconds(),
+          },
      };
 };
 

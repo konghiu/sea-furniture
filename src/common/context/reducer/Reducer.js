@@ -206,6 +206,7 @@ const ReducerStore = (state = initStore, action) => {
           case "NOTIFY/add":
                const notifies_add = [...state.notify_for_user];
                notifies_add.push(payload);
+               console.log(payload.timer);
                return {
                     ...state,
                     notify_for_user: [...notifies_add],

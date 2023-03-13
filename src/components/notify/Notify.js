@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import context from "../../common/context";
 import { NOTIFY_REMOVE } from "../../common/context/reducer/actions";
-import clsx from "clsx";
 import "./notify.css";
 
 const Notify = () => {
@@ -10,7 +9,6 @@ const Notify = () => {
      const dispatch = consumer[1];
 
      const handleRemoveNotify = (target, id) => {
-          console.log(target.parentNode);
           const parent = target.parentNode;
           parent.classList.add("notify_effect");
           parent.onanimationend = () => {
@@ -22,10 +20,11 @@ const Notify = () => {
           if (notify_for_user.length > 0) {
                setTimeout(() => {
                     let stt = 0;
-                    const parent = document.querySelector("container-notify");
-                    console.log(parent.childNodes);
                     let autoRemove = setInterval(() => {
-                         if (!notify_for_user[stt].id) {
+                         if (
+                              !notify_for_user[stt].id ||
+                              !notify_for_user[stt]
+                         ) {
                               clearInterval(autoRemove);
                          }
                          dispatch(NOTIFY_REMOVE(notify_for_user[stt].id));
