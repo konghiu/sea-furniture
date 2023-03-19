@@ -7,8 +7,9 @@ import ColorsPart from "./container/colors-part/ColorsPart";
 import ContainerListProducts from "./container/container-products/ContainerListProducts";
 import ComponentWaitLoad from "../../components/loading/ComponentWaitLoad";
 import feature_return_top from "../../features/feature_return_top";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import context from "../../common/context";
+import { handleSortByOption } from "./feature/handleSortByOption";
 
 const available_search = [
      {
@@ -52,7 +53,6 @@ const Productspage = () => {
      const [checkBrand, setCheckBrand] = useState(null);
      const [checkPrice, setCheckPrice] = useState(null);
      const [checkColor, setCheckColor] = useState(null);
-     const [option, setOption] = useState(null);
 
      const [numberPage, setNumberPage] = useState(1);
 
@@ -62,6 +62,8 @@ const Productspage = () => {
                api_products.length > 0 &&
                (!params.type_product || params.type_product === "all")
           ) {
+               setTitle("Tất cả sản phẩm");
+               // ? set lam cai j o day
                setTotalProduct(api_products);
           } else if (api_products && params.type_product) {
                const find = Object.values(available_search).findIndex(
@@ -189,9 +191,6 @@ const Productspage = () => {
                               <ContainerListProducts
                                    title={title}
                                    list_products={list_products}
-                                   handleSetOption={(option) =>
-                                        setOption(option)
-                                   }
                               />
                          ) : (
                               <ComponentWaitLoad />

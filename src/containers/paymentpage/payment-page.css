@@ -83,6 +83,11 @@
      font-size: 1.5rem;
 }
 
+.content-payment-page .cart .container-product {
+     overflow: hidden;
+     transition: all 0.25s ease;
+}
+
 @media only screen and (max-width: 999px) {
      .content-payment-page .address {
           padding-right: 2rem;
@@ -109,7 +114,6 @@
      }
      .content-payment-page .cart .container-product {
           height: 0;
-          overflow-y: hidden;
           transition: all 0.5s ease;
      }
 }
